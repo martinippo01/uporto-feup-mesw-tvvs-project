@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PauseMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.model.menu</a> &gt; <span class="el_source">PauseMenu.java</span></div><h1>PauseMenu.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.model.menu;
+
+import com.googlecode.lanterna.TextColor;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.menu.element.TextBox;
+import pt.feup.tvvs.pacman.states.State;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PauseMenu extends Menu implements MenuOptions {
+    private final TextBox pauseSign;
+    private final State&lt;?&gt; pausedState;
+
+<span class="fc" id="L16">    public PauseMenu(State&lt;?&gt; pausedState, GUI.SCREEN_RESOLUTION resolution, float volume) {</span>
+<span class="fc" id="L17">        this.pausedState = pausedState;</span>
+<span class="fc" id="L18">        this.pauseSign = new TextBox(&quot;||&quot;, new Position(155, 41), new TextColor.RGB(255, 255, 255));</span>
+<span class="fc" id="L19">        initializeOptions();</span>
+<span class="fc" id="L20">        setResolution(resolution);</span>
+<span class="fc" id="L21">        setMasterVolume(volume);</span>
+<span class="fc" id="L22">    }</span>
+
+    @Override
+    public List&lt;TextBox&gt; createOptions() {
+<span class="fc" id="L26">        return new ArrayList&lt;&gt;(List.of(</span>
+                new TextBox(&quot;Resume&quot;, new Position(145, 80), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Resolution: 900p&quot;, new Position(118, 91), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Master Volume: 10&quot;, new Position(118, 102), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Exit to main menu&quot;, new Position(118, 113), new TextColor.RGB(255, 255, 255))
+        ));
+    }
+
+    @Override
+    protected TextBox createTitle() {
+<span class="fc" id="L36">        return new TextBox(&quot;Paused&quot;, new Position(145, 30), new TextColor.RGB(255, 255, 255));</span>
+    }
+
+    public State&lt;?&gt; getPausedState() {
+<span class="nc" id="L40">        return pausedState;</span>
+    }
+
+    public TextBox getPauseSign() {
+<span class="nc" id="L44">        return pauseSign;</span>
+    }
+
+    public boolean ResumeSelected() {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        return getSelectedOption() == 0;</span>
+    }
+
+    @Override
+    public boolean ResolutionSelected() {
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        return getSelectedOption() == 1;</span>
+    }
+
+    @Override
+    public boolean MasterVolumeSelected() {
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        return getSelectedOption() == 2;</span>
+    }
+
+    public boolean ExitSelected() {
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        return getSelectedOption() == 3;</span>
+    }
+
+    @Override
+    public void setResolution(GUI.SCREEN_RESOLUTION newResolution) {
+<span class="fc" id="L67">        getOptions().get(1).setText(&quot;Resolution: &quot; + newResolution);</span>
+<span class="fc" id="L68">    }</span>
+
+    @Override
+    public void setMasterVolume(float volume) {
+<span class="fc" id="L72">        getOptions().get(2).setText(&quot;Master Volume: &quot; + (int) (volume * 10));</span>
+<span class="fc" id="L73">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

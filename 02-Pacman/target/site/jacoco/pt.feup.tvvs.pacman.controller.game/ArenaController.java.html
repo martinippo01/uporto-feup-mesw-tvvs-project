@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArenaController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.controller.game</a> &gt; <span class="el_source">ArenaController.java</span></div><h1>ArenaController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.controller.game;
+
+import pt.feup.tvvs.pacman.Game;
+import pt.feup.tvvs.pacman.audio.AudioManager;
+import pt.feup.tvvs.pacman.controller.game.element.CollisionController;
+import pt.feup.tvvs.pacman.controller.game.element.GhostController;
+import pt.feup.tvvs.pacman.controller.game.element.PacmanController;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.game.Arena;
+import pt.feup.tvvs.pacman.model.menu.AlertMenu;
+import pt.feup.tvvs.pacman.model.menu.PauseMenu;
+import pt.feup.tvvs.pacman.states.menu.AlertMenuState;
+import pt.feup.tvvs.pacman.states.menu.PauseMenuState;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+public class ArenaController extends GameController {
+    private final PacmanController pacmanController;
+    private final CollisionController collisionController;
+    private final GhostController ghostController;
+
+    public ArenaController(Arena arena, AudioManager audioManager) {
+<span class="fc" id="L25">        super(arena);</span>
+
+<span class="fc" id="L27">        this.pacmanController = new PacmanController(arena);</span>
+<span class="fc" id="L28">        this.collisionController = new CollisionController(arena, audioManager);</span>
+<span class="fc" id="L29">        this.ghostController = new GhostController(arena);</span>
+<span class="fc" id="L30">    }</span>
+
+    @Override
+    public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws IOException, URISyntaxException {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (GUI.ACTION action : actions) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            if (action == GUI.ACTION.QUIT) {</span>
+<span class="fc" id="L36">                game.getAudioManager().stopAllAudios();</span>
+<span class="fc" id="L37">                game.setState(new PauseMenuState(new PauseMenu(game.getState(), game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
+<span class="fc" id="L38">                return;</span>
+            }
+<span class="fc" id="L40">        }</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (getModel().getCollectibles().isEmpty()) {</span>
+<span class="fc" id="L42">            game.getAudioManager().stopAllAudios();</span>
+<span class="fc" id="L43">            game.setState(new AlertMenuState(new AlertMenu(getModel(), &quot;PNGs/youwin.png&quot;), game.getAudioManager()));</span>
+<span class="fc" id="L44">            return;</span>
+        }
+        //all the controllers here me thinks
+<span class="fc" id="L47">        pacmanController.step(game, actions, time);</span>
+<span class="fc" id="L48">        ghostController.step(game, actions, time);</span>
+<span class="fc" id="L49">        collisionController.step(game, actions, time);</span>
+<span class="fc" id="L50">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

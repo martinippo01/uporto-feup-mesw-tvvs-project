@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MapSelectionMenuViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.viewer.menu</a> &gt; <span class="el_source">MapSelectionMenuViewer.java</span></div><h1>MapSelectionMenuViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.viewer.menu;
+
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.menu.MapSelectionMenu;
+import pt.feup.tvvs.pacman.viewer.ModelViewer;
+import pt.feup.tvvs.pacman.viewer.ViewerFactory;
+
+import java.io.IOException;
+
+public class MapSelectionMenuViewer extends ModelViewer&lt;MapSelectionMenu&gt; {
+
+    public MapSelectionMenuViewer() throws IOException {
+<span class="nc" id="L13">        super(ViewerFactory.createMapSelectionMenuViewers());</span>
+<span class="nc" id="L14">    }</span>
+
+    @Override
+    public void drawElements(GUI gui, MapSelectionMenu menu, long frameCount) {
+<span class="nc" id="L18">        menu.getOptions().forEach(textBox -&gt; drawElement(gui, textBox, frameCount));</span>
+<span class="nc" id="L19">        drawElement(gui, menu.getTitle(), frameCount);</span>
+<span class="nc" id="L20">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

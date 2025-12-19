@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AudioManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.audio</a> &gt; <span class="el_source">AudioManager.java</span></div><h1>AudioManager.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.audio;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class AudioManager {
+    private static AudioManager instance;
+    private final Map&lt;String, AudioPlayer&gt; audios;
+    private AudioPlayer mainMusic;
+    private float masterVolume;
+
+<span class="fc" id="L12">    private AudioManager() {</span>
+<span class="fc" id="L13">        this.audios = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L14">        this.masterVolume = 1f;</span>
+<span class="fc" id="L15">    }</span>
+
+    public static AudioManager getInstance() {
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if (instance == null) {</span>
+<span class="fc" id="L19">            instance = new AudioManager();</span>
+        }
+<span class="fc" id="L21">        return instance;</span>
+    }
+
+    public void addAudio(String key, String audioPath) {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (!audios.containsKey(key)) {</span>
+<span class="fc" id="L26">            AudioPlayer audio = new AudioPlayer(audioPath);</span>
+<span class="fc" id="L27">            audios.put(key, audio);</span>
+<span class="fc" id="L28">            audio.setVolume(audio.getVolume() * masterVolume);</span>
+        }
+<span class="fc" id="L30">    }</span>
+
+    public void stopAllAudios() {
+<span class="fc" id="L33">        audios.forEach((s, audioPlayer) -&gt; audioPlayer.stopPlaying());</span>
+<span class="fc" id="L34">    }</span>
+
+    public void setMainMusic(AudioPlayer mainMusic) {
+<span class="fc" id="L37">        mainMusic.setVolume(mainMusic.getVolume() * masterVolume);</span>
+<span class="fc" id="L38">        this.mainMusic = mainMusic;</span>
+<span class="fc" id="L39">    }</span>
+
+    public AudioPlayer getAudio(String key) {
+<span class="fc" id="L42">        return audios.get(key);</span>
+    }
+
+    public float getMasterVolume() {
+<span class="fc" id="L46">        return masterVolume;</span>
+    }
+
+    public void setMasterVolume(float volume) {
+<span class="fc bfc" id="L50" title="All 4 branches covered.">        if (volume &lt;= 0 || volume &gt; 1) return;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (mainMusic != null) mainMusic.setVolume(mainMusic.getVolume() * volume / masterVolume);</span>
+<span class="fc" id="L52">        audios.forEach((s, audio) -&gt; audio.setVolume(audio.getVolume() * volume / masterVolume));</span>
+<span class="fc" id="L53">        this.masterVolume = volume;</span>
+<span class="fc" id="L54">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

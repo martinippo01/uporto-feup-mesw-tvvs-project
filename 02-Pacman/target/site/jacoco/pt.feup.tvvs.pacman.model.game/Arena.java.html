@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Arena.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.model.game</a> &gt; <span class="el_source">Arena.java</span></div><h1>Arena.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.model.game;
+
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.element.GhostGate;
+import pt.feup.tvvs.pacman.model.game.element.Wall;
+import pt.feup.tvvs.pacman.model.game.element.collectibles.Collectible;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Ghost;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Arena {
+    //due to how the module operator works, the higher the speed the faster the element goes, except 1 which is the highest speed
+    public static final int PACMAN_BOOSTED_SPEED = 6;
+    public static final int PACMAN_NORMAL_SPEED = 4;
+    public static final int GHOST_NORMAL_SPEED = 3;
+    public static final int GHOST_SCARED_SPEED = 2;
+    public static final int GHOST_DEAD_SPEED = 1;
+
+    private final List&lt;Pacman&gt; pacmans;
+    private final int width, height;
+    private final GhostGate ghostGate;
+    private final Set&lt;Position&gt; blankPositions;
+    private long score;
+    private int collectedCollectibles;
+    private Set&lt;Ghost&gt; ghosts;
+    private Set&lt;Wall&gt; walls;
+    private Set&lt;Collectible&gt; collectibles;
+
+<span class="fc" id="L33">    public Arena(int width, int height) {</span>
+<span class="fc" id="L34">        this.width = width;</span>
+<span class="fc" id="L35">        this.height = height;</span>
+
+<span class="fc" id="L37">        this.score = 0;</span>
+<span class="fc" id="L38">        this.collectedCollectibles = 0;</span>
+
+<span class="fc" id="L40">        this.pacmans = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L41">        this.ghostGate = new GhostGate(new Position(10, 10));</span>
+
+<span class="fc" id="L43">        this.ghosts = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L44">        this.walls = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L45">        this.collectibles = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L46">        this.blankPositions = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L47">    }</span>
+
+    public List&lt;Pacman&gt; getPacmans() {
+<span class="fc" id="L50">        return pacmans;</span>
+    }
+
+    public Set&lt;Ghost&gt; getGhosts() {
+<span class="fc" id="L54">        return ghosts;</span>
+    }
+
+    public void setGhosts(Set&lt;Ghost&gt; ghosts) {
+<span class="fc" id="L58">        this.ghosts = ghosts;</span>
+<span class="fc" id="L59">    }</span>
+
+    public Set&lt;Wall&gt; getWalls() {
+<span class="fc" id="L62">        return walls;</span>
+    }
+
+    public void setWalls(Set&lt;Wall&gt; walls) {
+<span class="nc" id="L66">        this.walls = walls;</span>
+<span class="nc" id="L67">    }</span>
+
+    public Set&lt;Collectible&gt; getCollectibles() {
+<span class="fc" id="L70">        return collectibles;</span>
+    }
+
+    public void setCollectibles(Set&lt;Collectible&gt; collectibles) {
+<span class="fc" id="L74">        this.collectibles = collectibles;</span>
+<span class="fc" id="L75">    }</span>
+
+    public int getWidth() {
+<span class="fc" id="L78">        return width;</span>
+    }
+
+    public int getHeight() {
+<span class="fc" id="L82">        return height;</span>
+    }
+
+    public void addWall(Wall wall) {
+<span class="fc" id="L86">        walls.add(wall);</span>
+<span class="fc" id="L87">    }</span>
+
+    public void addCollectible(Collectible collectible) {
+<span class="fc" id="L90">        collectibles.add(collectible);</span>
+<span class="fc" id="L91">    }</span>
+
+    public void addGhost(Ghost ghost) {
+<span class="fc" id="L94">        ghosts.add(ghost);</span>
+<span class="fc" id="L95">    }</span>
+
+    public void addPacman(Pacman pacman) {
+<span class="fc" id="L98">        pacmans.add(pacman);</span>
+<span class="fc" id="L99">    }</span>
+
+    public boolean isEmpty(Position position) {
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        for (Wall wall : walls) {</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            if (wall.getPosition().equals(position))</span>
+<span class="nc" id="L104">                return false;</span>
+<span class="nc" id="L105">        }</span>
+<span class="nc" id="L106">        return true;</span>
+    }
+
+    public long getScore() {
+<span class="fc" id="L110">        return score;</span>
+    }
+
+    public void setScore(long score) {
+<span class="nc" id="L114">        this.score = score;</span>
+<span class="nc" id="L115">    }</span>
+
+    public void incrementScore(long increment) {
+<span class="fc" id="L118">        this.score += increment;</span>
+<span class="fc" id="L119">    }</span>
+
+    public int getCollectedCollectibles() {
+<span class="fc" id="L122">        return collectedCollectibles;</span>
+    }
+
+    public void incrementCollectedCollectibles() {
+<span class="fc" id="L126">        ++collectedCollectibles;</span>
+<span class="fc" id="L127">    }</span>
+
+    public GhostGate getGhostGate() {
+<span class="fc" id="L130">        return ghostGate;</span>
+    }
+
+    public void setGhostGatePosition(Position position) {
+<span class="fc" id="L134">        this.ghostGate.setPosition(position);</span>
+<span class="fc" id="L135">    }</span>
+
+    public Set&lt;Position&gt; getBlankPositions() {
+<span class="fc" id="L138">        return blankPositions;</span>
+    }
+
+    public void addBlankPosition(Position position) {
+<span class="fc" id="L142">        blankPositions.add(position);</span>
+<span class="fc" id="L143">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

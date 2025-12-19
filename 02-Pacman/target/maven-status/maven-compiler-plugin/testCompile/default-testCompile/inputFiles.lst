@@ -1,9 +1,11 @@
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/BlackBoxTests.java
-/Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/LanternaGUIBlackBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/PBTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/audio/AudioManagerWhiteBoxTests.java
+/Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/audio/AudioPlayerWhiteBoxTests.java
+/Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/ControllerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/game/ArenaControllerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/game/DyingStateControllerWhiteBoxTests.java
+/Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/game/GameControllerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/game/element/CollisionControllerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/game/element/GhostControllerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/controller/game/element/PacmanControllerWhiteBoxTests.java

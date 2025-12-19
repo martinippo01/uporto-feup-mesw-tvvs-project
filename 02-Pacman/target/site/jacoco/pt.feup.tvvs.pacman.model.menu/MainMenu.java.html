@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.model.menu</a> &gt; <span class="el_source">MainMenu.java</span></div><h1>MainMenu.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.model.menu;
+
+import com.googlecode.lanterna.TextColor;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.element.Direction;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Blinky;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Clyde;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Inky;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Pinky;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+import pt.feup.tvvs.pacman.model.menu.element.TextBox;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class MainMenu extends Menu implements MenuOptions {
+    private final Set&lt;Position&gt; blankPositions;
+    private final Pacman pacman;
+
+    private final Blinky blinky;
+    private final Inky inky;
+    private final Pinky pinky;
+    private final Clyde clyde;
+
+<span class="nc" id="L28">    public MainMenu(GUI.SCREEN_RESOLUTION resolution, float volume) {</span>
+<span class="nc" id="L29">        initializeOptions();</span>
+<span class="nc" id="L30">        blankPositions = createBlankPosition();</span>
+<span class="nc" id="L31">        pacman = new Pacman(new Position(14, 4));</span>
+
+<span class="nc" id="L33">        blinky = new Blinky(new Position(7, 4));</span>
+<span class="nc" id="L34">        inky = new Inky(new Position(5, 8));</span>
+<span class="nc" id="L35">        inky.setDirection(Direction.DOWN);</span>
+<span class="nc" id="L36">        pinky = new Pinky(new Position(21, 13));</span>
+<span class="nc" id="L37">        pinky.setDirection(Direction.RIGHT);</span>
+<span class="nc" id="L38">        clyde = new Clyde(new Position(24, 10));</span>
+<span class="nc" id="L39">        clyde.setDirection(Direction.UP);</span>
+
+<span class="nc" id="L41">        setResolution(resolution);</span>
+<span class="nc" id="L42">        setMasterVolume(volume);</span>
+<span class="nc" id="L43">    }</span>
+
+    @Override
+    public List&lt;TextBox&gt; createOptions() {
+<span class="nc" id="L47">        return new ArrayList&lt;&gt;(List.of(</span>
+                new TextBox(&quot;Single player&quot;, new Position(130, 80), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Multi player&quot;, new Position(132, 91), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Resolution: 900p&quot;, new Position(118, 102), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Master Volume: 10&quot;, new Position(118, 113), new TextColor.RGB(255, 255, 255)),
+                new TextBox(&quot;Exit&quot;, new Position(150, 124), new TextColor.RGB(255, 255, 255))
+        ));
+    }
+
+    @Override
+    protected TextBox createTitle() {
+<span class="nc" id="L58">        return new TextBox(&quot;PACMAN&quot;, new Position(145, 30), new TextColor.RGB(255, 255, 255));</span>
+    }
+
+    private Set&lt;Position&gt; createBlankPosition() {
+<span class="nc" id="L62">        HashSet&lt;Position&gt; blankPos = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        for (int i = 3; i &lt;= 7; ++i) blankPos.add(new Position(i, 4)); //Blinky's movement</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        for (int i = 8; i &lt;= 13; ++i) blankPos.add(new Position(5, i)); //Inky's movement</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        for (int i = 19; i &lt;= 26; ++i) blankPos.add(new Position(i, 13)); //Pinky's movement</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        for (int i = 3; i &lt;= 10; ++i) blankPos.add(new Position(24, i)); //Clyde's movement</span>
+<span class="nc" id="L67">        return blankPos;</span>
+    }
+
+    public boolean singlePLayerSelected() {
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        return getSelectedOption() == 0;</span>
+    }
+
+    public boolean multiplayerSelected() {
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        return getSelectedOption() == 1;</span>
+    }
+
+    @Override
+    public boolean ResolutionSelected() {
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        return getSelectedOption() == 2;</span>
+    }
+
+    @Override
+    public boolean MasterVolumeSelected() {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        return getSelectedOption() == 3;</span>
+    }
+
+    public boolean ExitSelected() {
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        return getSelectedOption() == 4;</span>
+    }
+
+
+    public Pacman getPacman() {
+<span class="nc" id="L94">        return pacman;</span>
+    }
+
+    @Override
+    public void setResolution(GUI.SCREEN_RESOLUTION newResolution) {
+<span class="nc" id="L99">        getOptions().get(2).setText(&quot;Resolution: &quot; + newResolution);</span>
+<span class="nc" id="L100">    }</span>
+
+    @Override
+    public void setMasterVolume(float volume) {
+<span class="nc" id="L104">        getOptions().get(3).setText(&quot;Master Volume: &quot; + (int) (volume * 10));</span>
+<span class="nc" id="L105">    }</span>
+
+    public Blinky getBlinky() {
+<span class="nc" id="L108">        return blinky;</span>
+    }
+
+    public Clyde getClyde() {
+<span class="nc" id="L112">        return clyde;</span>
+    }
+
+    public Pinky getPinky() {
+<span class="nc" id="L116">        return pinky;</span>
+    }
+
+    public Inky getInky() {
+<span class="nc" id="L120">        return inky;</span>
+    }
+
+    public Set&lt;Position&gt; getBlankPositions() {
+<span class="nc" id="L124">        return blankPositions;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

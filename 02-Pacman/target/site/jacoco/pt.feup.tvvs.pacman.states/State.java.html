@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>State.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.states</a> &gt; <span class="el_source">State.java</span></div><h1>State.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.states;
+
+import pt.feup.tvvs.pacman.Game;
+import pt.feup.tvvs.pacman.audio.AudioManager;
+import pt.feup.tvvs.pacman.controller.Controller;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.viewer.Viewer;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+public abstract class State&lt;T&gt; {
+    private final T model;
+    private final Viewer&lt;T&gt; viewer;
+    private final Controller&lt;T&gt; controller;
+    private final AudioManager audioManager;
+
+<span class="fc" id="L20">    public State(T model, AudioManager audioManager) throws IOException, URISyntaxException {</span>
+<span class="fc" id="L21">        this.model = model;</span>
+<span class="fc" id="L22">        this.viewer = createViewer();</span>
+<span class="fc" id="L23">        this.controller = createController(audioManager);</span>
+<span class="fc" id="L24">        this.audioManager = audioManager;</span>
+<span class="fc" id="L25">    }</span>
+
+    public T getModel() {
+<span class="fc" id="L28">        return model;</span>
+    }
+
+    public abstract Viewer&lt;T&gt; createViewer() throws IOException;
+
+    public abstract Controller&lt;T&gt; createController(AudioManager audioManager);
+
+    public void step(Game game, GUI gui, long frameTime) throws IOException, URISyntaxException, FontFormatException {
+<span class="nc" id="L36">        List&lt;GUI.ACTION&gt; actions = gui.getNextAction();</span>
+<span class="nc" id="L37">        controller.step(game, actions, frameTime);</span>
+<span class="nc" id="L38">        viewer.drawElement(gui, model, frameTime);</span>
+<span class="nc" id="L39">    }</span>
+
+    public AudioManager getAudioManager() {
+<span class="nc" id="L42">        return audioManager;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

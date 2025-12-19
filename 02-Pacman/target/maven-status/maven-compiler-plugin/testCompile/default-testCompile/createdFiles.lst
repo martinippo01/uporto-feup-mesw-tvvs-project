@@ -1,2 +1,4 @@
-pt/feup/tvvs/pacman/LanternaGUIBlackBoxTests$EquivalentClassAndBoundaryTests.class
-pt/feup/tvvs/pacman/LanternaGUIBlackBoxTests.class
+pt/feup/tvvs/pacman/controller/ControllerWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/GameControllerWhiteBoxTests.class
+pt/feup/tvvs/pacman/audio/AudioPlayerWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/DyingStateControllerWhiteBoxTests$1.class

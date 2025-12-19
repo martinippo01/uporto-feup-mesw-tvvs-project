@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Element.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.pacman.model;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Objects;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class Element {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Position position;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    protected Element(Position pos) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_9'>4</a>
+<span>
+1. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+2. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+3. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+4. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (pos.getY() &#60; 0 || pos.getX() &#60; 0) {</span></pre></td></tr>
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(&#34;Element position cannot have negatives values: &#34; + pos);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        position = pos;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position getPosition() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_16'>1</a>
+<span>
+1. getPosition : replaced return value with null for pt/feup/tvvs/pacman/model/Element::getPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return position;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPosition(Position other) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_20'>4</a>
+<span>
+1. setPosition : changed conditional boundary &rarr; KILLED<br/>
+2. setPosition : changed conditional boundary &rarr; KILLED<br/>
+3. setPosition : negated conditional &rarr; KILLED<br/>
+4. setPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (other.getY() &#60; 0 || other.getX() &#60; 0) {</span></pre></td></tr>
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(&#34;Element position cannot have negatives values: &#34; + other);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_23'>1</a>
+<span>
+1. setPosition : removed call to pt/feup/tvvs/pacman/model/Position::setPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        position.setPosition(other);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object obj) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_28'/>
+28
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_28'>2</a>
+<span>
+1. equals : replaced boolean return with false for pt/feup/tvvs/pacman/model/Element::equals &rarr; NO_COVERAGE<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (this == obj) return true;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_29'>2</a>
+<span>
+1. equals : replaced boolean return with true for pt/feup/tvvs/pacman/model/Element::equals &rarr; NO_COVERAGE<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (!(obj instanceof Element)) return false;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Element element = (Element) obj;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_31'>3</a>
+<span>
+1. equals : replaced boolean return with true for pt/feup/tvvs/pacman/model/Element::equals &rarr; KILLED<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+3. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.position.equals(element.position) &#38;&#38; this.getClass() == element.getClass();</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_36'>1</a>
+<span>
+1. hashCode : replaced int return with 0 for pt/feup/tvvs/pacman/model/Element::hashCode &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return Objects.hash(position.getX(), position.getX(), getClass());</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1641dfb3_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testStep_audioLoopSelection_whenNoSirenPlaying_playsAliveSiren()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testStep_audioLoopSelection_whenNoSirenPlaying_playsAliveSiren()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenAllPacmansDead_shouldStopAudiosAndSetAlertState()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenAllPacmansDead_shouldStopAudiosAndSetAlertState()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testGhostScaredCollision_eatenIncreasesScoreAndSetsDead()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/Element::getPosition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_multiplayer_revivesAfterCounterExpires()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_multiplayer_revivesAfterCounterExpires()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenThereAreAlivePacmans_shouldResetPacmansAndGhostsAndSetGameState()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenThereAreAlivePacmans_shouldResetPacmansAndGhostsAndSetGameState()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenThereAreAlivePacmans_shouldResetPacmansAndGhostsAndSetGameState()]</span></span> removed call to pt/feup/tvvs/pacman/model/Position::setPosition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_28'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for pt/feup/tvvs/pacman/model/Element::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_29'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/Element::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/Element::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1641dfb3_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1641dfb3_36'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for pt/feup/tvvs/pacman/model/Element::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.Element,-method=hashCode,-methodDesc=()I],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.Element,-method=hashCode,-methodDesc=()I],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.Element,-method=hashCode,-methodDesc=()I],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testStep_audioLoopSelection_whenNoSirenPlaying_playsAliveSiren()]</li> <li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testGhostScaredCollision_eatenIncreasesScoreAndSetsDead()]</li> <li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testScaredTimeExpires_resetsGhostsAndStopsScaredSiren()]</li> <li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_setsDyingAnd_multiplayerCounter()]</li> <li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenThereAreAlivePacmans_shouldResetPacmansAndGhostsAndSetGameState()]</li> <li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_multiplayer_revivesAfterCounterExpires()]</li> <li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testCollectiblePowerUpCollision_triggersScaredAndScoreAndBlankPosition()]</li> <li>pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests]/[method:shouldDelegateToInternalControllersWhenNoQuitAndCollectiblesPresent()]</li> <li>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)] (150 ms)</li><li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenThereAreAlivePacmans_shouldResetPacmansAndGhostsAndSetGameState()] (9 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_multiplayer_revivesAfterCounterExpires()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenAllPacmansDead_shouldStopAudiosAndSetAlertState()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testStep_audioLoopSelection_whenNoSirenPlaying_playsAliveSiren()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testGhostScaredCollision_eatenIncreasesScoreAndSetsDead()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testScaredTimeExpires_resetsGhostsAndStopsScaredSiren()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_setsDyingAnd_multiplayerCounter()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests]/[method:quitActionShouldStopAudiosAndSetPauseState()] (11 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testCollectiblePowerUpCollision_triggersScaredAndScoreAndBlankPosition()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests]/[method:shouldDelegateToInternalControllersWhenNoQuitAndCollectiblesPresent()] (28 ms)</li><li>pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests]/[method:emptyCollectiblesShouldStopAudiosAndSetAlertState()] (33 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

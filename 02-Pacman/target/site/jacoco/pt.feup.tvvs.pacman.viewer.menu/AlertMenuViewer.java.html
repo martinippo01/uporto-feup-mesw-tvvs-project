@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AlertMenuViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.viewer.menu</a> &gt; <span class="el_source">AlertMenuViewer.java</span></div><h1>AlertMenuViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.viewer.menu;
+
+import com.googlecode.lanterna.TextColor;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.Arena;
+import pt.feup.tvvs.pacman.model.menu.AlertMenu;
+import pt.feup.tvvs.pacman.model.menu.element.TextBox;
+import pt.feup.tvvs.pacman.viewer.ModelViewer;
+import pt.feup.tvvs.pacman.viewer.ViewerFactory;
+import pt.feup.tvvs.pacman.viewer.game.ImageLoader;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+public class AlertMenuViewer extends ModelViewer&lt;AlertMenu&gt; {
+    private final BufferedImage alertImage;
+
+    public AlertMenuViewer(String filePath) throws IOException {
+<span class="nc" id="L20">        super(ViewerFactory.createAlertMenuViewers());</span>
+<span class="nc" id="L21">        this.alertImage = ImageLoader.loadBufferedImage(filePath);</span>
+<span class="nc" id="L22">    }</span>
+
+    @Override
+    public void drawElements(GUI gui, AlertMenu menu, long frameCount) {
+<span class="nc" id="L26">        Arena arena = menu.getArena();</span>
+<span class="nc" id="L27">        arena.getBlankPositions().forEach(position -&gt; gui.erase(new Position(position.getX() * 11, position.getY() * 11)));</span>
+<span class="nc" id="L28">        arena.getWalls().forEach(wall -&gt; drawElement(gui, wall, frameCount));</span>
+<span class="nc" id="L29">        drawElement(gui, arena.getGhostGate(), frameCount);</span>
+<span class="nc" id="L30">        arena.getCollectibles().forEach(collectible -&gt; drawElement(gui, collectible, frameCount));</span>
+<span class="nc" id="L31">        arena.getGhosts().forEach(ghost -&gt; drawElement(gui, ghost, frameCount));</span>
+<span class="nc" id="L32">        arena.getPacmans().forEach(pacman -&gt; drawElement(gui, pacman, frameCount));</span>
+<span class="nc" id="L33">        drawElement(gui, new TextBox(&quot;Score:&quot; + arena.getScore(), new Position(11, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (arena.getPacmans().size() == 2) {</span>
+<span class="nc" id="L35">            drawElement(gui, new TextBox(&quot;Lives P1:&quot; + arena.getPacmans().get(0).getLife(), new Position(199, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+<span class="nc" id="L36">            drawElement(gui, new TextBox(&quot;Lives P2:&quot; + arena.getPacmans().get(1).getLife(), new Position(259, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+        } else
+<span class="nc" id="L38">            drawElement(gui, new TextBox(&quot;Lives:&quot; + arena.getPacmans().get(0).getLife(), new Position(274, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+
+<span class="nc" id="L40">        gui.drawImage(new Position((arena.getWidth() * 11 - alertImage.getWidth()) / 2, 44), alertImage, alertImage.getWidth(), alertImage.getHeight());</span>
+<span class="nc" id="L41">        menu.getOptions().forEach(textBox -&gt; drawElement(gui, textBox, frameCount));</span>
+<span class="nc" id="L42">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

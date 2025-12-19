@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ghost.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.model.game.element.ghost</a> &gt; <span class="el_source">Ghost.java</span></div><h1>Ghost.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.model.game.element.ghost;
+
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.element.MovableElement;
+
+
+public abstract class Ghost extends MovableElement {
+    private GhostState state;
+    private Boolean insideGate;
+    private Position respawnPosition;
+
+    public Ghost(Position pos) {
+<span class="fc" id="L13">        super(pos);</span>
+<span class="fc" id="L14">        state = GhostState.ALIVE;</span>
+<span class="fc" id="L15">        this.insideGate = true;</span>
+<span class="fc" id="L16">        setSpeed(3);</span>
+<span class="fc" id="L17">    }</span>
+
+    public GhostState getState() {
+<span class="fc" id="L20">        return state;</span>
+    }
+
+    public void setState(GhostState ghostState) {
+<span class="fc" id="L24">        this.state = ghostState;</span>
+<span class="fc" id="L25">    }</span>
+
+    public boolean isDead() {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        return state == GhostState.DEAD;</span>
+    }
+
+    public boolean isScared() {
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        return state == GhostState.SCARED;</span>
+    }
+
+    public Boolean isInsideGate() {
+<span class="fc" id="L36">        return insideGate;</span>
+    }
+
+    public void setInsideGate() {
+<span class="fc" id="L40">        this.insideGate = true;</span>
+<span class="fc" id="L41">    }</span>
+
+    public void setOutsideGate() {
+<span class="fc" id="L44">        this.insideGate = false;</span>
+<span class="fc" id="L45">    }</span>
+
+    public Position getRespawnPosition() {
+<span class="fc" id="L48">        return respawnPosition;</span>
+    }
+
+    public void setRespawnPosition(Position respawnPosition) {
+<span class="fc" id="L52">        this.respawnPosition = respawnPosition;</span>
+<span class="fc" id="L53">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

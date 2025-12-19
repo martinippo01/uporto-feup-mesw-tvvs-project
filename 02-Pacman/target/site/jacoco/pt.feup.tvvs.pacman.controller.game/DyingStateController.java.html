@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DyingStateController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.controller.game</a> &gt; <span class="el_source">DyingStateController.java</span></div><h1>DyingStateController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.controller.game;
+
+import pt.feup.tvvs.pacman.Game;
+import pt.feup.tvvs.pacman.audio.AudioManager;
+import pt.feup.tvvs.pacman.audio.AudioPlayer;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.game.Arena;
+import pt.feup.tvvs.pacman.model.game.element.ghost.GhostState;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+import pt.feup.tvvs.pacman.model.menu.AlertMenu;
+import pt.feup.tvvs.pacman.states.game.GameState;
+import pt.feup.tvvs.pacman.states.menu.AlertMenuState;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+public class DyingStateController extends GameController {
+    private int stateTimeCounter;
+
+    public DyingStateController(Arena arena, AudioManager audioManager) {
+<span class="fc" id="L22">        super(arena);</span>
+<span class="fc" id="L23">        this.stateTimeCounter = 110;</span>
+
+<span class="fc" id="L25">        audioManager.addAudio(&quot;deathAudio&quot;, &quot;Audio/pacmanDeath.wav&quot;);</span>
+<span class="fc" id="L26">        AudioPlayer deathAudio = audioManager.getAudio(&quot;deathAudio&quot;);</span>
+<span class="fc" id="L27">        deathAudio.setVolume(1.0f);</span>
+<span class="fc" id="L28">        deathAudio.playOnce();</span>
+<span class="fc" id="L29">    }</span>
+
+    @Override
+    public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws IOException, URISyntaxException {
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (--stateTimeCounter == 0) {</span>
+<span class="fc" id="L34">            int alivePacmans = 0; //number of still alive pacmans</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            for (Pacman pacman : getModel().getPacmans()) {</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                if (pacman.getLife() &gt; 0) {</span>
+<span class="fc" id="L37">                    pacman.setSpeed(Arena.PACMAN_NORMAL_SPEED);</span>
+<span class="fc" id="L38">                    pacman.setPosition(pacman.getRespawnPosition());</span>
+<span class="fc" id="L39">                    pacman.setCounter(0);</span>
+<span class="fc" id="L40">                    pacman.setDying(false);</span>
+<span class="fc" id="L41">                    ++alivePacmans;</span>
+                }
+<span class="fc" id="L43">            }</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (alivePacmans &lt;= 0) { //no pacman alive: game over</span>
+<span class="fc" id="L45">                game.getAudioManager().stopAllAudios();</span>
+<span class="fc" id="L46">                game.setState(new AlertMenuState(new AlertMenu(getModel(), &quot;PNGs/gameover.png&quot;), game.getAudioManager()));</span>
+            } else { //there is still at least one pacman with more than one life: keep playing
+<span class="fc" id="L48">                getModel().getGhosts().forEach(ghost -&gt; {</span>
+<span class="fc" id="L49">                    ghost.setState(GhostState.ALIVE);</span>
+<span class="fc" id="L50">                    ghost.setSpeed(Arena.GHOST_NORMAL_SPEED);</span>
+<span class="fc" id="L51">                    ghost.setPosition(ghost.getRespawnPosition());</span>
+<span class="fc" id="L52">                    ghost.setCounter(0);</span>
+<span class="fc" id="L53">                    ghost.setInsideGate();</span>
+<span class="fc" id="L54">                });</span>
+<span class="fc" id="L55">                game.setState(new GameState(getModel(), game.getAudioManager()));</span>
+            }
+        }
+<span class="fc" id="L58">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

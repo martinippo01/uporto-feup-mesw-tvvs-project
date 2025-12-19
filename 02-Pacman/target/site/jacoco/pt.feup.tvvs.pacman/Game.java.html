@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman;
+
+import pt.feup.tvvs.pacman.audio.AudioManager;
+import pt.feup.tvvs.pacman.audio.AudioPlayer;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.gui.LanternaGUI;
+import pt.feup.tvvs.pacman.model.menu.MainMenu;
+import pt.feup.tvvs.pacman.states.State;
+import pt.feup.tvvs.pacman.states.menu.MainMenuState;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+public class Game {
+    private static final int SCREEN_WIDTH = 320;
+    private static final int SCREEN_HEIGHT = 180;
+    private static Game instance;
+    private final GUI gui;
+    private final AudioManager audioManager;
+    private State state;
+
+
+<span class="nc" id="L24">    private Game(GUI gui, AudioManager audioManager) throws IOException, URISyntaxException {</span>
+<span class="nc" id="L25">        this.gui = gui;</span>
+<span class="nc" id="L26">        this.audioManager = audioManager;</span>
+<span class="nc" id="L27">        this.audioManager.setMasterVolume(1f);</span>
+<span class="nc" id="L28">        this.state = createInitialState();</span>
+<span class="nc" id="L29">    }</span>
+
+    public static Game getInstance(GUI gui, AudioManager audioManager) throws IOException, URISyntaxException, FontFormatException {
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (instance == null) {</span>
+<span class="nc" id="L33">            instance = new Game(gui, audioManager);</span>
+        }
+<span class="nc" id="L35">        return instance;</span>
+    }
+
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, InterruptedException {
+<span class="nc" id="L39">        GUI gui = new LanternaGUI(SCREEN_WIDTH, SCREEN_HEIGHT, GUI.SCREEN_RESOLUTION._900p);</span>
+<span class="nc" id="L40">        AudioManager audioManager = AudioManager.getInstance();</span>
+<span class="nc" id="L41">        Game game = Game.getInstance(gui, audioManager);</span>
+<span class="nc" id="L42">        game.start();</span>
+<span class="nc" id="L43">    }</span>
+
+    // User only for tests
+    public static void main(GUI gui, AudioManager audioManager) throws IOException, URISyntaxException, FontFormatException, InterruptedException {
+<span class="nc" id="L47">        Game game = Game.getInstance(gui, audioManager);</span>
+<span class="nc" id="L48">        game.start();</span>
+<span class="nc" id="L49">    }</span>
+
+    private State createInitialState() throws IOException, URISyntaxException {
+<span class="nc" id="L52">        return new MainMenuState(</span>
+<span class="nc" id="L53">                new MainMenu(gui.getResolution(), audioManager.getMasterVolume()),</span>
+                audioManager
+        );
+    }
+
+    public GUI getGui() {
+<span class="nc" id="L59">        return gui;</span>
+    }
+
+    public AudioManager getAudioManager() {
+<span class="nc" id="L63">        return audioManager;</span>
+    }
+
+    public State getState() {
+<span class="nc" id="L67">        return state;</span>
+    }
+
+    public void setState(State state) {
+<span class="nc" id="L71">        this.state = state;</span>
+<span class="nc" id="L72">    }</span>
+
+    public GUI.SCREEN_RESOLUTION getResolution() {
+<span class="nc" id="L75">        return gui.getResolution();</span>
+    }
+
+    public void setResolution(GUI.SCREEN_RESOLUTION newResolution) throws URISyntaxException, IOException, FontFormatException {
+<span class="nc" id="L79">        gui.resizeScreen(SCREEN_WIDTH, SCREEN_HEIGHT, newResolution);</span>
+<span class="nc" id="L80">    }</span>
+
+    private void start() throws IOException, InterruptedException {
+<span class="nc" id="L83">        GameLoop gameLoop = new GameLoop(60);</span>
+<span class="nc" id="L84">        AudioPlayer mainMusic = initializeMusic();</span>
+
+        try {
+<span class="nc bnc" id="L87" title="All 2 branches missed.">            while (this.state != null) {</span>
+<span class="nc" id="L88">                gameLoop.update(() -&gt; {</span>
+                    try {
+<span class="nc" id="L90">                        state.step(this, gui, gameLoop.getFrameCount());</span>
+<span class="nc" id="L91">                    } catch (IOException | URISyntaxException | FontFormatException e) {</span>
+<span class="nc" id="L92">                        throw new RuntimeException(e);</span>
+<span class="nc" id="L93">                    }</span>
+<span class="nc" id="L94">                });</span>
+            }
+        } finally {
+<span class="nc" id="L97">            cleanup(mainMusic);</span>
+        }
+<span class="nc" id="L99">    }</span>
+
+    private AudioPlayer initializeMusic() {
+<span class="nc" id="L102">        AudioPlayer mainMusic = new AudioPlayer(&quot;Audio/music.wav&quot;);</span>
+<span class="nc" id="L103">        mainMusic.setVolume(0.05f);</span>
+<span class="nc" id="L104">        mainMusic.playInLoop();</span>
+<span class="nc" id="L105">        audioManager.setMainMusic(mainMusic);</span>
+<span class="nc" id="L106">        return mainMusic;</span>
+    }
+
+    private void cleanup(AudioPlayer mainMusic) throws IOException {
+<span class="nc" id="L110">        mainMusic.stopPlaying();</span>
+<span class="nc" id="L111">        gui.close();</span>
+<span class="nc" id="L112">    }</span>
+}
+
+class GameLoop {
+    private final long frameTime;
+    private long frameCount;
+
+<span class="nc" id="L119">    public GameLoop(int fps) {</span>
+<span class="nc" id="L120">        this.frameTime = 1000 / fps;</span>
+<span class="nc" id="L121">        this.frameCount = 0;</span>
+<span class="nc" id="L122">    }</span>
+
+    public void update(Runnable updateLogic) throws InterruptedException {
+<span class="nc" id="L125">        long startTime = System.currentTimeMillis();</span>
+<span class="nc" id="L126">        updateLogic.run();</span>
+
+<span class="nc" id="L128">        long elapsedTime = System.currentTimeMillis() - startTime;</span>
+<span class="nc" id="L129">        long sleepTime = frameTime - elapsedTime;</span>
+
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
+<span class="nc" id="L132">        ++frameCount;</span>
+<span class="nc" id="L133">    }</span>
+
+    public long getFrameCount() {
+<span class="nc" id="L136">        return frameCount;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

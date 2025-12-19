@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArenaLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.model.game</a> &gt; <span class="el_source">ArenaLoader.java</span></div><h1>ArenaLoader.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.model.game;
+
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.element.Wall;
+import pt.feup.tvvs.pacman.model.game.element.collectibles.*;
+import pt.feup.tvvs.pacman.model.game.element.ghost.*;
+import pt.feup.tvvs.pacman.model.game.element.collectibles.*;
+import pt.feup.tvvs.pacman.model.game.element.ghost.*;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class ArenaLoader {
+    private final Arena arena;
+    private final int width;
+    private final int height;
+
+<span class="fc" id="L21">    public ArenaLoader(Arena arena) {</span>
+<span class="fc" id="L22">        this.arena = arena;</span>
+<span class="fc" id="L23">        this.width = arena.getWidth();</span>
+<span class="fc" id="L24">        this.height = arena.getHeight();</span>
+<span class="fc" id="L25">    }</span>
+
+    public void loadMap(String mapFile) throws IOException {
+<span class="fc" id="L28">        try (BufferedReader reader = Files.newBufferedReader(Paths.get(mapFile))) {</span>
+            String line;
+<span class="fc" id="L30">            int row = 0;</span>
+
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">            while ((line = reader.readLine()) != null &amp;&amp; row &lt; height) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                for (int col = 0; col &lt; Math.min(line.length(), width); col++) {</span>
+<span class="fc" id="L34">                    char currentChar = line.charAt(col);</span>
+<span class="fc" id="L35">                    loadElementAt(col, row, currentChar);</span>
+                }
+<span class="fc" id="L37">                row++;</span>
+            }
+        }
+<span class="fc" id="L40">    }</span>
+
+    private void loadElementAt(int col, int row, char element) {
+<span class="fc" id="L43">        Position position = new Position(col, row);</span>
+
+<span class="fc bfc" id="L45" title="All 16 branches covered.">        switch (element) {</span>
+            case 'W':
+<span class="fc" id="L47">                arena.addWall(new Wall(position));</span>
+<span class="fc" id="L48">                break;</span>
+            case 'P':
+<span class="fc bfc" id="L50" title="All 2 branches covered.">                if (arena.getPacmans().size() == 2) return;</span>
+<span class="fc" id="L51">                Pacman pacman = new Pacman(position);</span>
+<span class="fc" id="L52">                pacman.setRespawnPosition(new Position(position));</span>
+<span class="fc" id="L53">                arena.addPacman(pacman);</span>
+<span class="fc" id="L54">                arena.addBlankPosition(new Position(position));</span>
+<span class="fc" id="L55">                break;</span>
+            case 'o':
+<span class="fc" id="L57">                arena.addCollectible(new Coin(position));</span>
+<span class="fc" id="L58">                break;</span>
+            case 'O':
+<span class="fc" id="L60">                arena.addCollectible(new Orange(position));</span>
+<span class="fc" id="L61">                break;</span>
+            case 'A':
+<span class="fc" id="L63">                arena.addCollectible(new Apple(position));</span>
+<span class="fc" id="L64">                break;</span>
+            case 'C':
+<span class="fc" id="L66">                arena.addCollectible(new Cherry(position));</span>
+<span class="fc" id="L67">                break;</span>
+            case 'K':
+<span class="fc" id="L69">                arena.addCollectible(new Key(position));</span>
+<span class="fc" id="L70">                break;</span>
+            case 'S':
+<span class="fc" id="L72">                arena.addCollectible(new Strawberry(position));</span>
+<span class="fc" id="L73">                break;</span>
+            case 'p':
+<span class="fc" id="L75">                Pinky pinky = new Pinky(position);</span>
+<span class="fc" id="L76">                pinky.setRespawnPosition(new Position(position));</span>
+<span class="fc" id="L77">                arena.addGhost(pinky);</span>
+<span class="fc" id="L78">                arena.addBlankPosition(new Position(position));</span>
+<span class="fc" id="L79">                break;</span>
+            case 'i':
+<span class="fc" id="L81">                Ghost inky = new Inky(position);</span>
+<span class="fc" id="L82">                inky.setRespawnPosition(new Position(position));</span>
+<span class="fc" id="L83">                arena.addGhost(inky);</span>
+<span class="fc" id="L84">                arena.addBlankPosition(new Position(position));</span>
+<span class="fc" id="L85">                break;</span>
+            case 'c':
+<span class="fc" id="L87">                Clyde clyde = new Clyde(position);</span>
+<span class="fc" id="L88">                clyde.setRespawnPosition(new Position(position));</span>
+<span class="fc" id="L89">                arena.addGhost(clyde);</span>
+<span class="fc" id="L90">                arena.addBlankPosition(new Position(position));</span>
+<span class="fc" id="L91">                break;</span>
+            case 'b':
+<span class="fc" id="L93">                Blinky blinky = new Blinky(position);</span>
+<span class="fc" id="L94">                blinky.setRespawnPosition(new Position(position));</span>
+<span class="fc" id="L95">                arena.addGhost(blinky);</span>
+<span class="fc" id="L96">                arena.addBlankPosition(new Position(position));</span>
+<span class="fc" id="L97">                break;</span>
+            case 'D':
+<span class="fc" id="L99">                arena.setGhostGatePosition(position);</span>
+<span class="fc" id="L100">                break;</span>
+            case 'u':
+<span class="fc" id="L102">                arena.addCollectible(new PowerUp(position));</span>
+<span class="fc" id="L103">                break;</span>
+            case ' ':
+<span class="fc" id="L105">                arena.addBlankPosition(position);</span>
+<span class="fc" id="L106">                break;</span>
+            default:
+<span class="fc" id="L108">                arena.addBlankPosition(position);</span>
+<span class="fc" id="L109">                System.out.println(&quot;Unknown element '&quot; + element + &quot;' at (&quot; + position.getX() + &quot;, &quot; + position.getY() + &quot;)&quot;);</span>
+                break;
+        }
+<span class="fc" id="L112">    }</span>
+}
+
+/*
+    Map of the keys to the elements:
+    W = wall
+    P = pacman
+    o = coin
+    A = apple
+    C = cherry
+    K = key
+    O = orange
+    S = strawberry
+    p = pinky
+    i = inky
+    c = clyde
+    b = blinky
+    D = ghost door/gate
+    u = power up
+*/
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

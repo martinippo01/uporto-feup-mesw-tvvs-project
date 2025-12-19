@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClydeMovementBehaviour.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.controller.game.element.behaviours</a> &gt; <span class="el_source">ClydeMovementBehaviour.java</span></div><h1>ClydeMovementBehaviour.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.controller.game.element.behaviours;
+
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.Arena;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Ghost;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+
+<span class="fc" id="L8">public class ClydeMovementBehaviour extends GhostMovementBehaviour {</span>
+    @Override
+    protected Position getAlivePosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
+<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (arena.getCollectedCollectibles() &lt; 60) return new Position(10, 11);</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        if (!chaseMode) return new Position(0, arena.getHeight());</span>
+
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        if (ghost.getPosition().squaredDistance(targetPacman.getPosition()) &gt;= 36) {//6 or more tiles away</span>
+<span class="nc" id="L16">            return targetPacman.getPosition();</span>
+        } else {
+<span class="nc" id="L18">            return new Position(0, arena.getHeight());</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

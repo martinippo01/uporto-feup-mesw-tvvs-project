@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LanternaGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.gui</a> &gt; <span class="el_source">LanternaGUI.java</span></div><h1>LanternaGUI.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.gui;
+
+
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.BasicTextImage;
+import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
+import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.screen.TerminalScreen;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import pt.feup.tvvs.pacman.model.Position;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L26">public class LanternaGUI implements GUI {</span>
+    private Screen screen;
+    private SCREEN_RESOLUTION resolution;
+
+<span class="nc" id="L30">    public LanternaGUI(int width, int height, SCREEN_RESOLUTION resolution) throws IOException, FontFormatException, URISyntaxException {</span>
+<span class="nc" id="L31">        AWTTerminalFontConfiguration fontConfig = loadSquareFont(resolutionToFontSize(resolution));</span>
+<span class="nc" id="L32">        Terminal terminal = createTerminal(width, height, fontConfig);</span>
+<span class="nc" id="L33">        this.screen = createScreen(terminal);</span>
+<span class="nc" id="L34">        this.resolution = resolution;</span>
+<span class="nc" id="L35">    }</span>
+
+<span class="fc" id="L37">    public LanternaGUI(Screen screen, SCREEN_RESOLUTION resolution) {</span>
+<span class="fc" id="L38">        this.screen = screen;</span>
+<span class="fc" id="L39">        this.resolution = resolution;</span>
+<span class="fc" id="L40">    }</span>
+
+    private Screen createScreen(Terminal terminal) throws IOException {
+<span class="fc" id="L43">        final Screen screen = new TerminalScreen(terminal);</span>
+
+<span class="fc" id="L45">        screen.setCursorPosition(null);</span>
+<span class="fc" id="L46">        screen.startScreen();</span>
+<span class="fc" id="L47">        screen.doResizeIfNecessary();</span>
+<span class="fc" id="L48">        return screen;</span>
+    }
+
+    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
+<span class="fc" id="L52">        TerminalSize terminalSize = new TerminalSize(width, height + 1);</span>
+<span class="fc" id="L53">        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);</span>
+<span class="fc" id="L54">        terminalFactory.setForceAWTOverSwing(true);</span>
+<span class="fc" id="L55">        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);</span>
+<span class="fc" id="L56">        return terminalFactory.createTerminal();</span>
+    }
+
+    private AWTTerminalFontConfiguration loadSquareFont(int fontSize) throws URISyntaxException, FontFormatException, IOException {
+<span class="fc" id="L60">        URL resource = getClass().getClassLoader().getResource(&quot;Fonts/square.ttf&quot;);</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        assert resource != null;</span>
+<span class="fc" id="L62">        File fontFile = new File(resource.toURI());</span>
+<span class="fc" id="L63">        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);</span>
+
+<span class="fc" id="L65">        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();</span>
+<span class="fc" id="L66">        ge.registerFont(font);</span>
+
+<span class="fc" id="L68">        Font loadedFont = font.deriveFont(Font.PLAIN, fontSize);</span>
+<span class="fc" id="L69">        return AWTTerminalFontConfiguration.newInstance(loadedFont);</span>
+    }
+
+    @Override
+    public void resizeScreen(int width, int height, SCREEN_RESOLUTION newResolution) throws URISyntaxException, IOException, FontFormatException {
+<span class="fc" id="L74">        screen.close();</span>
+<span class="fc" id="L75">        AWTTerminalFontConfiguration fontConfig = loadSquareFont(resolutionToFontSize(newResolution));</span>
+<span class="fc" id="L76">        Terminal terminal = createTerminal(width, height, fontConfig);</span>
+<span class="fc" id="L77">        this.screen = createScreen(terminal);</span>
+<span class="fc" id="L78">        this.resolution = newResolution;</span>
+<span class="fc" id="L79">    }</span>
+
+    private int resolutionToFontSize(SCREEN_RESOLUTION resolution) {
+<span class="pc bpc" id="L82" title="3 of 8 branches missed.">        switch (resolution) {</span>
+            case _360p:
+<span class="fc" id="L84">                return 2;</span>
+            case _540p:
+<span class="fc" id="L86">                return 3;</span>
+            case _720p:
+<span class="fc" id="L88">                return 4;</span>
+            case _900p:
+<span class="nc" id="L90">                return 5;</span>
+            case _1080p:
+<span class="fc" id="L92">                return 6;</span>
+            case _1440p:
+<span class="nc" id="L94">                return 8;</span>
+            case _2160p:
+<span class="fc" id="L96">                return 12;</span>
+        }
+<span class="nc" id="L98">        return 2;</span>
+    }
+
+    @Override
+    public SCREEN_RESOLUTION getResolution() {
+<span class="fc" id="L103">        return resolution;</span>
+    }
+
+    @Override
+    public List&lt;ACTION&gt; getNextAction() throws IOException {
+<span class="nc" id="L108">        List&lt;ACTION&gt; actions = new ArrayList&lt;&gt;();</span>
+        KeyStroke keyStroke;
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        while ((keyStroke = screen.pollInput()) != null) {</span>
+<span class="nc bnc" id="L111" title="All 4 branches missed.">            if (keyStroke.getKeyType() == KeyType.EOF || keyStroke.getKeyType() == KeyType.Escape)</span>
+<span class="nc" id="L112">                actions.add(ACTION.QUIT);</span>
+<span class="nc bnc" id="L113" title="All 4 branches missed.">            else if (keyStroke.getKeyType() == KeyType.Character &amp;&amp; keyStroke.getCharacter() == 'q')</span>
+<span class="nc" id="L114">                actions.add(ACTION.QUIT);</span>
+
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            else if (keyStroke.getKeyType() == KeyType.ArrowUp) actions.add(ACTION.UP);</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            else if (keyStroke.getKeyType() == KeyType.ArrowRight) actions.add(ACTION.RIGHT);</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            else if (keyStroke.getKeyType() == KeyType.ArrowDown) actions.add(ACTION.DOWN);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            else if (keyStroke.getKeyType() == KeyType.ArrowLeft) actions.add(ACTION.LEFT);</span>
+
+<span class="nc bnc" id="L121" title="All 4 branches missed.">            else if (keyStroke.getKeyType() == KeyType.Character &amp;&amp; keyStroke.getCharacter() == 'w')</span>
+<span class="nc" id="L122">                actions.add(ACTION.W);</span>
+<span class="nc bnc" id="L123" title="All 4 branches missed.">            else if (keyStroke.getKeyType() == KeyType.Character &amp;&amp; keyStroke.getCharacter() == 'a')</span>
+<span class="nc" id="L124">                actions.add(ACTION.A);</span>
+<span class="nc bnc" id="L125" title="All 4 branches missed.">            else if (keyStroke.getKeyType() == KeyType.Character &amp;&amp; keyStroke.getCharacter() == 's')</span>
+<span class="nc" id="L126">                actions.add(ACTION.S);</span>
+<span class="nc bnc" id="L127" title="All 4 branches missed.">            else if (keyStroke.getKeyType() == KeyType.Character &amp;&amp; keyStroke.getCharacter() == 'd')</span>
+<span class="nc" id="L128">                actions.add(ACTION.D);</span>
+
+
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            else if (keyStroke.getKeyType() == KeyType.Enter) actions.add(ACTION.SELECT);</span>
+        }
+
+<span class="nc" id="L134">        return actions;</span>
+    }
+
+    @Override
+    public void drawImage(Position position, BasicTextImage image) {
+<span class="nc" id="L139">        screen.newTextGraphics().drawImage(position.toTerminalPosition(), image);</span>
+<span class="nc" id="L140">    }</span>
+
+    @Override
+    public void drawImage(Position position, BufferedImage image) {
+<span class="nc" id="L144">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="nc" id="L145">        int posX = position.getX();</span>
+<span class="nc" id="L146">        int posY = position.getY();</span>
+
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        for (int y = 0; y &lt; 11; y++) {</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">            for (int x = 0; x &lt; 11; x++) {</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">                if (image.getRGB(x, y) == 0) continue;</span>
+
+<span class="nc" id="L152">                int RGB = image.getRGB(x, y);</span>
+<span class="nc" id="L153">                int red = RGB &gt;&gt; 16 &amp; 0xFF;</span>
+<span class="nc" id="L154">                int green = RGB &gt;&gt; 8 &amp; 0xFF;</span>
+<span class="nc" id="L155">                int blue = RGB &amp; 0xFF;</span>
+
+<span class="nc" id="L157">                tg.setBackgroundColor(new TextColor.RGB(red, green, blue));</span>
+<span class="nc" id="L158">                tg.setCharacter(posX + x, posY + y, ' ');</span>
+            }
+        }
+<span class="nc" id="L161">    }</span>
+
+    @Override
+    public void drawImage(Position position, BufferedImage image, int width, int height) {
+<span class="nc" id="L165">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="nc" id="L166">        int posX = position.getX();</span>
+<span class="nc" id="L167">        int posY = position.getY();</span>
+
+<span class="nc bnc" id="L169" title="All 2 branches missed.">        for (int y = 0; y &lt; height; y++) {</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">            for (int x = 0; x &lt; width; x++) {</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">                if (image.getRGB(x, y) == 0) continue;</span>
+
+<span class="nc" id="L173">                int RGB = image.getRGB(x, y);</span>
+<span class="nc" id="L174">                int red = RGB &gt;&gt; 16 &amp; 0xFF;</span>
+<span class="nc" id="L175">                int green = RGB &gt;&gt; 8 &amp; 0xFF;</span>
+<span class="nc" id="L176">                int blue = RGB &amp; 0xFF;</span>
+
+<span class="nc" id="L178">                tg.setBackgroundColor(new TextColor.RGB(red, green, blue));</span>
+<span class="nc" id="L179">                tg.setCharacter(posX + x, posY + y, ' ');</span>
+            }
+        }
+<span class="nc" id="L182">    }</span>
+
+    @Override
+    public void drawCharacter(Position position, BufferedImage character, TextColor color) {
+<span class="nc" id="L186">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="nc" id="L187">        tg.setBackgroundColor(color);</span>
+<span class="nc" id="L188">        int posX = position.getX();</span>
+<span class="nc" id="L189">        int posY = position.getY();</span>
+
+<span class="nc bnc" id="L191" title="All 2 branches missed.">        for (int y = 0; y &lt; 11; y++) {</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">            for (int x = 0; x &lt; 5; x++) {</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">                if (character.getRGB(x, y) == 0) continue;</span>
+<span class="nc" id="L194">                tg.setCharacter(posX + x, posY + y, ' ');</span>
+            }
+        }
+<span class="nc" id="L197">    }</span>
+
+    @Override
+    public void erase(Position position) {
+<span class="nc" id="L201">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="nc" id="L202">        tg.setBackgroundColor(new TextColor.RGB(0, 0, 0));</span>
+<span class="nc" id="L203">        tg.fillRectangle(position.toTerminalPosition(), new TerminalSize(11, 11), ' ');</span>
+<span class="nc" id="L204">    }</span>
+
+    @Override
+    public void clear() {
+<span class="nc" id="L208">        screen.clear();</span>
+<span class="nc" id="L209">    }</span>
+
+    @Override
+    public void refresh() throws IOException {
+<span class="nc" id="L213">        screen.refresh();</span>
+<span class="nc" id="L214">    }</span>
+
+    @Override
+    public void close() throws IOException {
+<span class="nc" id="L218">        screen.close();</span>
+<span class="nc" id="L219">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

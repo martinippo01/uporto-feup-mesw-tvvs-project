@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InkyMovementBehaviour.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.controller.game.element.behaviours</a> &gt; <span class="el_source">InkyMovementBehaviour.java</span></div><h1>InkyMovementBehaviour.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.controller.game.element.behaviours;
+
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.Arena;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Blinky;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Ghost;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+
+<span class="fc" id="L9">public class InkyMovementBehaviour extends GhostMovementBehaviour {</span>
+    @Override
+    protected Position getAlivePosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (arena.getCollectedCollectibles() &lt; 25) return new Position(8, 11);</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        if (!chaseMode) return new Position(arena.getWidth(), arena.getHeight());</span>
+
+<span class="nc" id="L16">        Ghost blinky = null;</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        for (Ghost g : arena.getGhosts())</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">            if (g.getClass() == Blinky.class) {</span>
+<span class="nc" id="L19">                blinky = g;</span>
+<span class="nc" id="L20">                break;</span>
+            }
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        assert blinky != null;</span>
+<span class="nc" id="L23">        Position pacmanNextPos = targetPacman.getNextPosition();</span>
+
+<span class="nc" id="L25">        int newX = 2 * pacmanNextPos.getX() - blinky.getPosition().getX();</span>
+<span class="nc" id="L26">        int newY = 2 * pacmanNextPos.getY() - blinky.getPosition().getY();</span>
+
+        //bound the new coords
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (newX &lt; 0) newX = 0;</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (newX &gt; arena.getWidth()) newX = arena.getWidth();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (newY &lt; 0) newY = 0;</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (newY &gt; arena.getHeight()) newY = arena.getHeight();</span>
+
+<span class="nc" id="L34">        return new Position(newX, newY);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

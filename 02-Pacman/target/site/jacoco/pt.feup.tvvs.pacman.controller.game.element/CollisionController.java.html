@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CollisionController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.controller.game.element</a> &gt; <span class="el_source">CollisionController.java</span></div><h1>CollisionController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.controller.game.element;
+
+import pt.feup.tvvs.pacman.Game;
+import pt.feup.tvvs.pacman.audio.AudioManager;
+import pt.feup.tvvs.pacman.audio.AudioPlayer;
+import pt.feup.tvvs.pacman.controller.game.GameController;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.Position;
+import pt.feup.tvvs.pacman.model.game.Arena;
+import pt.feup.tvvs.pacman.model.game.element.collectibles.PowerUp;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Ghost;
+import pt.feup.tvvs.pacman.model.game.element.ghost.GhostState;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+import pt.feup.tvvs.pacman.states.game.DyingState;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+public class CollisionController extends GameController {
+    private final AudioPlayer ghostEatenAudio;
+    private final AudioPlayer collectibleEatenAudio;
+    private final AudioPlayer ghostsAliveSiren;
+    private final AudioPlayer ghostsScaredSiren;
+    private int deadPacmanTimeCounter; //counter for one dead pacman on multiplayer
+    private int ghostsEaten; //ghosts eaten in current scared state
+    private int scaredTimeLeft;
+
+    public CollisionController(Arena arena, AudioManager audioManager) {
+<span class="fc" id="L30">        super(arena);</span>
+
+<span class="fc" id="L32">        audioManager.addAudio(&quot;ghostEaten&quot;, &quot;Audio/ghostEaten.wav&quot;);</span>
+<span class="fc" id="L33">        this.ghostEatenAudio = audioManager.getAudio(&quot;ghostEaten&quot;);</span>
+<span class="fc" id="L34">        this.ghostEatenAudio.setVolume(0.40f);</span>
+
+<span class="fc" id="L36">        audioManager.addAudio(&quot;collectibleEaten&quot;, &quot;Audio/collectibleEaten.wav&quot;);</span>
+<span class="fc" id="L37">        this.collectibleEatenAudio = audioManager.getAudio(&quot;collectibleEaten&quot;);</span>
+<span class="fc" id="L38">        collectibleEatenAudio.setVolume(0.25f);</span>
+
+<span class="fc" id="L40">        audioManager.addAudio(&quot;ghostsAliveSiren&quot;, &quot;Audio/ghostsAlive.wav&quot;);</span>
+<span class="fc" id="L41">        this.ghostsAliveSiren = audioManager.getAudio(&quot;ghostsAliveSiren&quot;);</span>
+<span class="fc" id="L42">        this.ghostsAliveSiren.setVolume(0.2f);</span>
+
+<span class="fc" id="L44">        audioManager.addAudio(&quot;ghostsScaredSiren&quot;, &quot;Audio/ghostsScared.wav&quot;);</span>
+<span class="fc" id="L45">        this.ghostsScaredSiren = audioManager.getAudio(&quot;ghostsScaredSiren&quot;);</span>
+<span class="fc" id="L46">        this.ghostsScaredSiren.setVolume(0.25f);</span>
+
+<span class="fc" id="L48">        this.deadPacmanTimeCounter = 0;</span>
+<span class="fc" id="L49">        this.ghostsEaten = 0;</span>
+<span class="fc" id="L50">        this.scaredTimeLeft = 0;</span>
+<span class="fc" id="L51">    }</span>
+
+    private void checkPacmanGhostCollision(Game game) throws IOException, URISyntaxException {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (Pacman pacman : getModel().getPacmans()) {</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">            if (pacman.isDying()) continue; //don't process collisions with dead pacmans</span>
+            outer:
+<span class="fc bfc" id="L57" title="All 2 branches covered.">            for (Ghost ghost : getModel().getGhosts()) {</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">                if (ghost.collidingWith(pacman)) {</span>
+<span class="pc bpc" id="L59" title="1 of 3 branches missed.">                    switch (ghost.getState()) {</span>
+                        case ALIVE:
+<span class="fc" id="L61">                            pacman.decreaseLife();</span>
+<span class="fc" id="L62">                            pacman.setDying(true);</span>
+<span class="fc" id="L63">                            pacman.setSpeed(Arena.PACMAN_NORMAL_SPEED);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">                            long alivePacmans = getModel().getPacmans().stream().filter(pacman1 -&gt; !pacman1.isDying()).count();</span>
+                            //first condition is for multiplayer, second is for single player
+<span class="fc bfc" id="L66" title="All 2 branches covered.">                            if (alivePacmans == 0) {</span>
+<span class="fc" id="L67">                                game.getAudioManager().stopAllAudios();</span>
+<span class="nc" id="L68">                                game.setState(new DyingState(getModel(), game.getAudioManager()));</span>
+                            }
+                            //if no pacman is dead before set counter to freeze the dead pacman (multiplayer only)
+<span class="fc" id="L71">                            else deadPacmanTimeCounter = 110;</span>
+<span class="fc" id="L72">                            break outer;</span>
+                        case SCARED:
+<span class="fc" id="L74">                            ghostEatenAudio.playOnce();</span>
+<span class="fc" id="L75">                            ghost.setState(GhostState.DEAD);</span>
+<span class="fc" id="L76">                            ghost.setSpeed(Arena.GHOST_DEAD_SPEED);</span>
+                            //each ghost is worth double the one eaten before in the current scared state, starting from 200
+<span class="fc" id="L78">                            getModel().incrementScore((long) (200 * Math.pow(2, ghostsEaten++)));</span>
+<span class="fc" id="L79">                            break;</span>
+                        default:
+                            break;
+                    }
+                }
+<span class="fc" id="L84">            }</span>
+<span class="fc" id="L85">        }</span>
+<span class="fc" id="L86">    }</span>
+
+    private void checkPacmanCollectibleCollision() {
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        for (Pacman pacman : getModel().getPacmans()) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            if (pacman.isDying()) continue;</span>
+<span class="fc" id="L91">            getModel().getCollectibles().removeIf(collectible -&gt; { //safe remove while iterating</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                if (pacman.getPosition().equals(collectible.getPosition())) {</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">                    if (collectible.getClass() == PowerUp.class) {</span>
+<span class="fc" id="L94">                        scaredTimeLeft = 1500;</span>
+<span class="fc" id="L95">                        ghostsEaten = 0;</span>
+<span class="fc" id="L96">                        ghostsAliveSiren.stopPlaying();</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">                        if (!ghostsScaredSiren.isPlaying()) ghostsScaredSiren.playInLoop();</span>
+
+<span class="fc" id="L99">                        getModel().getGhosts().forEach(ghost -&gt; {</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">                            if (!ghost.isDead()) {</span>
+<span class="fc" id="L101">                                ghost.setState(GhostState.SCARED);</span>
+<span class="fc" id="L102">                                ghost.setSpeed(Arena.GHOST_SCARED_SPEED);</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">                                if (!ghost.getPosition().equals(getModel().getGhostGate().getPosition()))</span>
+<span class="fc" id="L104">                                    ghost.invertDirection();</span>
+                            }
+<span class="fc" id="L106">                        });</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                        for (Pacman p : getModel().getPacmans()) p.setSpeed(Arena.PACMAN_BOOSTED_SPEED);</span>
+                    }
+<span class="fc" id="L109">                    collectibleEatenAudio.playOnce();</span>
+<span class="fc" id="L110">                    getModel().addBlankPosition(new Position(collectible.getPosition())); //new position to be cleared</span>
+<span class="fc" id="L111">                    getModel().incrementScore(collectible.getValue());</span>
+<span class="fc" id="L112">                    getModel().incrementCollectedCollectibles();</span>
+<span class="fc" id="L113">                    return true;</span>
+                }
+<span class="nc" id="L115">                return false;</span>
+            });
+<span class="fc" id="L117">        }</span>
+<span class="fc" id="L118">    }</span>
+
+    @Override
+    public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws IOException, URISyntaxException {
+<span class="pc bpc" id="L122" title="2 of 4 branches missed.">        if (!ghostsAliveSiren.isPlaying() &amp;&amp; !ghostsScaredSiren.isPlaying()) {</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            if (scaredTimeLeft == 0) ghostsAliveSiren.playInLoop(); //start of the game or leaving pause menu</span>
+<span class="fc" id="L124">            else ghostsScaredSiren.playInLoop(); //leaving pause menu and scared state was on before</span>
+        }
+
+        //when playing multiplayer and one pacman is still alive, the other comes to life
+<span class="pc bpc" id="L128" title="1 of 4 branches missed.">        if (deadPacmanTimeCounter &gt; 0 &amp;&amp; --deadPacmanTimeCounter == 0) {</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">            for (Pacman pacman : getModel().getPacmans())</span>
+<span class="pc bpc" id="L130" title="1 of 4 branches missed.">                if (pacman.isDying() &amp;&amp; pacman.getLife() &gt; 0) {</span>
+<span class="fc" id="L131">                    pacman.setDying(false);</span>
+<span class="fc" id="L132">                    pacman.setPosition(pacman.getRespawnPosition());</span>
+<span class="fc" id="L133">                    pacman.setCounter(0);</span>
+                }
+        }
+
+        //if scared time ends or if all ghosts are eaten scared time ends
+<span class="pc bpc" id="L138" title="1 of 6 branches missed.">        if ((scaredTimeLeft &gt; 0 &amp;&amp; --scaredTimeLeft == 0) || ghostsEaten == getModel().getGhosts().size()) {</span>
+<span class="fc" id="L139">            getModel().getGhosts().forEach(ghost -&gt; {</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">                if (ghost.isScared()) {</span>
+<span class="fc" id="L141">                    ghost.setState(GhostState.ALIVE);</span>
+<span class="fc" id="L142">                    ghost.setSpeed(Arena.GHOST_NORMAL_SPEED);</span>
+                }
+<span class="fc" id="L144">            });</span>
+<span class="fc" id="L145">            ghostsScaredSiren.stopPlaying();</span>
+<span class="fc" id="L146">            ghostsAliveSiren.playInLoop();</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">            for (Pacman pacman : getModel().getPacmans()) pacman.setSpeed(Arena.PACMAN_NORMAL_SPEED);</span>
+<span class="fc" id="L148">            ghostsEaten = 0;</span>
+        }
+
+<span class="fc" id="L151">        checkPacmanGhostCollision(game); //check and process collisions between ghosts and pacmans</span>
+<span class="fc" id="L152">        checkPacmanCollectibleCollision(); //check and process collisions between collectibles and pacmans</span>
+
+<span class="fc" id="L154">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

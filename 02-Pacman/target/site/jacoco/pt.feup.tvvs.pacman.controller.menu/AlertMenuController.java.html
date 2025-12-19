@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AlertMenuController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.controller.menu</a> &gt; <span class="el_source">AlertMenuController.java</span></div><h1>AlertMenuController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.controller.menu;
+
+import pt.feup.tvvs.pacman.Game;
+import pt.feup.tvvs.pacman.audio.AudioManager;
+import pt.feup.tvvs.pacman.gui.GUI;
+import pt.feup.tvvs.pacman.model.menu.AlertMenu;
+import pt.feup.tvvs.pacman.model.menu.MainMenu;
+import pt.feup.tvvs.pacman.model.menu.MapSelectionMenu;
+import pt.feup.tvvs.pacman.states.menu.MainMenuState;
+import pt.feup.tvvs.pacman.states.menu.MapSelectionMenuState;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+public class AlertMenuController extends MenuController&lt;AlertMenu&gt; {
+    public AlertMenuController(AlertMenu model, AudioManager audioManager) {
+<span class="nc" id="L19">        super(model, audioManager);</span>
+<span class="nc" id="L20">    }</span>
+
+    @Override
+    public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws URISyntaxException, IOException, FontFormatException {
+<span class="nc" id="L24">        super.step(game, actions, time);</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (GUI.ACTION action : actions) {</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">            if (action == GUI.ACTION.SELECT) {</span>
+<span class="nc" id="L27">                menuConfirmSelection.playOnce();</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">                if (getModel().PlayAgainSelected()) { //go back to map selection menu</span>
+<span class="nc" id="L29">                    game.getAudioManager().stopAllAudios();</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">                    String mode = (getModel().getArena().getPacmans().size() == 1 ? &quot;singleplayer&quot; : &quot;multiplayer&quot;);</span>
+<span class="nc" id="L31">                    game.setState(new MapSelectionMenuState(new MapSelectionMenu(mode), game.getAudioManager()));</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                } else if (getModel().ExitSelected()) { //go back to main menu</span>
+<span class="nc" id="L33">                    game.getAudioManager().stopAllAudios();</span>
+<span class="nc" id="L34">                    game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
+                }
+            }
+<span class="nc" id="L37">        }</span>
+<span class="nc" id="L38">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

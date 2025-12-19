@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ViewerFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.viewer</a> &gt; <span class="el_source">ViewerFactory.java</span></div><h1>ViewerFactory.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.viewer;
+
+import pt.feup.tvvs.pacman.model.Element;
+import pt.feup.tvvs.pacman.model.game.element.GhostGate;
+import pt.feup.tvvs.pacman.model.game.element.Wall;
+import pt.feup.tvvs.pacman.model.game.element.collectibles.*;
+import pt.feup.tvvs.pacman.model.game.element.collectibles.*;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Blinky;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Clyde;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Inky;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Pinky;
+import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
+import pt.feup.tvvs.pacman.model.menu.element.TextBox;
+import pt.feup.tvvs.pacman.viewer.game.ElementViewer;
+import pt.feup.tvvs.pacman.viewer.game.ImageLoader;
+import pt.feup.tvvs.pacman.viewer.game.MovableElementViewer;
+import pt.feup.tvvs.pacman.viewer.game.strategies.GhostStrategy;
+import pt.feup.tvvs.pacman.viewer.game.strategies.PacmanStrategy;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="nc" id="L24">public class ViewerFactory {</span>
+    public static Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; createArenaViewers() throws IOException {
+<span class="fc" id="L26">        Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; viewers = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L28">        viewers.put(Wall.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/wall.png&quot;)));</span>
+<span class="fc" id="L29">        viewers.put(GhostGate.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/ghostgate.png&quot;)));</span>
+<span class="fc" id="L30">        viewers.put(Coin.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/coin.png&quot;)));</span>
+<span class="fc" id="L31">        viewers.put(Apple.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/apple.png&quot;)));</span>
+<span class="fc" id="L32">        viewers.put(Cherry.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/cherry.png&quot;)));</span>
+<span class="fc" id="L33">        viewers.put(Key.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/key.png&quot;)));</span>
+<span class="fc" id="L34">        viewers.put(Orange.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/orange.png&quot;)));</span>
+<span class="fc" id="L35">        viewers.put(Strawberry.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/strawberry.png&quot;)));</span>
+<span class="fc" id="L36">        viewers.put(PowerUp.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/items/powerup.png&quot;)));</span>
+
+<span class="fc" id="L38">        viewers.put(TextBox.class, new TextBoxViewer(ImageLoader.loadFontImages()));</span>
+
+<span class="nc" id="L40">        viewers.put(Pacman.class, new MovableElementViewer(new PacmanStrategy(), ImageLoader.loadPacmanImages()));</span>
+
+<span class="nc" id="L42">        viewers.put(Blinky.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;blinky&quot;)));</span>
+<span class="nc" id="L43">        viewers.put(Pinky.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;pinky&quot;)));</span>
+<span class="nc" id="L44">        viewers.put(Inky.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;inky&quot;)));</span>
+<span class="nc" id="L45">        viewers.put(Clyde.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;clyde&quot;)));</span>
+
+<span class="nc" id="L47">        return viewers;</span>
+    }
+
+    public static Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; createMainMenuViewers() throws IOException {
+<span class="nc" id="L51">        Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; viewers = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L52">        viewers.put(TextBox.class, new TextBoxViewer(ImageLoader.loadFontImages()));</span>
+
+<span class="nc" id="L54">        viewers.put(Pacman.class, new ElementViewer(ImageLoader.loadTextImage(&quot;PNGs/pacman/pacmanright.png&quot;)));</span>
+
+<span class="nc" id="L56">        viewers.put(Blinky.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;blinky&quot;)));</span>
+<span class="nc" id="L57">        viewers.put(Pinky.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;pinky&quot;)));</span>
+<span class="nc" id="L58">        viewers.put(Inky.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;inky&quot;)));</span>
+<span class="nc" id="L59">        viewers.put(Clyde.class, new MovableElementViewer(new GhostStrategy(), ImageLoader.loadGhostImages(&quot;clyde&quot;)));</span>
+
+<span class="nc" id="L61">        return viewers;</span>
+    }
+
+    public static Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; createPauseMenuViewers() throws IOException {
+<span class="fc" id="L65">        Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; viewers = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L66">        viewers.put(TextBox.class, new TextBoxViewer(ImageLoader.loadFontImages()));</span>
+<span class="fc" id="L67">        return viewers;</span>
+    }
+
+    public static Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; createMapSelectionMenuViewers() throws IOException {
+<span class="nc" id="L71">        Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; viewers = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L72">        viewers.put(TextBox.class, new TextBoxViewer(ImageLoader.loadFontImages()));</span>
+<span class="nc" id="L73">        return viewers;</span>
+    }
+
+    public static Map&lt;Class&lt;?&gt;, Viewer&lt;Element&gt;&gt; createAlertMenuViewers() throws IOException {
+<span class="nc" id="L77">        return createArenaViewers();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

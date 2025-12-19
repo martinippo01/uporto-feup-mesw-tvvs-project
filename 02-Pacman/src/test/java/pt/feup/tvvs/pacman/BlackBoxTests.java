@@ -62,7 +62,6 @@ public class BlackBoxTests {
                 // If it succeeds, resolution must be updated to the new resolution (single focused assertion)
                 assertThat(gui.getResolution()).isEqualTo(pt.feup.tvvs.pacman.gui.GUI.SCREEN_RESOLUTION._720p);
             } catch (Exception e) {
-                // If an exception occurs, that's an acceptable off-point behavior for this environment
                 assertThat(e).isInstanceOf(Exception.class);
             }
         }

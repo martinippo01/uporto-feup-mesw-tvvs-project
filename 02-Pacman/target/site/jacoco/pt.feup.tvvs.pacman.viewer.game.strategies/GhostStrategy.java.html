@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GhostStrategy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pacman</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.pacman.viewer.game.strategies</a> &gt; <span class="el_source">GhostStrategy.java</span></div><h1>GhostStrategy.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.pacman.viewer.game.strategies;
+
+import pt.feup.tvvs.pacman.model.Element;
+import pt.feup.tvvs.pacman.model.game.element.ghost.Ghost;
+import pt.feup.tvvs.pacman.model.game.element.ghost.GhostState;
+
+import java.awt.image.BufferedImage;
+import java.util.List;
+import java.util.Map;
+
+<span class="nc" id="L11">public class GhostStrategy extends MultipleElementStrategy {</span>
+    @Override
+    public BufferedImage getCurrentImage(Element element, Map&lt;Character, List&lt;BufferedImage&gt;&gt; images, long frameCount) {
+<span class="nc" id="L14">        Ghost ghost = (Ghost) element;</span>
+        //first use the module operator to limit the value to only 20 different values, then assign the first ten to the first image and the rest to the second image
+<span class="nc bnc" id="L16" title="All 4 branches missed.">        int index = (ghost.getState() != GhostState.DEAD ? (frameCount % 20 &lt; 10 ? 0 : 1) : 0);</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (ghost.isScared()) return images.get('S').get(index);</span>
+<span class="nc bnc" id="L18" title="All 5 branches missed.">        switch (ghost.getDirection()) {</span>
+            case UP:
+<span class="nc bnc" id="L20" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'U' : 'u').get(index);</span>
+            case DOWN:
+<span class="nc bnc" id="L22" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'D' : 'd').get(index);</span>
+            case RIGHT:
+<span class="nc bnc" id="L24" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'R' : 'r').get(index);</span>
+            case LEFT:
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'L' : 'l').get(index);</span>
+        }
+<span class="nc" id="L28">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
