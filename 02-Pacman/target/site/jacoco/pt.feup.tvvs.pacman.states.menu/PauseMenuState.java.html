@@ -13,17 +13,17 @@ import java.net.URISyntaxException;
 
 public class PauseMenuState extends State&lt;PauseMenu&gt; {
     public PauseMenuState(PauseMenu pauseMenu, AudioManager audioManager) throws IOException, URISyntaxException {
-<span class="fc" id="L16">        super(pauseMenu, audioManager);</span>
-<span class="fc" id="L17">    }</span>
+<span class="nc" id="L16">        super(pauseMenu, audioManager);</span>
+<span class="nc" id="L17">    }</span>
 
     @Override
     public Viewer&lt;PauseMenu&gt; createViewer() throws IOException {
-<span class="fc" id="L21">        return new PauseMenuViewer();</span>
+<span class="nc" id="L21">        return new PauseMenuViewer();</span>
     }
 
     @Override
     public Controller&lt;PauseMenu&gt; createController(AudioManager audioManager) {
-<span class="fc" id="L26">        return new PauseMenuController(getModel(), audioManager);</span>
+<span class="nc" id="L26">        return new PauseMenuController(getModel(), audioManager);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

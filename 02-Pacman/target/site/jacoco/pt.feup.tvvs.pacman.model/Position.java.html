@@ -35,19 +35,19 @@ public class Position {
 <span class="nc" id="L35">    }</span>
 
     public Position getLeft() {
-<span class="nc" id="L38">        return new Position(x - 1, y);</span>
+<span class="fc" id="L38">        return new Position(x - 1, y);</span>
     }
 
     public Position getRight() {
-<span class="nc" id="L42">        return new Position(x + 1, y);</span>
+<span class="fc" id="L42">        return new Position(x + 1, y);</span>
     }
 
     public Position getUp() {
-<span class="nc" id="L46">        return new Position(x, y - 1);</span>
+<span class="fc" id="L46">        return new Position(x, y - 1);</span>
     }
 
     public Position getDown() {
-<span class="nc" id="L50">        return new Position(x, y + 1);</span>
+<span class="fc" id="L50">        return new Position(x, y + 1);</span>
     }
 
     public void setPosition(Position other) {
@@ -60,7 +60,7 @@ public class Position {
     }
 
     public TerminalPosition toTerminalPosition() {
-<span class="nc" id="L63">        return new TerminalPosition(x, y);</span>
+<span class="fc" id="L63">        return new TerminalPosition(x, y);</span>
     }
 
     @Override
@@ -70,7 +70,7 @@ public class Position {
 
     @Override
     public boolean equals(Object obj) {
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (this == obj) return true;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if (this == obj) return true;</span>
 <span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (!(obj instanceof Position)) return false;</span>
 <span class="fc" id="L75">        Position position = (Position) obj;</span>
 <span class="fc bfc" id="L76" title="All 4 branches covered.">        return x == position.getX() &amp;&amp; y == position.getY();</span>

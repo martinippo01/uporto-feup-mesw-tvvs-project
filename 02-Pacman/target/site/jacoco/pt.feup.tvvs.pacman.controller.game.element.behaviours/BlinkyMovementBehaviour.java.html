@@ -8,9 +8,9 @@ import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
 <span class="fc" id="L8">public class BlinkyMovementBehaviour extends GhostMovementBehaviour {</span>
     @Override
     protected Position getAlivePosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (!chaseMode) return new Position(arena.getWidth(), 0);</span>
-<span class="nc" id="L13">        return targetPacman.getPosition();</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (!chaseMode) return new Position(arena.getWidth(), 0);</span>
+<span class="fc" id="L13">        return targetPacman.getPosition();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

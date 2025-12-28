@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.580 s -- in pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s -- in pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests

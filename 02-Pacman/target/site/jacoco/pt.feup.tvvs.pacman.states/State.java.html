@@ -17,15 +17,15 @@ public abstract class State&lt;T&gt; {
     private final Controller&lt;T&gt; controller;
     private final AudioManager audioManager;
 
-<span class="fc" id="L20">    public State(T model, AudioManager audioManager) throws IOException, URISyntaxException {</span>
-<span class="fc" id="L21">        this.model = model;</span>
-<span class="fc" id="L22">        this.viewer = createViewer();</span>
-<span class="fc" id="L23">        this.controller = createController(audioManager);</span>
-<span class="fc" id="L24">        this.audioManager = audioManager;</span>
-<span class="fc" id="L25">    }</span>
+<span class="nc" id="L20">    public State(T model, AudioManager audioManager) throws IOException, URISyntaxException {</span>
+<span class="nc" id="L21">        this.model = model;</span>
+<span class="nc" id="L22">        this.viewer = createViewer();</span>
+<span class="nc" id="L23">        this.controller = createController(audioManager);</span>
+<span class="nc" id="L24">        this.audioManager = audioManager;</span>
+<span class="nc" id="L25">    }</span>
 
     public T getModel() {
-<span class="fc" id="L28">        return model;</span>
+<span class="nc" id="L28">        return model;</span>
     }
 
     public abstract Viewer&lt;T&gt; createViewer() throws IOException;

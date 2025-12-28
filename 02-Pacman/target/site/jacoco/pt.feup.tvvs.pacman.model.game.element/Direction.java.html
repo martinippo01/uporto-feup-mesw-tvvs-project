@@ -7,11 +7,11 @@
 <span class="fc" id="L7">    RIGHT;</span>
 
     public boolean isOpposite(Direction other) {
-<span class="nc bnc" id="L10" title="All 16 branches missed.">        return (this == UP &amp;&amp; other == DOWN) || (this == DOWN &amp;&amp; other == UP) || (this == LEFT &amp;&amp; other == RIGHT) || (this == RIGHT &amp;&amp; other == LEFT);</span>
+<span class="pc bpc" id="L10" title="1 of 16 branches missed.">        return (this == UP &amp;&amp; other == DOWN) || (this == DOWN &amp;&amp; other == UP) || (this == LEFT &amp;&amp; other == RIGHT) || (this == RIGHT &amp;&amp; other == LEFT);</span>
     }
 
     public Direction getOpposite() {
-<span class="pc bpc" id="L14" title="4 of 5 branches missed.">        switch (this) {</span>
+<span class="pc bpc" id="L14" title="3 of 5 branches missed.">        switch (this) {</span>
             case UP:
 <span class="nc" id="L16">                return DOWN;</span>
             case DOWN:
@@ -19,7 +19,7 @@
             case LEFT:
 <span class="fc" id="L20">                return RIGHT;</span>
             case RIGHT:
-<span class="nc" id="L22">                return LEFT;</span>
+<span class="fc" id="L22">                return LEFT;</span>
         }
 <span class="nc" id="L24">        return null;</span>
     }

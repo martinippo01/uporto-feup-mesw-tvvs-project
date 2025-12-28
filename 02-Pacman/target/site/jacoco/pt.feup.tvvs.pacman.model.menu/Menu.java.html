@@ -33,24 +33,24 @@ public abstract class Menu {
 <span class="fc" id="L33">    }</span>
 
     public int getSelectedOption() {
-<span class="nc" id="L36">        return selectedOption;</span>
+<span class="fc" id="L36">        return selectedOption;</span>
     }
 
     public void setSelectedOption(int selectedOption) {
-<span class="nc" id="L40">        this.selectedOption = selectedOption;</span>
-<span class="nc" id="L41">    }</span>
+<span class="fc" id="L40">        this.selectedOption = selectedOption;</span>
+<span class="fc" id="L41">    }</span>
 
     public void selectNextOption() {
-<span class="nc" id="L44">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 255));</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (++selectedOption &gt;= options.size()) selectedOption = 0;</span>
-<span class="nc" id="L46">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 0));</span>
-<span class="nc" id="L47">    }</span>
+<span class="fc" id="L44">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 255));</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (++selectedOption &gt;= options.size()) selectedOption = 0;</span>
+<span class="fc" id="L46">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 0));</span>
+<span class="fc" id="L47">    }</span>
 
     public void selectPreviousOption() {
-<span class="nc" id="L50">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 255));</span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (--selectedOption &lt; 0) selectedOption = options.size() - 1;</span>
-<span class="nc" id="L52">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 0));</span>
-<span class="nc" id="L53">    }</span>
+<span class="fc" id="L50">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 255));</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (--selectedOption &lt; 0) selectedOption = options.size() - 1;</span>
+<span class="fc" id="L52">        options.get(selectedOption).setColor(new TextColor.RGB(255, 255, 0));</span>
+<span class="fc" id="L53">    }</span>
 
     protected abstract List&lt;TextBox&gt; createOptions();
 

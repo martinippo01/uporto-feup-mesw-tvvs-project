@@ -12,40 +12,40 @@ import java.util.Objects;
 public class MapSelectionMenu extends Menu {
     private final String folderstring;
 
-<span class="nc" id="L15">    public MapSelectionMenu(String folderstring) {</span>
-<span class="nc" id="L16">        this.folderstring = folderstring;</span>
-<span class="nc" id="L17">        initializeOptions();</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L15">    public MapSelectionMenu(String folderstring) {</span>
+<span class="fc" id="L16">        this.folderstring = folderstring;</span>
+<span class="fc" id="L17">        initializeOptions();</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     protected List&lt;TextBox&gt; createOptions() {
-<span class="nc" id="L22">        List&lt;String&gt; mapNames = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L23">        File mapFolder = new File(&quot;src/main/resources/Maps/&quot; + folderstring);</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (final File fileEntry : Objects.requireNonNull(mapFolder.listFiles())) {</span>
-<span class="nc bnc" id="L25" title="All 4 branches missed.">            if (!fileEntry.isDirectory() &amp;&amp; fileEntry.getName().endsWith(&quot;.txt&quot;)) {</span>
-<span class="nc" id="L26">                mapNames.add(fileEntry.getName().substring(0, fileEntry.getName().length() - 4));</span>
+<span class="fc" id="L22">        List&lt;String&gt; mapNames = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L23">        File mapFolder = new File(&quot;src/main/resources/Maps/&quot; + folderstring);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (final File fileEntry : Objects.requireNonNull(mapFolder.listFiles())) {</span>
+<span class="pc bpc" id="L25" title="2 of 4 branches missed.">            if (!fileEntry.isDirectory() &amp;&amp; fileEntry.getName().endsWith(&quot;.txt&quot;)) {</span>
+<span class="fc" id="L26">                mapNames.add(fileEntry.getName().substring(0, fileEntry.getName().length() - 4));</span>
             }
         }
 
-<span class="nc" id="L30">        mapNames.sort(String::compareTo);</span>
-<span class="nc" id="L31">        List&lt;TextBox&gt; options = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L32">        int y = 80;</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (String mapName : mapNames) {</span>
-<span class="nc" id="L34">            options.add(new TextBox(mapName,</span>
-<span class="nc" id="L35">                    new Position(160 - (mapName.length() * 5) / 2, y), //math to center the text box</span>
+<span class="fc" id="L30">        mapNames.sort(String::compareTo);</span>
+<span class="fc" id="L31">        List&lt;TextBox&gt; options = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L32">        int y = 80;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (String mapName : mapNames) {</span>
+<span class="fc" id="L34">            options.add(new TextBox(mapName,</span>
+<span class="fc" id="L35">                    new Position(160 - (mapName.length() * 5) / 2, y), //math to center the text box</span>
                     new TextColor.RGB(255, 255, 255)));
-<span class="nc" id="L37">            y += 11;</span>
-<span class="nc" id="L38">        }</span>
-<span class="nc" id="L39">        return options;</span>
+<span class="fc" id="L37">            y += 11;</span>
+<span class="fc" id="L38">        }</span>
+<span class="fc" id="L39">        return options;</span>
     }
 
     @Override
     protected TextBox createTitle() {
-<span class="nc" id="L44">        return new TextBox(&quot;MAP SELECTION&quot;, new Position(128, 30), new TextColor.RGB(255, 255, 255));</span>
+<span class="fc" id="L44">        return new TextBox(&quot;MAP SELECTION&quot;, new Position(128, 30), new TextColor.RGB(255, 255, 255));</span>
     }
 
     public String getFolderstring() {
-<span class="nc" id="L48">        return folderstring;</span>
+<span class="fc" id="L48">        return folderstring;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

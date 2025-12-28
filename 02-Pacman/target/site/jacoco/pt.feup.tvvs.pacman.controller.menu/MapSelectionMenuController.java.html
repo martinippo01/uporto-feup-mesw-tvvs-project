@@ -17,26 +17,26 @@ import java.util.List;
 
 public class MapSelectionMenuController extends MenuController&lt;MapSelectionMenu&gt; {
     public MapSelectionMenuController(MapSelectionMenu model, AudioManager audioManager) {
-<span class="nc" id="L20">        super(model, audioManager);</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L20">        super(model, audioManager);</span>
+<span class="fc" id="L21">    }</span>
 
     @Override
     public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws IOException, URISyntaxException, FontFormatException {
-<span class="nc" id="L25">        super.step(game, actions, time);</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        for (GUI.ACTION action : actions) {</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">            if (action == GUI.ACTION.SELECT) {</span>
-<span class="nc" id="L28">                menuConfirmSelection.playOnce();</span>
-<span class="nc" id="L29">                Arena arena = new Arena(29, 16);</span>
-<span class="nc" id="L30">                ArenaLoader arenaLoader = new ArenaLoader(arena);</span>
+<span class="fc" id="L25">        super.step(game, actions, time);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (GUI.ACTION action : actions) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">            if (action == GUI.ACTION.SELECT) {</span>
+<span class="fc" id="L28">                menuConfirmSelection.playOnce();</span>
+<span class="fc" id="L29">                Arena arena = new Arena(29, 16);</span>
+<span class="fc" id="L30">                ArenaLoader arenaLoader = new ArenaLoader(arena);</span>
 
-<span class="nc" id="L32">                arenaLoader.loadMap(&quot;src/main/resources/Maps/&quot; + model.getFolderstring() + &quot;/&quot; +</span>
-<span class="nc" id="L33">                        model.getOptions().get(model.getSelectedOption()).getText() + &quot;.txt&quot;);</span>
+<span class="fc" id="L32">                arenaLoader.loadMap(&quot;src/main/resources/Maps/&quot; + model.getFolderstring() + &quot;/&quot; +</span>
+<span class="fc" id="L33">                        model.getOptions().get(model.getSelectedOption()).getText() + &quot;.txt&quot;);</span>
 
-<span class="nc" id="L35">                game.setState(new GameState(arena, game.getAudioManager()));</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">            } else if (action == GUI.ACTION.QUIT) {</span>
-<span class="nc" id="L37">                game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
+<span class="fc" id="L35">                game.setState(new GameState(arena, game.getAudioManager()));</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">            } else if (action == GUI.ACTION.QUIT) {</span>
+<span class="fc" id="L37">                game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
             }
-<span class="nc" id="L39">        }</span>
-<span class="nc" id="L40">    }</span>
+<span class="fc" id="L39">        }</span>
+<span class="fc" id="L40">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

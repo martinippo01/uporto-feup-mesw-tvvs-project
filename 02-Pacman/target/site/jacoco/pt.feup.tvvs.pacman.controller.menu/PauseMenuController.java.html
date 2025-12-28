@@ -20,24 +20,24 @@ public class PauseMenuController extends MenuController&lt;PauseMenu&gt; {
 
     @Override
     public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws IOException, URISyntaxException, FontFormatException {
-<span class="nc" id="L23">        super.step(game, actions, time);</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (GUI.ACTION action : actions) {</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (action == GUI.ACTION.SELECT) {</span>
-<span class="nc" id="L26">                menuConfirmSelection.playOnce();</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">                if (getModel().ResumeSelected()) { //return to the game</span>
-<span class="nc" id="L28">                    game.setState(getModel().getPausedState());</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">                } else if (getModel().ExitSelected()) { //go to main menu</span>
-<span class="nc" id="L30">                    game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">                } else if (getModel().ResolutionSelected()) { //change the resolution</span>
-<span class="nc" id="L32">                    GUI.SCREEN_RESOLUTION newResolution = incrementResolution(game.getResolution());</span>
-<span class="nc" id="L33">                    game.setResolution(newResolution);</span>
-<span class="nc" id="L34">                    getModel().setResolution(newResolution);</span>
-<span class="nc bnc" id="L35" title="All 2 branches missed.">                } else if (getModel().MasterVolumeSelected()) { //change the master volume</span>
-<span class="nc" id="L36">                    float newVolume = super.handleVolumeChange(game);</span>
-<span class="nc" id="L37">                    getModel().setMasterVolume(newVolume);</span>
+<span class="fc" id="L23">        super.step(game, actions, time);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (GUI.ACTION action : actions) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (action == GUI.ACTION.SELECT) {</span>
+<span class="fc" id="L26">                menuConfirmSelection.playOnce();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">                if (getModel().ResumeSelected()) { //return to the game</span>
+<span class="fc" id="L28">                    game.setState(getModel().getPausedState());</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">                } else if (getModel().ExitSelected()) { //go to main menu</span>
+<span class="fc" id="L30">                    game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                } else if (getModel().ResolutionSelected()) { //change the resolution</span>
+<span class="fc" id="L32">                    GUI.SCREEN_RESOLUTION newResolution = incrementResolution(game.getResolution());</span>
+<span class="fc" id="L33">                    game.setResolution(newResolution);</span>
+<span class="fc" id="L34">                    getModel().setResolution(newResolution);</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">                } else if (getModel().MasterVolumeSelected()) { //change the master volume</span>
+<span class="fc" id="L36">                    float newVolume = super.handleVolumeChange(game);</span>
+<span class="fc" id="L37">                    getModel().setMasterVolume(newVolume);</span>
                 }
             }
-<span class="nc" id="L40">        }</span>
-<span class="nc" id="L41">    }</span>
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

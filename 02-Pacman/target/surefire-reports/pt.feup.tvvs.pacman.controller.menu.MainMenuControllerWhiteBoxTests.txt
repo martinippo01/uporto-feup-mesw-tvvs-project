@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests

@@ -8,21 +8,21 @@ import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
 <span class="fc" id="L8">public class PinkyMovementBehaviour extends GhostMovementBehaviour {</span>
     @Override
     protected Position getAlivePosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (!chaseMode) return new Position(0, 0);</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (!chaseMode) return new Position(0, 0);</span>
 
-<span class="nc" id="L14">        int newX = targetPacman.getPosition().getX(), newY = targetPacman.getPosition().getY();</span>
-<span class="nc bnc" id="L15" title="All 5 branches missed.">        switch (targetPacman.getDirection()) {</span>
+<span class="fc" id="L14">        int newX = targetPacman.getPosition().getX(), newY = targetPacman.getPosition().getY();</span>
+<span class="pc bpc" id="L15" title="1 of 5 branches missed.">        switch (targetPacman.getDirection()) {</span>
             case UP:
-<span class="nc" id="L17">                newY = Math.max(0, newY - 3); break;</span>
+<span class="fc" id="L17">                newY = Math.max(0, newY - 3); break;</span>
             case DOWN:
-<span class="nc" id="L19">                newY = Math.min(arena.getHeight(), newY + 3); break;</span>
+<span class="fc" id="L19">                newY = Math.min(arena.getHeight(), newY + 3); break;</span>
             case RIGHT:
-<span class="nc" id="L21">                newX = Math.min(arena.getWidth(), newX + 3); break;</span>
+<span class="fc" id="L21">                newX = Math.min(arena.getWidth(), newX + 3); break;</span>
             case LEFT:
-<span class="nc" id="L23">                newX = Math.max(0, newX - 3); break;</span>
+<span class="fc" id="L23">                newX = Math.max(0, newX - 3); break;</span>
         }
-<span class="nc" id="L25">        return new Position(newX, newY);</span>
+<span class="fc" id="L25">        return new Position(newX, newY);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

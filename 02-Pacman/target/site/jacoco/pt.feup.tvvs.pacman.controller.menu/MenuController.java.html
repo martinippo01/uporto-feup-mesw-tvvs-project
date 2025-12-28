@@ -30,99 +30,99 @@ public abstract class MenuController&lt;T extends Menu&gt; extends Controller&lt
 <span class="fc" id="L30">    }</span>
 
     protected float handleVolumeChange(Game game) {
-<span class="nc" id="L33">        game.getGui().clear();</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        float newVolume = game.getAudioManager().getMasterVolume() == 1f ? 0.1f</span>
-<span class="nc" id="L35">                : Math.round((game.getAudioManager().getMasterVolume() + 0.1f) * 10) / 10f;</span>
+<span class="fc" id="L33">        game.getGui().clear();</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        float newVolume = game.getAudioManager().getMasterVolume() == 1f ? 0.1f</span>
+<span class="fc" id="L35">                : Math.round((game.getAudioManager().getMasterVolume() + 0.1f) * 10) / 10f;</span>
 
-<span class="nc" id="L37">        game.getAudioManager().setMasterVolume(newVolume);</span>
-<span class="nc" id="L38">        return newVolume;</span>
+<span class="fc" id="L37">        game.getAudioManager().setMasterVolume(newVolume);</span>
+<span class="fc" id="L38">        return newVolume;</span>
     }
 
     private void handleArrowKeyAction(Game game, GUI.ACTION action, MenuOptions menuOptions) throws URISyntaxException, IOException, FontFormatException {
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (menuOptions.ResolutionSelected()) {</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">            GUI.SCREEN_RESOLUTION newResolution = action == GUI.ACTION.RIGHT</span>
-<span class="nc" id="L44">                    ? incrementResolution(game.getResolution())</span>
-<span class="nc" id="L45">                    : decrementResolution(game.getResolution());</span>
-<span class="nc" id="L46">            game.setResolution(newResolution);</span>
-<span class="nc" id="L47">            menuOptions.setResolution(newResolution);</span>
-<span class="nc" id="L48">            menuSelect.playOnce();</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        } else if (menuOptions.MasterVolumeSelected()) {</span>
-<span class="nc" id="L50">            float currentVolume = game.getAudioManager().getMasterVolume();</span>
-<span class="nc" id="L51">            float newVolume = currentVolume;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (menuOptions.ResolutionSelected()) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">            GUI.SCREEN_RESOLUTION newResolution = action == GUI.ACTION.RIGHT</span>
+<span class="fc" id="L44">                    ? incrementResolution(game.getResolution())</span>
+<span class="fc" id="L45">                    : decrementResolution(game.getResolution());</span>
+<span class="fc" id="L46">            game.setResolution(newResolution);</span>
+<span class="fc" id="L47">            menuOptions.setResolution(newResolution);</span>
+<span class="fc" id="L48">            menuSelect.playOnce();</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        } else if (menuOptions.MasterVolumeSelected()) {</span>
+<span class="fc" id="L50">            float currentVolume = game.getAudioManager().getMasterVolume();</span>
+<span class="fc" id="L51">            float newVolume = currentVolume;</span>
 
-<span class="nc bnc" id="L53" title="All 2 branches missed.">            if (action == GUI.ACTION.RIGHT) {</span>
-<span class="nc" id="L54">                newVolume = Math.min(currentVolume + 0.1f, 1.0f);</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">            } else if (action == GUI.ACTION.LEFT) {</span>
-<span class="nc" id="L56">                newVolume = Math.max(currentVolume - 0.1f, 0.1f);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (action == GUI.ACTION.RIGHT) {</span>
+<span class="fc" id="L54">                newVolume = Math.min(currentVolume + 0.1f, 1.0f);</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">            } else if (action == GUI.ACTION.LEFT) {</span>
+<span class="fc" id="L56">                newVolume = Math.max(currentVolume - 0.1f, 0.1f);</span>
             }
 
-<span class="nc" id="L59">            newVolume = Math.round(newVolume * 10) / 10f;</span>
+<span class="fc" id="L59">            newVolume = Math.round(newVolume * 10) / 10f;</span>
 
-<span class="nc" id="L61">            game.getAudioManager().setMasterVolume(newVolume);</span>
-<span class="nc" id="L62">            menuOptions.setMasterVolume(newVolume);</span>
+<span class="fc" id="L61">            game.getAudioManager().setMasterVolume(newVolume);</span>
+<span class="fc" id="L62">            menuOptions.setMasterVolume(newVolume);</span>
 
-<span class="nc" id="L64">            game.getGui().clear();</span>
+<span class="fc" id="L64">            game.getGui().clear();</span>
 
-<span class="nc" id="L66">            menuSelect.playOnce();</span>
+<span class="fc" id="L66">            menuSelect.playOnce();</span>
         }
-<span class="nc" id="L68">    }</span>
+<span class="fc" id="L68">    }</span>
 
     protected GUI.SCREEN_RESOLUTION incrementResolution(GUI.SCREEN_RESOLUTION current) {
-<span class="nc bnc" id="L71" title="All 8 branches missed.">        switch (current) {</span>
+<span class="pc bpc" id="L71" title="1 of 8 branches missed.">        switch (current) {</span>
             case _360p:
-<span class="nc" id="L73">                return GUI.SCREEN_RESOLUTION._540p;</span>
+<span class="fc" id="L73">                return GUI.SCREEN_RESOLUTION._540p;</span>
             case _540p:
-<span class="nc" id="L75">                return GUI.SCREEN_RESOLUTION._720p;</span>
+<span class="fc" id="L75">                return GUI.SCREEN_RESOLUTION._720p;</span>
             case _720p:
-<span class="nc" id="L77">                return GUI.SCREEN_RESOLUTION._900p;</span>
+<span class="fc" id="L77">                return GUI.SCREEN_RESOLUTION._900p;</span>
             case _900p:
-<span class="nc" id="L79">                return GUI.SCREEN_RESOLUTION._1080p;</span>
+<span class="fc" id="L79">                return GUI.SCREEN_RESOLUTION._1080p;</span>
             case _1080p:
-<span class="nc" id="L81">                return GUI.SCREEN_RESOLUTION._1440p;</span>
+<span class="fc" id="L81">                return GUI.SCREEN_RESOLUTION._1440p;</span>
             case _1440p:
-<span class="nc" id="L83">                return GUI.SCREEN_RESOLUTION._2160p;</span>
+<span class="fc" id="L83">                return GUI.SCREEN_RESOLUTION._2160p;</span>
             case _2160p:
-<span class="nc" id="L85">                return GUI.SCREEN_RESOLUTION._360p;</span>
+<span class="fc" id="L85">                return GUI.SCREEN_RESOLUTION._360p;</span>
         }
 <span class="nc" id="L87">        return null;</span>
     }
 
     protected GUI.SCREEN_RESOLUTION decrementResolution(GUI.SCREEN_RESOLUTION current) {
-<span class="nc bnc" id="L91" title="All 8 branches missed.">        switch (current) {</span>
+<span class="pc bpc" id="L91" title="1 of 8 branches missed.">        switch (current) {</span>
             case _360p:
-<span class="nc" id="L93">                return GUI.SCREEN_RESOLUTION._2160p;</span>
+<span class="fc" id="L93">                return GUI.SCREEN_RESOLUTION._2160p;</span>
             case _540p:
-<span class="nc" id="L95">                return GUI.SCREEN_RESOLUTION._360p;</span>
+<span class="fc" id="L95">                return GUI.SCREEN_RESOLUTION._360p;</span>
             case _720p:
-<span class="nc" id="L97">                return GUI.SCREEN_RESOLUTION._540p;</span>
+<span class="fc" id="L97">                return GUI.SCREEN_RESOLUTION._540p;</span>
             case _900p:
-<span class="nc" id="L99">                return GUI.SCREEN_RESOLUTION._720p;</span>
+<span class="fc" id="L99">                return GUI.SCREEN_RESOLUTION._720p;</span>
             case _1080p:
-<span class="nc" id="L101">                return GUI.SCREEN_RESOLUTION._900p;</span>
+<span class="fc" id="L101">                return GUI.SCREEN_RESOLUTION._900p;</span>
             case _1440p:
-<span class="nc" id="L103">                return GUI.SCREEN_RESOLUTION._1080p;</span>
+<span class="fc" id="L103">                return GUI.SCREEN_RESOLUTION._1080p;</span>
             case _2160p:
-<span class="nc" id="L105">                return GUI.SCREEN_RESOLUTION._1440p;</span>
+<span class="fc" id="L105">                return GUI.SCREEN_RESOLUTION._1440p;</span>
         }
 <span class="nc" id="L107">        return null;</span>
     }
 
     @Override
     public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws URISyntaxException, IOException, FontFormatException {
-<span class="nc bnc" id="L112" title="All 2 branches missed.">        for (GUI.ACTION action : actions) {</span>
-<span class="nc bnc" id="L113" title="All 2 branches missed.">            if (action == GUI.ACTION.UP) {</span>
-<span class="nc" id="L114">                menuSelect.playOnce();</span>
-<span class="nc" id="L115">                getModel().selectPreviousOption();</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">            } else if (action == GUI.ACTION.DOWN) {</span>
-<span class="nc" id="L117">                menuSelect.playOnce();</span>
-<span class="nc" id="L118">                getModel().selectNextOption();</span>
-<span class="nc bnc" id="L119" title="All 4 branches missed.">            } else if (action == GUI.ACTION.LEFT || action == GUI.ACTION.RIGHT) {</span>
-<span class="nc bnc" id="L120" title="All 2 branches missed.">                if (getModel() instanceof MenuOptions) {</span>
-<span class="nc" id="L121">                    MenuOptions menuOptions = (MenuOptions) getModel();</span>
-<span class="nc" id="L122">                    handleArrowKeyAction(game, action, menuOptions);</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        for (GUI.ACTION action : actions) {</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">            if (action == GUI.ACTION.UP) {</span>
+<span class="fc" id="L114">                menuSelect.playOnce();</span>
+<span class="fc" id="L115">                getModel().selectPreviousOption();</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">            } else if (action == GUI.ACTION.DOWN) {</span>
+<span class="fc" id="L117">                menuSelect.playOnce();</span>
+<span class="fc" id="L118">                getModel().selectNextOption();</span>
+<span class="fc bfc" id="L119" title="All 4 branches covered.">            } else if (action == GUI.ACTION.LEFT || action == GUI.ACTION.RIGHT) {</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">                if (getModel() instanceof MenuOptions) {</span>
+<span class="fc" id="L121">                    MenuOptions menuOptions = (MenuOptions) getModel();</span>
+<span class="fc" id="L122">                    handleArrowKeyAction(game, action, menuOptions);</span>
                 }
             }
-<span class="nc" id="L125">        }</span>
-<span class="nc" id="L126">    }</span>
+<span class="fc" id="L125">        }</span>
+<span class="fc" id="L126">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

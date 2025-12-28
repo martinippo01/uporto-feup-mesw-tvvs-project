@@ -16,25 +16,25 @@ import java.util.List;
 
 public class AlertMenuController extends MenuController&lt;AlertMenu&gt; {
     public AlertMenuController(AlertMenu model, AudioManager audioManager) {
-<span class="nc" id="L19">        super(model, audioManager);</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L19">        super(model, audioManager);</span>
+<span class="fc" id="L20">    }</span>
 
     @Override
     public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws URISyntaxException, IOException, FontFormatException {
-<span class="nc" id="L24">        super.step(game, actions, time);</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (GUI.ACTION action : actions) {</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">            if (action == GUI.ACTION.SELECT) {</span>
-<span class="nc" id="L27">                menuConfirmSelection.playOnce();</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">                if (getModel().PlayAgainSelected()) { //go back to map selection menu</span>
-<span class="nc" id="L29">                    game.getAudioManager().stopAllAudios();</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">                    String mode = (getModel().getArena().getPacmans().size() == 1 ? &quot;singleplayer&quot; : &quot;multiplayer&quot;);</span>
-<span class="nc" id="L31">                    game.setState(new MapSelectionMenuState(new MapSelectionMenu(mode), game.getAudioManager()));</span>
-<span class="nc bnc" id="L32" title="All 2 branches missed.">                } else if (getModel().ExitSelected()) { //go back to main menu</span>
-<span class="nc" id="L33">                    game.getAudioManager().stopAllAudios();</span>
-<span class="nc" id="L34">                    game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
+<span class="fc" id="L24">        super.step(game, actions, time);</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        for (GUI.ACTION action : actions) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            if (action == GUI.ACTION.SELECT) {</span>
+<span class="fc" id="L27">                menuConfirmSelection.playOnce();</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">                if (getModel().PlayAgainSelected()) { //go back to map selection menu</span>
+<span class="fc" id="L29">                    game.getAudioManager().stopAllAudios();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">                    String mode = (getModel().getArena().getPacmans().size() == 1 ? &quot;singleplayer&quot; : &quot;multiplayer&quot;);</span>
+<span class="fc" id="L31">                    game.setState(new MapSelectionMenuState(new MapSelectionMenu(mode), game.getAudioManager()));</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">                } else if (getModel().ExitSelected()) { //go back to main menu</span>
+<span class="fc" id="L33">                    game.getAudioManager().stopAllAudios();</span>
+<span class="fc" id="L34">                    game.setState(new MainMenuState(new MainMenu(game.getResolution(), game.getAudioManager().getMasterVolume()), game.getAudioManager()));</span>
                 }
             }
-<span class="nc" id="L37">        }</span>
-<span class="nc" id="L38">    }</span>
+<span class="fc" id="L37">        }</span>
+<span class="fc" id="L38">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

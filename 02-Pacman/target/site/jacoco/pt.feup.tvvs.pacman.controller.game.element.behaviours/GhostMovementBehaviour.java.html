@@ -8,13 +8,13 @@ import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
 
 <span class="fc" id="L9">public abstract class GhostMovementBehaviour {</span>
     public Position getTargetPosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
-<span class="nc bnc" id="L11" title="All 4 branches missed.">        switch (ghost.getState()) {</span>
+<span class="pc bpc" id="L11" title="1 of 4 branches missed.">        switch (ghost.getState()) {</span>
             case ALIVE:
-<span class="nc" id="L13">                return getAlivePosition(ghost, arena, targetPacman, chaseMode);</span>
+<span class="fc" id="L13">                return getAlivePosition(ghost, arena, targetPacman, chaseMode);</span>
             case DEAD:
-<span class="nc" id="L15">                return arena.getGhostGate().getPosition();</span>
+<span class="fc" id="L15">                return arena.getGhostGate().getPosition();</span>
             case SCARED:
-<span class="nc bnc" id="L17" title="All 2 branches missed.">                return (ghost.isInsideGate() ? getAlivePosition(ghost, arena, targetPacman, chaseMode) : new Position((int) (Math.random() * 29), (int) (Math.random() * 16)));</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">                return (ghost.isInsideGate() ? getAlivePosition(ghost, arena, targetPacman, chaseMode) : new Position((int) (Math.random() * 29), (int) (Math.random() * 16)));</span>
         }
 <span class="nc" id="L19">        return null;</span>
     }

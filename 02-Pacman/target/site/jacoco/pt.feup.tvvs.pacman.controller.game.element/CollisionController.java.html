@@ -63,8 +63,8 @@ public class CollisionController extends GameController {
 <span class="fc" id="L63">                            pacman.setSpeed(Arena.PACMAN_NORMAL_SPEED);</span>
 <span class="fc bfc" id="L64" title="All 2 branches covered.">                            long alivePacmans = getModel().getPacmans().stream().filter(pacman1 -&gt; !pacman1.isDying()).count();</span>
                             //first condition is for multiplayer, second is for single player
-<span class="fc bfc" id="L66" title="All 2 branches covered.">                            if (alivePacmans == 0) {</span>
-<span class="fc" id="L67">                                game.getAudioManager().stopAllAudios();</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">                            if (alivePacmans == 0) {</span>
+<span class="nc" id="L67">                                game.getAudioManager().stopAllAudios();</span>
 <span class="nc" id="L68">                                game.setState(new DyingState(getModel(), game.getAudioManager()));</span>
                             }
                             //if no pacman is dead before set counter to freeze the dead pacman (multiplayer only)
@@ -135,7 +135,7 @@ public class CollisionController extends GameController {
         }
 
         //if scared time ends or if all ghosts are eaten scared time ends
-<span class="pc bpc" id="L138" title="1 of 6 branches missed.">        if ((scaredTimeLeft &gt; 0 &amp;&amp; --scaredTimeLeft == 0) || ghostsEaten == getModel().getGhosts().size()) {</span>
+<span class="pc bpc" id="L138" title="2 of 6 branches missed.">        if ((scaredTimeLeft &gt; 0 &amp;&amp; --scaredTimeLeft == 0) || ghostsEaten == getModel().getGhosts().size()) {</span>
 <span class="fc" id="L139">            getModel().getGhosts().forEach(ghost -&gt; {</span>
 <span class="pc bpc" id="L140" title="1 of 2 branches missed.">                if (ghost.isScared()) {</span>
 <span class="fc" id="L141">                    ghost.setState(GhostState.ALIVE);</span>

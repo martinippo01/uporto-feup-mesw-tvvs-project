@@ -33,78 +33,78 @@ public class GhostController extends GameController {
 
 
     private Position getNextPosition(Position position, Direction direction) {
-<span class="nc bnc" id="L36" title="All 5 branches missed.">        switch (direction) {</span>
+<span class="pc bpc" id="L36" title="1 of 5 branches missed.">        switch (direction) {</span>
             case UP:
-<span class="nc" id="L38">                return position.getUp();</span>
+<span class="fc" id="L38">                return position.getUp();</span>
             case DOWN:
-<span class="nc" id="L40">                return position.getDown();</span>
+<span class="fc" id="L40">                return position.getDown();</span>
             case LEFT:
-<span class="nc" id="L42">                return position.getLeft();</span>
+<span class="fc" id="L42">                return position.getLeft();</span>
             case RIGHT:
-<span class="nc" id="L44">                return position.getRight();</span>
+<span class="fc" id="L44">                return position.getRight();</span>
         }
 <span class="nc" id="L46">        return null;</span>
     }
 
     private void moveGhost(Ghost ghost) {//checks if the ghost can move in newDirection and moves it if it can
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (ghost.getCounter() &gt; 0) {</span>
-<span class="nc" id="L51">            ghost.incrementCounter();</span>
-<span class="nc" id="L52">            return;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (ghost.getCounter() &gt; 0) {</span>
+<span class="fc" id="L51">            ghost.incrementCounter();</span>
+<span class="fc" id="L52">            return;</span>
         }
-<span class="nc" id="L54">        Position targetPosition = movementBehaviours.get(ghost.getClass()).getTargetPosition(ghost, getModel(), getModel().getPacmans().get(targetPacman), isChaseMode());</span>
-<span class="nc" id="L55">        Direction nextDirection = getDirectionTowards(ghost, targetPosition);</span>
-<span class="nc" id="L56">        ghost.setDirection(nextDirection);</span>
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (ghost.getPosition().equals(getModel().getGhostGate().getPosition())) {</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">            if (ghost.isDead()) { //dead ghost arrives at the ghost gate</span>
-<span class="nc" id="L59">                ghost.setState(GhostState.ALIVE);</span>
-<span class="nc" id="L60">                ghost.setInsideGate();</span>
-<span class="nc" id="L61">                ghost.setSpeed(Arena.GHOST_NORMAL_SPEED);</span>
+<span class="fc" id="L54">        Position targetPosition = movementBehaviours.get(ghost.getClass()).getTargetPosition(ghost, getModel(), getModel().getPacmans().get(targetPacman), isChaseMode());</span>
+<span class="fc" id="L55">        Direction nextDirection = getDirectionTowards(ghost, targetPosition);</span>
+<span class="fc" id="L56">        ghost.setDirection(nextDirection);</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (ghost.getPosition().equals(getModel().getGhostGate().getPosition())) {</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">            if (ghost.isDead()) { //dead ghost arrives at the ghost gate</span>
+<span class="fc" id="L59">                ghost.setState(GhostState.ALIVE);</span>
+<span class="fc" id="L60">                ghost.setInsideGate();</span>
+<span class="fc" id="L61">                ghost.setSpeed(Arena.GHOST_NORMAL_SPEED);</span>
 <span class="nc" id="L62">            } else ghost.setOutsideGate();</span>
         }
-<span class="nc" id="L64">        ghost.incrementCounter();</span>
-<span class="nc" id="L65">    }</span>
+<span class="fc" id="L64">        ghost.incrementCounter();</span>
+<span class="fc" id="L65">    }</span>
 
     private boolean isChaseMode() {
-<span class="nc bnc" id="L68" title="All 6 branches missed.">        return ((frameCount &gt;= 450 &amp;&amp; frameCount &lt; 2700) || frameCount &gt;= 3200);</span>
+<span class="fc bfc" id="L68" title="All 6 branches covered.">        return ((frameCount &gt;= 450 &amp;&amp; frameCount &lt; 2700) || frameCount &gt;= 3200);</span>
     }
 
     private Direction getDirectionTowards(Ghost ghost, Position targetPosition) {//choose new direction to follow (the one with the minimum linear distance from target)
-<span class="nc" id="L72">        Direction currentDirection = ghost.getDirection();</span>
-<span class="nc" id="L73">        Direction nextDirection = Direction.UP;</span>
-<span class="nc" id="L74">        double minimumDistance = Double.MAX_VALUE;</span>
+<span class="fc" id="L72">        Direction currentDirection = ghost.getDirection();</span>
+<span class="fc" id="L73">        Direction nextDirection = Direction.UP;</span>
+<span class="fc" id="L74">        double minimumDistance = Double.MAX_VALUE;</span>
         double tempDistance;
-<span class="nc bnc" id="L76" title="All 2 branches missed.">        for (Direction direction : Direction.values()) {</span>
-<span class="nc" id="L77">            Position testPosition = getNextPosition(ghost.getPosition(), direction);</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">            if (!direction.isOpposite(currentDirection) &amp;&amp; //can't move in opposite direction</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">                    (tempDistance = testPosition.squaredDistance(targetPosition)) &lt; minimumDistance &amp;&amp; //can't move in a direction that is farther away from target</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">                    getModel().isEmpty(testPosition) &amp;&amp; //can't move in a direction where there is a wall</span>
-<span class="nc bnc" id="L81" title="All 6 branches missed.">                    (!testPosition.equals(getModel().getGhostGate().getPosition()) || ghost.isInsideGate() || ghost.isDead())) //can't move to the ghost gate, unless the ghost is inside</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        for (Direction direction : Direction.values()) {</span>
+<span class="fc" id="L77">            Position testPosition = getNextPosition(ghost.getPosition(), direction);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (!direction.isOpposite(currentDirection) &amp;&amp; //can't move in opposite direction</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">                    (tempDistance = testPosition.squaredDistance(targetPosition)) &lt; minimumDistance &amp;&amp; //can't move in a direction that is farther away from target</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                    getModel().isEmpty(testPosition) &amp;&amp; //can't move in a direction where there is a wall</span>
+<span class="pc bpc" id="L81" title="2 of 6 branches missed.">                    (!testPosition.equals(getModel().getGhostGate().getPosition()) || ghost.isInsideGate() || ghost.isDead())) //can't move to the ghost gate, unless the ghost is inside</span>
             {
-<span class="nc" id="L83">                minimumDistance = tempDistance;</span>
-<span class="nc" id="L84">                nextDirection = direction;</span>
+<span class="fc" id="L83">                minimumDistance = tempDistance;</span>
+<span class="fc" id="L84">                nextDirection = direction;</span>
             }
         }
-<span class="nc" id="L87">        return nextDirection;</span>
+<span class="fc" id="L87">        return nextDirection;</span>
     }
 
     @Override
     public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) {
-<span class="nc bnc" id="L92" title="All 6 branches missed.">        if (frameCount == 450 || frameCount == 2700 || frameCount == 3200)</span>
+<span class="pc bpc" id="L92" title="2 of 6 branches missed.">        if (frameCount == 450 || frameCount == 2700 || frameCount == 3200)</span>
             //toggle between chase and scatter modes
-<span class="nc" id="L94">            getModel().getGhosts().forEach(ghost -&gt; {</span>
-<span class="nc bnc" id="L95" title="All 2 branches missed.">                if (!ghost.getPosition().equals(getModel().getGhostGate().getPosition())) ghost.invertDirection();</span>
-<span class="nc" id="L96">            });</span>
+<span class="fc" id="L94">            getModel().getGhosts().forEach(ghost -&gt; {</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">                if (!ghost.getPosition().equals(getModel().getGhostGate().getPosition())) ghost.invertDirection();</span>
+<span class="fc" id="L96">            });</span>
 
         //change the target pacman from time to time on multiplayer
-<span class="nc bnc" id="L99" title="All 8 branches missed.">        if (frameCount % 2000 == 0 &amp;&amp; getModel().getPacmans().size() &gt; 1 &amp;&amp; !getModel().getPacmans().get((targetPacman == 0 ? 1 : 0)).isDying())</span>
+<span class="pc bpc" id="L99" title="5 of 8 branches missed.">        if (frameCount % 2000 == 0 &amp;&amp; getModel().getPacmans().size() &gt; 1 &amp;&amp; !getModel().getPacmans().get((targetPacman == 0 ? 1 : 0)).isDying())</span>
 <span class="nc bnc" id="L100" title="All 2 branches missed.">            targetPacman = (targetPacman == 0 ? 1 : 0);</span>
 
 
-<span class="nc bnc" id="L103" title="All 2 branches missed.">        for (Ghost ghost : getModel().getGhosts()) {//move all ghosts</span>
-<span class="nc bnc" id="L104" title="All 2 branches missed.">            if (time % ghost.getSpeed() != 1) moveGhost(ghost);</span>
-<span class="nc" id="L105">        }</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        for (Ghost ghost : getModel().getGhosts()) {//move all ghosts</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">            if (time % ghost.getSpeed() != 1) moveGhost(ghost);</span>
+<span class="fc" id="L105">        }</span>
 
-<span class="nc" id="L107">        ++frameCount;</span>
-<span class="nc" id="L108">    }</span>
+<span class="fc" id="L107">        ++frameCount;</span>
+<span class="fc" id="L108">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

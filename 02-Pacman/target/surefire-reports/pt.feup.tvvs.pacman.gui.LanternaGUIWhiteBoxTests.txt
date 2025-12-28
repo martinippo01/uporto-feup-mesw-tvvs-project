@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pt.feup.tvvs.pacman.gui.LanternaGUIWhiteBoxTests
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.307 s -- in pt.feup.tvvs.pacman.gui.LanternaGUIWhiteBoxTests

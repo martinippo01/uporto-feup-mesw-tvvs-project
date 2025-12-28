@@ -8,14 +8,14 @@ import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
 <span class="fc" id="L8">public class ClydeMovementBehaviour extends GhostMovementBehaviour {</span>
     @Override
     protected Position getAlivePosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (arena.getCollectedCollectibles() &lt; 60) return new Position(10, 11);</span>
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
-<span class="nc bnc" id="L13" title="All 2 branches missed.">        if (!chaseMode) return new Position(0, arena.getHeight());</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (arena.getCollectedCollectibles() &lt; 60) return new Position(10, 11);</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (!chaseMode) return new Position(0, arena.getHeight());</span>
 
-<span class="nc bnc" id="L15" title="All 2 branches missed.">        if (ghost.getPosition().squaredDistance(targetPacman.getPosition()) &gt;= 36) {//6 or more tiles away</span>
-<span class="nc" id="L16">            return targetPacman.getPosition();</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (ghost.getPosition().squaredDistance(targetPacman.getPosition()) &gt;= 36) {//6 or more tiles away</span>
+<span class="fc" id="L16">            return targetPacman.getPosition();</span>
         } else {
-<span class="nc" id="L18">            return new Position(0, arena.getHeight());</span>
+<span class="fc" id="L18">            return new Position(0, arena.getHeight());</span>
         }
     }
 }

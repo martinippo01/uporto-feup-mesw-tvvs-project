@@ -9,29 +9,29 @@ import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;
 <span class="fc" id="L9">public class InkyMovementBehaviour extends GhostMovementBehaviour {</span>
     @Override
     protected Position getAlivePosition(Ghost ghost, Arena arena, Pacman targetPacman, boolean chaseMode) {
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (arena.getCollectedCollectibles() &lt; 25) return new Position(8, 11);</span>
-<span class="nc bnc" id="L13" title="All 2 branches missed.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
-<span class="nc bnc" id="L14" title="All 2 branches missed.">        if (!chaseMode) return new Position(arena.getWidth(), arena.getHeight());</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (arena.getCollectedCollectibles() &lt; 25) return new Position(8, 11);</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (ghost.isInsideGate()) return arena.getGhostGate().getPosition();</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (!chaseMode) return new Position(arena.getWidth(), arena.getHeight());</span>
 
-<span class="nc" id="L16">        Ghost blinky = null;</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        for (Ghost g : arena.getGhosts())</span>
-<span class="nc bnc" id="L18" title="All 2 branches missed.">            if (g.getClass() == Blinky.class) {</span>
-<span class="nc" id="L19">                blinky = g;</span>
-<span class="nc" id="L20">                break;</span>
+<span class="fc" id="L16">        Ghost blinky = null;</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">        for (Ghost g : arena.getGhosts())</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">            if (g.getClass() == Blinky.class) {</span>
+<span class="fc" id="L19">                blinky = g;</span>
+<span class="fc" id="L20">                break;</span>
             }
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        assert blinky != null;</span>
-<span class="nc" id="L23">        Position pacmanNextPos = targetPacman.getNextPosition();</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        assert blinky != null;</span>
+<span class="fc" id="L23">        Position pacmanNextPos = targetPacman.getNextPosition();</span>
 
-<span class="nc" id="L25">        int newX = 2 * pacmanNextPos.getX() - blinky.getPosition().getX();</span>
-<span class="nc" id="L26">        int newY = 2 * pacmanNextPos.getY() - blinky.getPosition().getY();</span>
+<span class="fc" id="L25">        int newX = 2 * pacmanNextPos.getX() - blinky.getPosition().getX();</span>
+<span class="fc" id="L26">        int newY = 2 * pacmanNextPos.getY() - blinky.getPosition().getY();</span>
 
         //bound the new coords
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (newX &lt; 0) newX = 0;</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (newX &gt; arena.getWidth()) newX = arena.getWidth();</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (newY &lt; 0) newY = 0;</span>
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (newY &gt; arena.getHeight()) newY = arena.getHeight();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (newX &lt; 0) newX = 0;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (newX &gt; arena.getWidth()) newX = arena.getWidth();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (newY &lt; 0) newY = 0;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (newY &gt; arena.getHeight()) newY = arena.getHeight();</span>
 
-<span class="nc" id="L34">        return new Position(newX, newY);</span>
+<span class="fc" id="L34">        return new Position(newX, newY);</span>
     }
 
 }

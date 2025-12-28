@@ -37,7 +37,7 @@ public class PauseMenu extends Menu implements MenuOptions {
     }
 
     public State&lt;?&gt; getPausedState() {
-<span class="nc" id="L40">        return pausedState;</span>
+<span class="fc" id="L40">        return pausedState;</span>
     }
 
     public TextBox getPauseSign() {
@@ -45,21 +45,21 @@ public class PauseMenu extends Menu implements MenuOptions {
     }
 
     public boolean ResumeSelected() {
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        return getSelectedOption() == 0;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        return getSelectedOption() == 0;</span>
     }
 
     @Override
     public boolean ResolutionSelected() {
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        return getSelectedOption() == 1;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        return getSelectedOption() == 1;</span>
     }
 
     @Override
     public boolean MasterVolumeSelected() {
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        return getSelectedOption() == 2;</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        return getSelectedOption() == 2;</span>
     }
 
     public boolean ExitSelected() {
-<span class="nc bnc" id="L62" title="All 2 branches missed.">        return getSelectedOption() == 3;</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        return getSelectedOption() == 3;</span>
     }
 
     @Override
