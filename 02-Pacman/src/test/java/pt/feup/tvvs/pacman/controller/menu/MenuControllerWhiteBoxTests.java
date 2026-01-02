@@ -39,7 +39,6 @@ public class MenuControllerWhiteBoxTests {
             return decrementResolution(s);
         }
 
-        // expose step as public (inherited) so no wrapper needed
     }
 
     private Menu createSimpleMenu() {
