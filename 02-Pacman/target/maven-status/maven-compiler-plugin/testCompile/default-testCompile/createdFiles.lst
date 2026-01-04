@@ -18,6 +18,7 @@ pt/feup/tvvs/pacman/model/game/element/collectibles/OrangeWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/game/element/ghost/GhostWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/game/DyingStateWhiteBoxTests$2.class
 pt/feup/tvvs/pacman/model/menu/MenuWhiteBoxTests.class
+pt/feup/tvvs/pacman/viewer/game/MovableElementViewerWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/StateWhiteBoxTests$3.class
 pt/feup/tvvs/pacman/viewer/menu/MainMenuViewerWhiteBoxTests.class
 pt/feup/tvvs/pacman/gui/GUIWhiteBoxTests.class
@@ -113,6 +114,7 @@ pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviourWhi
 pt/feup/tvvs/pacman/model/game/element/ghost/InkyWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/game/element/collectibles/CoinWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/game/DyingStateWhiteBoxTests.class
+pt/feup/tvvs/pacman/GameWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/game/ArenaWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/game/element/collectibles/PowerUpWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/game/element/collectibles/StrawberryWhiteBoxTests.class

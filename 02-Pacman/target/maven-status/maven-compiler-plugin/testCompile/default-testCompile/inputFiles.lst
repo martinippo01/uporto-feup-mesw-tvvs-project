@@ -1,4 +1,5 @@
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/BlackBoxTests.java
+/Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/GameWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/PBTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/audio/AudioManagerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/audio/AudioPlayerWhiteBoxTests.java
@@ -65,6 +66,7 @@
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/ArenaViewerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/ElementViewerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/ImageLoaderWhiteBoxTests.java
+/Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/MovableElementViewerWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/strategies/GhostStrategyWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/strategies/MultipleElementStrategyWhiteBoxTests.java
 /Users/martinippolito/Desktop/UPorto/Classes/MESW0004-TVVS/uporto-feup-mesw-tvvs-project/02-Pacman/src/test/java/pt/feup/tvvs/pacman/viewer/game/strategies/PacmanStrategyWhiteBoxTests.java
