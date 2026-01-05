@@ -11,22 +11,22 @@ import java.io.IOException;
 public class MainMenuViewer extends ModelViewer&lt;MainMenu&gt; {
 
     public MainMenuViewer() throws IOException {
-<span class="nc" id="L14">        super(ViewerFactory.createMainMenuViewers());</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L14">        super(ViewerFactory.createMainMenuViewers());</span>
+<span class="fc" id="L15">    }</span>
 
     @Override
     public void drawElements(GUI gui, MainMenu menu, long frameCount) {
-<span class="nc" id="L19">        menu.getBlankPositions().forEach(position -&gt; gui.erase(new Position(position.getX() * 11, position.getY() * 11)));</span>
-<span class="nc" id="L20">        menu.getOptions().forEach(textBox -&gt; drawElement(gui, textBox, frameCount));</span>
-<span class="nc" id="L21">        drawElement(gui, menu.getPacman(), frameCount);</span>
+<span class="fc" id="L19">        menu.getBlankPositions().forEach(position -&gt; gui.erase(new Position(position.getX() * 11, position.getY() * 11)));</span>
+<span class="fc" id="L20">        menu.getOptions().forEach(textBox -&gt; drawElement(gui, textBox, frameCount));</span>
+<span class="fc" id="L21">        drawElement(gui, menu.getPacman(), frameCount);</span>
 
-<span class="nc" id="L23">        drawElement(gui, menu.getBlinky(), frameCount);</span>
-<span class="nc" id="L24">        drawElement(gui, menu.getPinky(), frameCount);</span>
-<span class="nc" id="L25">        drawElement(gui, menu.getInky(), frameCount);</span>
-<span class="nc" id="L26">        drawElement(gui, menu.getClyde(), frameCount);</span>
+<span class="fc" id="L23">        drawElement(gui, menu.getBlinky(), frameCount);</span>
+<span class="fc" id="L24">        drawElement(gui, menu.getPinky(), frameCount);</span>
+<span class="fc" id="L25">        drawElement(gui, menu.getInky(), frameCount);</span>
+<span class="fc" id="L26">        drawElement(gui, menu.getClyde(), frameCount);</span>
 
-<span class="nc" id="L28">        drawElement(gui, menu.getTitle(), frameCount);</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L28">        drawElement(gui, menu.getTitle(), frameCount);</span>
+<span class="fc" id="L29">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

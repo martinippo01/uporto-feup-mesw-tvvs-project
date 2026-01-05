@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>TextBox.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.pacman.model.menu.element;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.googlecode.lanterna.TextColor;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.Element;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.Position;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class TextBox extends Element {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String text;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private TextColor color;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TextBox(String text, Position pos, TextColor color) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(pos);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.text = text;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.color = color;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getText() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_18'/>
+18
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_18'>1</a>
+<span>
+1. getText : replaced return value with &#34;&#34; for pt/feup/tvvs/pacman/model/menu/element/TextBox::getText &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return text;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setText(String text) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.text = text;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TextColor getColor() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_26'>1</a>
+<span>
+1. getColor : replaced return value with null for pt/feup/tvvs/pacman/model/menu/element/TextBox::getColor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return color;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setColor(TextColor color) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.color = color;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@460a4935_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@460a4935_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getText<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests]/[method:draws_each_available_character_with_correct_position_and_color()]</span></span> replaced return value with &#34;&#34; for pt/feup/tvvs/pacman/model/menu/element/TextBox::getText &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@460a4935_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@460a4935_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getColor<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests]/[method:draws_each_available_character_with_correct_position_and_color()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/element/TextBox::getColor &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests]/[method:skips_characters_not_in_map_and_handles_empty_text()] (0 ms)</li><li>pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.TextBoxViewerWhiteBoxTests]/[method:draws_each_available_character_with_correct_position_and_color()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:select_when_map_file_removed_throws_ioexception()] (2 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.MapSelectionMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MapSelectionMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()] (1 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.PauseMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.PauseMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()] (2 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.MapSelectionMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MapSelectionMenuViewerWhiteBoxTests]/[method:drawElements_withMaps_drawsTitleAndOptions_andRefreshes()] (1 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.PauseMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.PauseMenuViewerWhiteBoxTests]/[method:drawElements_drawsOptionsPauseSignAndTitle_andRefreshes()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:select_should_load_map_and_set_game_state()] (3 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_resolution_changes_resolution_and_updates_model()] (7 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_masterVolume_changes_volume_and_updates_model()] (4 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()] (2 ms)</li><li>pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests]/[method:drawElements_twoPacmans_drawsTwoLivesBoxes()] (25 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()] (20 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()] (20 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests]/[method:drawElements_twoPacmans_drawsTwoLivesTextBoxes()] (25 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests]/[method:drawElements_draws_two_lives_textboxes_for_twoPacmans()] (23 ms)</li><li>pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests]/[method:drawElements_singlePacman_erasesAndDrawsAndRefreshes()] (30 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests]/[method:drawElements_singlePacman_erasesAndDrawsAlertAndOptions()] (25 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests]/[method:drawElements_draws_score_and_lives_and_options_singlePacman()] (28 ms)</li><li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()] (23 ms)</li><li>pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests]/[method:drawElement_refreshThrowsIOException_isWrappedInRuntimeException()] (46 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

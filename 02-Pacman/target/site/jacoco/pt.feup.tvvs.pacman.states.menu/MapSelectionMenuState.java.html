@@ -13,17 +13,17 @@ import java.net.URISyntaxException;
 
 public class MapSelectionMenuState extends State&lt;MapSelectionMenu&gt; {
     public MapSelectionMenuState(MapSelectionMenu model, AudioManager audioManager) throws IOException, URISyntaxException {
-<span class="nc" id="L16">        super(model, audioManager);</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L16">        super(model, audioManager);</span>
+<span class="fc" id="L17">    }</span>
 
     @Override
     public Viewer&lt;MapSelectionMenu&gt; createViewer() throws IOException {
-<span class="nc" id="L21">        return new MapSelectionMenuViewer();</span>
+<span class="fc" id="L21">        return new MapSelectionMenuViewer();</span>
     }
 
     @Override
     public Controller&lt;MapSelectionMenu&gt; createController(AudioManager audioManager) {
-<span class="nc" id="L26">        return new MapSelectionMenuController(getModel(), audioManager);</span>
+<span class="fc" id="L26">        return new MapSelectionMenuController(getModel(), audioManager);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

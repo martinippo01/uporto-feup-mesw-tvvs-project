@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Arena.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.pacman.model.game;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.Position;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.GhostGate;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.Wall;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.collectibles.Collectible;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.ghost.Ghost;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashSet;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Arena {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    //due to how the module operator works, the higher the speed the faster the element goes, except 1 which is the highest speed</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final int PACMAN_BOOSTED_SPEED = 6;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final int PACMAN_NORMAL_SPEED = 4;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final int GHOST_NORMAL_SPEED = 3;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final int GHOST_SCARED_SPEED = 2;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final int GHOST_DEAD_SPEED = 1;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Pacman&#62; pacmans;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final int width, height;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final GhostGate ghostGate;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Set&#60;Position&#62; blankPositions;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private long score;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int collectedCollectibles;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Set&#60;Ghost&#62; ghosts;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Set&#60;Wall&#62; walls;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Set&#60;Collectible&#62; collectibles;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Arena(int width, int height) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.width = width;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.height = height;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.score = 0;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.collectedCollectibles = 0;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.pacmans = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.ghostGate = new GhostGate(new Position(10, 10));</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.ghosts = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.walls = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.collectibles = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.blankPositions = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Pacman&#62; getPacmans() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_50'>1</a>
+<span>
+1. getPacmans : replaced return value with Collections.emptyList for pt/feup/tvvs/pacman/model/game/Arena::getPacmans &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return pacmans;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Set&#60;Ghost&#62; getGhosts() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_54'>1</a>
+<span>
+1. getGhosts : replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getGhosts &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ghosts;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setGhosts(Set&#60;Ghost&#62; ghosts) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.ghosts = ghosts;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Set&#60;Wall&#62; getWalls() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_62'>1</a>
+<span>
+1. getWalls : replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getWalls &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return walls;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setWalls(Set&#60;Wall&#62; walls) {</span></pre></td></tr>
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.walls = walls;</span></pre></td></tr>
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Set&#60;Collectible&#62; getCollectibles() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_70'>1</a>
+<span>
+1. getCollectibles : replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getCollectibles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return collectibles;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setCollectibles(Set&#60;Collectible&#62; collectibles) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.collectibles = collectibles;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getWidth() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_78'>1</a>
+<span>
+1. getWidth : replaced int return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getWidth &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return width;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getHeight() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_82'>1</a>
+<span>
+1. getHeight : replaced int return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getHeight &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return height;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addWall(Wall wall) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        walls.add(wall);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addCollectible(Collectible collectible) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        collectibles.add(collectible);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addGhost(Ghost ghost) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ghosts.add(ghost);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addPacman(Pacman pacman) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pacmans.add(pacman);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isEmpty(Position position) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Wall wall : walls) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_103'/>
+103
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_103'>1</a>
+<span>
+1. isEmpty : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (wall.getPosition().equals(position))</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_104'>1</a>
+<span>
+1. isEmpty : replaced boolean return with true for pt/feup/tvvs/pacman/model/game/Arena::isEmpty &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_106'/>
+106
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_106'>1</a>
+<span>
+1. isEmpty : replaced boolean return with false for pt/feup/tvvs/pacman/model/game/Arena::isEmpty &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getScore() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_110'/>
+110
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_110'>1</a>
+<span>
+1. getScore : replaced long return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getScore &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return score;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setScore(long score) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.score = score;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void incrementScore(long increment) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_118'/>
+118
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_118'>1</a>
+<span>
+1. incrementScore : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.score += increment;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getCollectedCollectibles() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_122'>1</a>
+<span>
+1. getCollectedCollectibles : replaced int return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getCollectedCollectibles &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return collectedCollectibles;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void incrementCollectedCollectibles() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_126'/>
+126
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_126'>1</a>
+<span>
+1. incrementCollectedCollectibles : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        ++collectedCollectibles;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public GhostGate getGhostGate() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_130'>1</a>
+<span>
+1. getGhostGate : replaced return value with null for pt/feup/tvvs/pacman/model/game/Arena::getGhostGate &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ghostGate;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setGhostGatePosition(Position position) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_134'/>
+134
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_134'>1</a>
+<span>
+1. setGhostGatePosition : removed call to pt/feup/tvvs/pacman/model/game/element/GhostGate::setPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.ghostGate.setPosition(position);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Set&#60;Position&#62; getBlankPositions() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_138'/>
+138
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_138'>1</a>
+<span>
+1. getBlankPositions : replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getBlankPositions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return blankPositions;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addBlankPosition(Position position) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        blankPositions.add(position);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6f526f91_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPacmans<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_currentNextPosition_collidesWithAlivePacman_noIncrement()]</span></span> replaced return value with Collections.emptyList for pt/feup/tvvs/pacman/model/game/Arena::getPacmans &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGhosts<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:chaseMode_computesTarget_usingBlinkyAndPacmanNext_withinBounds()]</span></span> replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getGhosts &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWalls<br/><b>Killed by : </b>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)]</span></span> replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getWalls &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCollectibles<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:powerup_collision_removes_collectible_and_sets_ghosts_scared_and_inverts_direction()]</span></span> replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getCollectibles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWidth<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests]/[method:chase_right_movesThreeRight_and_clampsToWidth()]</span></span> replaced int return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getWidth &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getHeight<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests]/[method:chase_down_movesThreeDown_and_clampsToHeight()]</span></span> replaced int return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getHeight &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredNull_and_nextPositionBlockedByWall_noIncrement()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredNull_and_nextPositionBlockedByWall_noIncrement()]</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/game/Arena::isEmpty &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredValid_setsDirection_and_incrementsCounter()]</span></span> replaced boolean return with false for pt/feup/tvvs/pacman/model/game/Arena::isEmpty &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_110'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getScore<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:scared_collision_invokes_ghost_setters_and_increments_score()]</span></span> replaced long return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getScore &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_118'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>incrementScore<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:scared_collision_invokes_ghost_setters_and_increments_score()]</span></span> Replaced long addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCollectedCollectibles<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast60_insideGate_returnsGatePosition()]</span></span> replaced int return with 0 for pt/feup/tvvs/pacman/model/game/Arena::getCollectedCollectibles &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_126'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>incrementCollectedCollectibles<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast60_insideGate_returnsGatePosition()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGhostGate<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:dead_returnsGatePosition()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/game/Arena::getGhostGate &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_134'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setGhostGatePosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_currentNextPosition_equalsGhostGate_noIncrement()]</span></span> removed call to pt/feup/tvvs/pacman/model/game/element/GhostGate::setPosition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6f526f91_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6f526f91_138'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBlankPositions<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:powerup_collision_removes_collectible_and_sets_ghosts_scared_and_inverts_direction()]</span></span> replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/game/Arena::getBlankPositions &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:dead_returnsGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests]/[method:insideGate_returnsGhostGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests]/[method:dead_returnsGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.GhostMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.GhostMovementBehaviourWhiteBoxTests]/[method:dead_state_returnsGhostGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast60_insideGate_returnsGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.GhostMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.GhostMovementBehaviourWhiteBoxTests]/[method:dead_doesNot_callGetAlivePosition_whenDead()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests]/[method:alive_insideGate_returnsGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast25_and_insideGate_returnsGhostGatePosition()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests]/[method:scared_insideGate_delegatesToAlive()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_currentNextPosition_equalsGhostGate_noIncrement()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests]/[method:testGetDirectionTowards_excludesOpposite_and_selectsNearest()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests]/[method:testStep_frameCount_toggle_invertsDirection_forGhostsOutsideGate()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_currentNextPosition_collidesWithAlivePacman_noIncrement()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredValid_setsDirection_and_incrementsCounter()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_inverts_when_desiredOpposite_and_then_moves()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredTargetOccupiedByDyingPacman_allowed()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests]/[method:testGetDirectionTowards_avoidsGhostGate_unlessInside()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredBlocked_usesCurrentDirection()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerMutationTests]/[method:fallbackMovement_blocked_or_allowed_based_on_collisions_on_nextPosition()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_appliesActions_and_skipsDyingPacman()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredDirectionBlockedByWall_fallsBackToCurrentDirection()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredEqualsGhostGate_isIgnored()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_setsSecondPacmanDesired_usingWASD_and_movesSecond()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_maps_both_players_actions_simultaneously()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests]/[method:moveGhost_calls_setDirection_and_incrementCounter_for_counter_zero()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_maps_player2_actions_WASD()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:dead_doesNotInvokeGetAlivePosition_onBehaviour()] (16 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_maps_player1_actions_UP_DOWN_LEFT_RIGHT()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests]/[method:testMoveGhost_deadAtGate_becomesAlive_and_insideGate_and_speedSet()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:powerup_collision_removes_collectible_and_sets_ghosts_scared_and_inverts_direction()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests]/[method:time_mod_speed_behavior_for_various_speeds()] (4 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerMutationTests]/[method:desiredMovement_blocked_when_other_collides_and_allowed_when_not()] (4 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testCollectiblePowerUpCollision_triggersScaredAndScoreAndBlankPosition()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests]/[method:dead_ghost_at_gate_triggers_setState_setInsideGate_and_setSpeed()] (14 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests]/[method:dead_doesNotInvokeGetAlivePosition_onBehaviour()] (42 ms)</li><li>pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests]/[method:drawElements_twoPacmans_drawsTwoLivesBoxes()] (25 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests]/[method:drawElements_twoPacmans_drawsTwoLivesTextBoxes()] (25 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests]/[method:drawElements_draws_two_lives_textboxes_for_twoPacmans()] (23 ms)</li><li>pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests]/[method:drawElements_singlePacman_erasesAndDrawsAndRefreshes()] (30 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerWhiteBoxTests]/[method:drawElements_singlePacman_erasesAndDrawsAlertAndOptions()] (25 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.AlertMenuViewerMutationTests]/[method:drawElements_draws_score_and_lives_and_options_singlePacman()] (28 ms)</li><li>pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests]/[method:drawElement_refreshThrowsIOException_isWrappedInRuntimeException()] (46 ms)</li><li>pt.feup.tvvs.pacman.PBTests.[engine:jqwik]/[class:pt.feup.tvvs.pacman.PBTests]/[property:arenaLoader_parses_map(java.util.List)] (209 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:scared_collision_invokes_ghost_setters_and_increments_score()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:scared_time_expires_resets_ghosts_and_pacman_speed()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testGhostScaredCollision_eatenIncreasesScoreAndSetsDead()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testScaredTimeExpires_resetsGhostsAndStopsScaredSiren()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_setsDyingAnd_multiplayerCounter()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testPacmanGhostCollision_multiplayer_revivesAfterCounterExpires()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests]/[method:emptyCollectiblesShouldStopAudiosAndSetAlertState()] (26 ms)</li><li>pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.ArenaControllerWhiteBoxTests]/[method:shouldDelegateToInternalControllersWhenNoQuitAndCollectiblesPresent()] (44 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:movePacman_desiredNull_and_nextPositionBlockedByWall_noIncrement()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_withNone_action_doesNothing()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:collectedLessThan25_returnsEightEleven()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedLessThan60_returnsTenEleven()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:scared_inside_delegatesToAlive()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast60_outsideGate_chaseFalse_returnsCorner()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast25_and_notChase_returnsArenaCorner()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast60_chaseTrue_distanceGe36_returnsPacman()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:collectedAtLeast60_chaseTrue_distanceLt36_returnsCorner()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.ClydeMovementBehaviourWhiteBoxTests]/[method:scared_inside_invokesGetAlivePosition_onBehaviour()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:chaseMode_computesTarget_usingBlinkyAndPacmanNext_withinBounds()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:chaseMode_computesTarget_and_clampsToZeroWhenNegative()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.InkyMovementBehaviourWhiteBoxTests]/[method:chaseMode_computesTarget_and_clampsToArenaMaxWhenTooLarge()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.PacmanControllerWhiteBoxTests]/[method:step_skipsMovement_when_timeModuloEqualsOne()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests]/[method:frameCount_increments_after_step_and_reflects_in_isChaseMode()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerMutationTests]/[method:moveGhost_skipped_when_time_mod_speed_equals_one()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.GhostControllerWhiteBoxTests]/[method:testStep_moveGhost_counterNonZero_incrementsCounter_noPositionChange()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenAllPacmansDead_shouldStopAudiosAndSetAlertState()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerWhiteBoxTests]/[method:testStep_audioLoopSelection_whenNoSirenPlaying_playsAliveSiren()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerWhiteBoxTests]/[method:whenThereAreAlivePacmans_shouldResetPacmansAndGhostsAndSetGameState()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onPlayAgain_shouldStopAudios_andSetMapSelectionState_singleplayer()] (6 ms)</li><li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerMutationTests]/[method:ghost_setters_are_called_on_step()] (16 ms)</li><li>pt.feup.tvvs.pacman.states.menu.AlertMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.AlertMenuStateWhiteBoxTests]/[method:step_select_playAgain_sets_mapSelection_state_and_plays_audio()] (3 ms)</li><li>pt.feup.tvvs.pacman.controller.game.DyingStateControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.DyingStateControllerMutationTests]/[method:pacman_setters_are_called_on_step()] (36 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.CollisionControllerMutationTests]/[method:alive_collision_singlePlayer_invokes_pacman_setters_and_triggers_dying_state()] (21 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onPlayAgain_multiplayer_mode_setsMapSelectionState_modeMultiplayer()] (42 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.BlinkyMovementBehaviourWhiteBoxTests]/[method:alive_outsideGate_chaseFalse_returnsRightTopEdge()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests]/[method:chase_right_movesThreeRight_and_clampsToWidth()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:select_when_map_file_removed_throws_ioexception()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:select_should_load_map_and_set_game_state()] (3 ms)</li><li>pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.game.element.behaviours.PinkyMovementBehaviourWhiteBoxTests]/[method:chase_down_movesThreeDown_and_clampsToHeight()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

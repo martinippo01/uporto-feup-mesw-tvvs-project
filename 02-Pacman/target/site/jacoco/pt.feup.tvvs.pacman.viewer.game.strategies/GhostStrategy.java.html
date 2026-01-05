@@ -8,22 +8,22 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Map;
 
-<span class="nc" id="L11">public class GhostStrategy extends MultipleElementStrategy {</span>
+<span class="fc" id="L11">public class GhostStrategy extends MultipleElementStrategy {</span>
     @Override
     public BufferedImage getCurrentImage(Element element, Map&lt;Character, List&lt;BufferedImage&gt;&gt; images, long frameCount) {
-<span class="nc" id="L14">        Ghost ghost = (Ghost) element;</span>
+<span class="fc" id="L14">        Ghost ghost = (Ghost) element;</span>
         //first use the module operator to limit the value to only 20 different values, then assign the first ten to the first image and the rest to the second image
-<span class="nc bnc" id="L16" title="All 4 branches missed.">        int index = (ghost.getState() != GhostState.DEAD ? (frameCount % 20 &lt; 10 ? 0 : 1) : 0);</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (ghost.isScared()) return images.get('S').get(index);</span>
-<span class="nc bnc" id="L18" title="All 5 branches missed.">        switch (ghost.getDirection()) {</span>
+<span class="fc bfc" id="L16" title="All 4 branches covered.">        int index = (ghost.getState() != GhostState.DEAD ? (frameCount % 20 &lt; 10 ? 0 : 1) : 0);</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (ghost.isScared()) return images.get('S').get(index);</span>
+<span class="pc bpc" id="L18" title="1 of 5 branches missed.">        switch (ghost.getDirection()) {</span>
             case UP:
-<span class="nc bnc" id="L20" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'U' : 'u').get(index);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'U' : 'u').get(index);</span>
             case DOWN:
-<span class="nc bnc" id="L22" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'D' : 'd').get(index);</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'D' : 'd').get(index);</span>
             case RIGHT:
-<span class="nc bnc" id="L24" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'R' : 'r').get(index);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'R' : 'r').get(index);</span>
             case LEFT:
-<span class="nc bnc" id="L26" title="All 2 branches missed.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'L' : 'l').get(index);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">                return images.get(ghost.getState() == GhostState.ALIVE ? 'L' : 'l').get(index);</span>
         }
 <span class="nc" id="L28">        return null;</span>
     }

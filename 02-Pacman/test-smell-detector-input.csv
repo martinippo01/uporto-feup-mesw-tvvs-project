@@ -1,0 +1,8 @@
+jpacman-framework,src/test/java/nl/tudelft/jpacman/board/BoardTest.java,src/main/java/nl/tudelft/jpacman/board/Board.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/board/BoardFactoryTest.java,src/main/java/nl/tudelft/jpacman/board/BoardFactory.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/board/SquareTest.java,src/main/java/nl/tudelft/jpacman/board/Square.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/level/LevelTest.java,src/main/java/nl/tudelft/jpacman/level/Level.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/npc/ghost/NavigationTest.java,src/main/java/nl/tudelft/jpacman/npc/ghost/Navigation.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/sprite/SpriteTest.java,src/main/java/nl/tudelft/jpacman/sprite/Sprite.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/LauncherSmokeTest.java,src/main/java/nl/tudelft/jpacman/Launcher.java
+jpacman-framework,src/test/java/nl/tudelft/jpacman/board/OccupantTest.java,src/main/java/nl/tudelft/jpacman/board/Unit.java

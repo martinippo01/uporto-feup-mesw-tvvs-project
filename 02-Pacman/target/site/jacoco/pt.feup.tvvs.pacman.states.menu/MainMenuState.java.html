@@ -14,17 +14,17 @@ import java.net.URISyntaxException;
 public class MainMenuState extends State&lt;MainMenu&gt; {
 
     public MainMenuState(MainMenu model, AudioManager audioManager) throws IOException, URISyntaxException {
-<span class="nc" id="L17">        super(model, audioManager);</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L17">        super(model, audioManager);</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     public Viewer&lt;MainMenu&gt; createViewer() throws IOException {
-<span class="nc" id="L22">        return new MainMenuViewer();</span>
+<span class="fc" id="L22">        return new MainMenuViewer();</span>
     }
 
     @Override
     public Controller&lt;MainMenu&gt; createController(AudioManager audioManager) {
-<span class="nc" id="L27">        return new MainMenuController(getModel(), audioManager);</span>
+<span class="fc" id="L27">        return new MainMenuController(getModel(), audioManager);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

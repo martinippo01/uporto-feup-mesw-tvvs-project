@@ -21,18 +21,18 @@ public class Game {
     private State state;
 
 
-<span class="nc" id="L24">    private Game(GUI gui, AudioManager audioManager) throws IOException, URISyntaxException {</span>
-<span class="nc" id="L25">        this.gui = gui;</span>
-<span class="nc" id="L26">        this.audioManager = audioManager;</span>
-<span class="nc" id="L27">        this.audioManager.setMasterVolume(1f);</span>
-<span class="nc" id="L28">        this.state = createInitialState();</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L24">    private Game(GUI gui, AudioManager audioManager) throws IOException, URISyntaxException {</span>
+<span class="fc" id="L25">        this.gui = gui;</span>
+<span class="fc" id="L26">        this.audioManager = audioManager;</span>
+<span class="fc" id="L27">        this.audioManager.setMasterVolume(1f);</span>
+<span class="fc" id="L28">        this.state = createInitialState();</span>
+<span class="fc" id="L29">    }</span>
 
     public static Game getInstance(GUI gui, AudioManager audioManager) throws IOException, URISyntaxException, FontFormatException {
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (instance == null) {</span>
-<span class="nc" id="L33">            instance = new Game(gui, audioManager);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (instance == null) {</span>
+<span class="fc" id="L33">            instance = new Game(gui, audioManager);</span>
         }
-<span class="nc" id="L35">        return instance;</span>
+<span class="fc" id="L35">        return instance;</span>
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, InterruptedException {
@@ -49,35 +49,35 @@ public class Game {
 <span class="nc" id="L49">    }</span>
 
     private State createInitialState() throws IOException, URISyntaxException {
-<span class="nc" id="L52">        return new MainMenuState(</span>
-<span class="nc" id="L53">                new MainMenu(gui.getResolution(), audioManager.getMasterVolume()),</span>
+<span class="fc" id="L52">        return new MainMenuState(</span>
+<span class="fc" id="L53">                new MainMenu(gui.getResolution(), audioManager.getMasterVolume()),</span>
                 audioManager
         );
     }
 
     public GUI getGui() {
-<span class="nc" id="L59">        return gui;</span>
+<span class="fc" id="L59">        return gui;</span>
     }
 
     public AudioManager getAudioManager() {
-<span class="nc" id="L63">        return audioManager;</span>
+<span class="fc" id="L63">        return audioManager;</span>
     }
 
     public State getState() {
-<span class="nc" id="L67">        return state;</span>
+<span class="fc" id="L67">        return state;</span>
     }
 
     public void setState(State state) {
-<span class="nc" id="L71">        this.state = state;</span>
-<span class="nc" id="L72">    }</span>
+<span class="fc" id="L71">        this.state = state;</span>
+<span class="fc" id="L72">    }</span>
 
     public GUI.SCREEN_RESOLUTION getResolution() {
-<span class="nc" id="L75">        return gui.getResolution();</span>
+<span class="fc" id="L75">        return gui.getResolution();</span>
     }
 
     public void setResolution(GUI.SCREEN_RESOLUTION newResolution) throws URISyntaxException, IOException, FontFormatException {
-<span class="nc" id="L79">        gui.resizeScreen(SCREEN_WIDTH, SCREEN_HEIGHT, newResolution);</span>
-<span class="nc" id="L80">    }</span>
+<span class="fc" id="L79">        gui.resizeScreen(SCREEN_WIDTH, SCREEN_HEIGHT, newResolution);</span>
+<span class="fc" id="L80">    }</span>
 
     private void start() throws IOException, InterruptedException {
 <span class="nc" id="L83">        GameLoop gameLoop = new GameLoop(60);</span>
@@ -116,24 +116,24 @@ class GameLoop {
     private final long frameTime;
     private long frameCount;
 
-<span class="nc" id="L119">    public GameLoop(int fps) {</span>
-<span class="nc" id="L120">        this.frameTime = 1000 / fps;</span>
-<span class="nc" id="L121">        this.frameCount = 0;</span>
-<span class="nc" id="L122">    }</span>
+<span class="fc" id="L119">    public GameLoop(int fps) {</span>
+<span class="fc" id="L120">        this.frameTime = 1000 / fps;</span>
+<span class="fc" id="L121">        this.frameCount = 0;</span>
+<span class="fc" id="L122">    }</span>
 
     public void update(Runnable updateLogic) throws InterruptedException {
-<span class="nc" id="L125">        long startTime = System.currentTimeMillis();</span>
-<span class="nc" id="L126">        updateLogic.run();</span>
+<span class="fc" id="L125">        long startTime = System.currentTimeMillis();</span>
+<span class="fc" id="L126">        updateLogic.run();</span>
 
-<span class="nc" id="L128">        long elapsedTime = System.currentTimeMillis() - startTime;</span>
-<span class="nc" id="L129">        long sleepTime = frameTime - elapsedTime;</span>
+<span class="fc" id="L128">        long elapsedTime = System.currentTimeMillis() - startTime;</span>
+<span class="fc" id="L129">        long sleepTime = frameTime - elapsedTime;</span>
 
-<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
-<span class="nc" id="L132">        ++frameCount;</span>
-<span class="nc" id="L133">    }</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">        if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
+<span class="fc" id="L132">        ++frameCount;</span>
+<span class="fc" id="L133">    }</span>
 
     public long getFrameCount() {
-<span class="nc" id="L136">        return frameCount;</span>
+<span class="fc" id="L136">        return frameCount;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

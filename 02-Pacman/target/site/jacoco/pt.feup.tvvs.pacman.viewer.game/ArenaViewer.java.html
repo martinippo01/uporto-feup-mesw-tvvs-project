@@ -13,26 +13,26 @@ import java.io.IOException;
 
 public class ArenaViewer extends ModelViewer&lt;Arena&gt; {
     public ArenaViewer() throws IOException {
-<span class="nc" id="L16">        super(ViewerFactory.createArenaViewers());</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L16">        super(ViewerFactory.createArenaViewers());</span>
+<span class="fc" id="L17">    }</span>
 
     @Override
     public void drawElements(GUI gui, Arena arena, long frameCount) {
         //before drawing all the elements erase the blank positions
-<span class="nc" id="L22">        arena.getBlankPositions().forEach(position -&gt; gui.erase(new Position(position.getX() * 11, position.getY() * 11)));</span>
+<span class="fc" id="L22">        arena.getBlankPositions().forEach(position -&gt; gui.erase(new Position(position.getX() * 11, position.getY() * 11)));</span>
 
-<span class="nc" id="L24">        arena.getWalls().forEach(wall -&gt; drawElement(gui, wall, frameCount));</span>
-<span class="nc" id="L25">        drawElement(gui, arena.getGhostGate(), frameCount);</span>
-<span class="nc" id="L26">        arena.getCollectibles().forEach(collectible -&gt; drawElement(gui, collectible, frameCount));</span>
-<span class="nc" id="L27">        arena.getGhosts().forEach(ghost -&gt; drawElement(gui, ghost, frameCount));</span>
-<span class="nc" id="L28">        arena.getPacmans().forEach(pacman -&gt; drawElement(gui, pacman, frameCount));</span>
-<span class="nc" id="L29">        drawElement(gui, new TextBox(&quot;Score:&quot; + arena.getScore(), new Position(11, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (arena.getPacmans().size() == 2) {</span>
-<span class="nc" id="L31">            drawElement(gui, new TextBox(&quot;Lives P1:&quot; + arena.getPacmans().get(0).getLife(), new Position(199, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
-<span class="nc" id="L32">            drawElement(gui, new TextBox(&quot;Lives P2:&quot; + arena.getPacmans().get(1).getLife(), new Position(259, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+<span class="fc" id="L24">        arena.getWalls().forEach(wall -&gt; drawElement(gui, wall, frameCount));</span>
+<span class="fc" id="L25">        drawElement(gui, arena.getGhostGate(), frameCount);</span>
+<span class="fc" id="L26">        arena.getCollectibles().forEach(collectible -&gt; drawElement(gui, collectible, frameCount));</span>
+<span class="fc" id="L27">        arena.getGhosts().forEach(ghost -&gt; drawElement(gui, ghost, frameCount));</span>
+<span class="fc" id="L28">        arena.getPacmans().forEach(pacman -&gt; drawElement(gui, pacman, frameCount));</span>
+<span class="fc" id="L29">        drawElement(gui, new TextBox(&quot;Score:&quot; + arena.getScore(), new Position(11, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (arena.getPacmans().size() == 2) {</span>
+<span class="fc" id="L31">            drawElement(gui, new TextBox(&quot;Lives P1:&quot; + arena.getPacmans().get(0).getLife(), new Position(199, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+<span class="fc" id="L32">            drawElement(gui, new TextBox(&quot;Lives P2:&quot; + arena.getPacmans().get(1).getLife(), new Position(259, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
         } else
-<span class="nc" id="L34">            drawElement(gui, new TextBox(&quot;Lives:&quot; + arena.getPacmans().get(0).getLife(), new Position(274, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L34">            drawElement(gui, new TextBox(&quot;Lives:&quot; + arena.getPacmans().get(0).getLife(), new Position(274, 0), new TextColor.RGB(255, 255, 255)), frameCount);</span>
+<span class="fc" id="L35">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

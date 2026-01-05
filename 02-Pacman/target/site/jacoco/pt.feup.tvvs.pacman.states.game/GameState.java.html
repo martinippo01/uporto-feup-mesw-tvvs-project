@@ -14,8 +14,8 @@ import java.net.URISyntaxException;
 public class GameState extends State&lt;Arena&gt; {
 
     public GameState(Arena model, AudioManager audioManager) throws IOException, URISyntaxException {
-<span class="nc" id="L17">        super(model, audioManager);</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L17">        super(model, audioManager);</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     public Viewer&lt;Arena&gt; createViewer() throws IOException {
@@ -24,7 +24,7 @@ public class GameState extends State&lt;Arena&gt; {
 
     @Override
     public Controller&lt;Arena&gt; createController(AudioManager audioManager) {
-<span class="nc" id="L27">        return new ArenaController(getModel(), audioManager);</span>
+<span class="fc" id="L27">        return new ArenaController(getModel(), audioManager);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

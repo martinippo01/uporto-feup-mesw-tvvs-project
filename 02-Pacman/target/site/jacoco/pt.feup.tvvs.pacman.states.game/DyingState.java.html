@@ -13,8 +13,8 @@ import java.net.URISyntaxException;
 
 public class DyingState extends State&lt;Arena&gt; {
     public DyingState(Arena model, AudioManager audioManager) throws IOException, URISyntaxException {
-<span class="nc" id="L16">        super(model, audioManager);</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L16">        super(model, audioManager);</span>
+<span class="fc" id="L17">    }</span>
 
     @Override
     public Viewer&lt;Arena&gt; createViewer() throws IOException {
@@ -23,7 +23,7 @@ public class DyingState extends State&lt;Arena&gt; {
 
     @Override
     public Controller&lt;Arena&gt; createController(AudioManager audioManager) {
-<span class="nc" id="L26">        return new DyingStateController(getModel(), audioManager);</span>
+<span class="fc" id="L26">        return new DyingStateController(getModel(), audioManager);</span>
     }
 
 }

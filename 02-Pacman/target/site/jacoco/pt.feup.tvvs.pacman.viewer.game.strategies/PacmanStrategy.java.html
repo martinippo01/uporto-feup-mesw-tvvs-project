@@ -8,24 +8,24 @@ import java.util.List;
 import java.util.Map;
 
 
-<span class="nc" id="L11">public class PacmanStrategy extends MultipleElementStrategy {</span>
+<span class="fc" id="L11">public class PacmanStrategy extends MultipleElementStrategy {</span>
     @Override
     public BufferedImage getCurrentImage(Element element, Map&lt;Character, List&lt;BufferedImage&gt;&gt; images, long frameCount) {
-<span class="nc" id="L14">        Pacman pacman = (Pacman) element;</span>
+<span class="fc" id="L14">        Pacman pacman = (Pacman) element;</span>
         //first use the module operator to limit the value to only 20 different values, then assign the first ten to the first image and the rest to the second image
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        int index = (frameCount % 20 &lt; 10 ? 0 : 1);</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (pacman.isDying())</span>
-<span class="nc" id="L18">            return images.get('X').get(0);</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        int index = (frameCount % 20 &lt; 10 ? 0 : 1);</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (pacman.isDying())</span>
+<span class="fc" id="L18">            return images.get('X').get(0);</span>
 
-<span class="nc bnc" id="L20" title="All 5 branches missed.">        switch (pacman.getDirection()) {</span>
+<span class="pc bpc" id="L20" title="1 of 5 branches missed.">        switch (pacman.getDirection()) {</span>
             case UP:
-<span class="nc" id="L22">                return images.get('U').get(index);</span>
+<span class="fc" id="L22">                return images.get('U').get(index);</span>
             case DOWN:
-<span class="nc" id="L24">                return images.get('D').get(index);</span>
+<span class="fc" id="L24">                return images.get('D').get(index);</span>
             case RIGHT:
-<span class="nc" id="L26">                return images.get('R').get(index);</span>
+<span class="fc" id="L26">                return images.get('R').get(index);</span>
             case LEFT:
-<span class="nc" id="L28">                return images.get('L').get(index);</span>
+<span class="fc" id="L28">                return images.get('L').get(index);</span>
         }
 <span class="nc" id="L30">        return null;</span>
     }

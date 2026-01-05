@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s -- in pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests

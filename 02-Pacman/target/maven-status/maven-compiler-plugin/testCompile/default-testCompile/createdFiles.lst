@@ -2,9 +2,11 @@ pt/feup/tvvs/pacman/model/menu/MenuOptionsWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/game/GameStateWhiteBoxTests$5.class
 pt/feup/tvvs/pacman/states/menu/AlertMenuStateWhiteBoxTests$2.class
 pt/feup/tvvs/pacman/states/menu/MainMenuStateWhiteBoxTests$2.class
+pt/feup/tvvs/pacman/controller/game/element/CollisionControllerMutationTests.class
 pt/feup/tvvs/pacman/model/game/element/ghost/PinkyWhiteBoxTests.class
 pt/feup/tvvs/pacman/controller/menu/AlertMenuControllerWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/ElementWhiteBoxTests$OtherElement.class
+pt/feup/tvvs/pacman/audio/AudioPlayerMutationTests$2.class
 pt/feup/tvvs/pacman/model/game/element/ghost/ClydeWhiteBoxTests.class
 pt/feup/tvvs/pacman/PBTests.class
 pt/feup/tvvs/pacman/controller/game/element/CollisionControllerWhiteBoxTests.class
@@ -21,10 +23,13 @@ pt/feup/tvvs/pacman/model/menu/MenuWhiteBoxTests.class
 pt/feup/tvvs/pacman/viewer/game/MovableElementViewerWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/StateWhiteBoxTests$3.class
 pt/feup/tvvs/pacman/viewer/menu/MainMenuViewerWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviourMutationTests.class
 pt/feup/tvvs/pacman/gui/GUIWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/game/GameStateWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/DyingStateControllerMutationTests.class
 pt/feup/tvvs/pacman/model/ElementWhiteBoxTests$TestElement.class
 pt/feup/tvvs/pacman/controller/game/element/behaviours/ClydeMovementBehaviourWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/element/PacmanControllerMutationTests.class
 pt/feup/tvvs/pacman/states/menu/MainMenuStateWhiteBoxTests.class
 pt/feup/tvvs/pacman/BlackBoxTests$AudioManagerSetMasterVolumeTests.class
 pt/feup/tvvs/pacman/controller/game/element/behaviours/PinkyMovementBehaviourWhiteBoxTests.class
@@ -39,6 +44,8 @@ pt/feup/tvvs/pacman/viewer/ModelViewerWhiteBoxTests$4.class
 pt/feup/tvvs/pacman/states/menu/PauseMenuStateWhiteBoxTests.class
 pt/feup/tvvs/pacman/controller/menu/MenuControllerWhiteBoxTests$1.class
 pt/feup/tvvs/pacman/model/ElementWhiteBoxTests.class
+pt/feup/tvvs/pacman/viewer/menu/AlertMenuViewerMutationTests.class
+pt/feup/tvvs/pacman/audio/AudioPlayerMutationTests$1.class
 pt/feup/tvvs/pacman/states/menu/MainMenuStateWhiteBoxTests$3.class
 pt/feup/tvvs/pacman/model/game/element/ghost/GhostStateWhiteBoxTests.class
 pt/feup/tvvs/pacman/controller/menu/MenuControllerWhiteBoxTests$MenuOptionsImpl.class
@@ -53,8 +60,10 @@ pt/feup/tvvs/pacman/controller/game/element/behaviours/InkyMovementBehaviourWhit
 pt/feup/tvvs/pacman/model/game/element/DirectionWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/game/DyingStateWhiteBoxTests$TestDyingState.class
 pt/feup/tvvs/pacman/controller/ControllerWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/element/behaviours/InkyMovementBehaviourMutationTests.class
 pt/feup/tvvs/pacman/viewer/ModelViewerWhiteBoxTests$3.class
 pt/feup/tvvs/pacman/controller/menu/PauseMenuControllerWhiteBoxTests$1.class
+pt/feup/tvvs/pacman/controller/game/element/GhostControllerMutationTests.class
 pt/feup/tvvs/pacman/states/StateWhiteBoxTests$1.class
 pt/feup/tvvs/pacman/viewer/game/strategies/PacmanStrategyWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/menu/MapSelectionMenuWhiteBoxTests.class
@@ -62,6 +71,7 @@ pt/feup/tvvs/pacman/states/game/DyingStateWhiteBoxTests$3.class
 pt/feup/tvvs/pacman/model/game/element/GhostGateWhiteBoxTests.class
 pt/feup/tvvs/pacman/controller/game/element/GhostControllerWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/menu/element/TextBoxWhiteBoxTests.class
+pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviourMutationTests$TestGhostMovementBehaviour.class
 pt/feup/tvvs/pacman/controller/menu/MainMenuControllerWhiteBoxTests.class
 pt/feup/tvvs/pacman/controller/menu/MenuControllerWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/StateWhiteBoxTests$4.class
@@ -77,7 +87,9 @@ pt/feup/tvvs/pacman/viewer/game/strategies/GhostStrategyWhiteBoxTests.class
 pt/feup/tvvs/pacman/model/menu/AlertMenuWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/menu/PauseMenuStateWhiteBoxTests$1.class
 pt/feup/tvvs/pacman/model/game/element/MovableElementWhiteBoxTests.class
+pt/feup/tvvs/pacman/audio/AudioManagerMutationTests.class
 pt/feup/tvvs/pacman/states/menu/AlertMenuStateWhiteBoxTests$1.class
+pt/feup/tvvs/pacman/states/menu/MainMenuStateMutationTests.class
 pt/feup/tvvs/pacman/states/menu/AlertMenuStateWhiteBoxTests$4$1.class
 pt/feup/tvvs/pacman/model/game/element/WallWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/menu/MapSelectionMenuStateWhiteBoxTests$4.class
@@ -107,6 +119,7 @@ pt/feup/tvvs/pacman/viewer/game/ImageLoaderWhiteBoxTests.class
 pt/feup/tvvs/pacman/BlackBoxTests$LanternaGUIResizeTests.class
 pt/feup/tvvs/pacman/states/menu/MainMenuStateWhiteBoxTests$1.class
 pt/feup/tvvs/pacman/viewer/ModelViewerWhiteBoxTests$2.class
+pt/feup/tvvs/pacman/audio/AudioPlayerMutationTests.class
 pt/feup/tvvs/pacman/controller/game/DyingStateControllerWhiteBoxTests$1.class
 pt/feup/tvvs/pacman/viewer/menu/MapSelectionMenuViewerWhiteBoxTests.class
 pt/feup/tvvs/pacman/states/menu/PauseMenuStateWhiteBoxTests$3.class

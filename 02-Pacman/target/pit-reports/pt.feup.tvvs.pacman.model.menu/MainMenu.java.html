@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MainMenu.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.pacman.model.menu;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.googlecode.lanterna.TextColor;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.gui.GUI;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.Position;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.Direction;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.ghost.Blinky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.ghost.Clyde;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.ghost.Inky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.ghost.Pinky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.game.element.pacman.Pacman;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.pacman.model.menu.element.TextBox;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashSet;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class MainMenu extends Menu implements MenuOptions {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Set&#60;Position&#62; blankPositions;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Pacman pacman;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Blinky blinky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Inky inky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Pinky pinky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Clyde clyde;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public MainMenu(GUI.SCREEN_RESOLUTION resolution, float volume) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_29'>1</a>
+<span>
+1. &#60;init&#62; : removed call to pt/feup/tvvs/pacman/model/menu/MainMenu::initializeOptions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        initializeOptions();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        blankPositions = createBlankPosition();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pacman = new Pacman(new Position(14, 4));</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        blinky = new Blinky(new Position(7, 4));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        inky = new Inky(new Position(5, 8));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_35'/>
+35
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_35'>1</a>
+<span>
+1. &#60;init&#62; : removed call to pt/feup/tvvs/pacman/model/game/element/ghost/Inky::setDirection &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        inky.setDirection(Direction.DOWN);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pinky = new Pinky(new Position(21, 13));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_37'/>
+37
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_37'>1</a>
+<span>
+1. &#60;init&#62; : removed call to pt/feup/tvvs/pacman/model/game/element/ghost/Pinky::setDirection &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        pinky.setDirection(Direction.RIGHT);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        clyde = new Clyde(new Position(24, 10));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_39'/>
+39
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_39'>1</a>
+<span>
+1. &#60;init&#62; : removed call to pt/feup/tvvs/pacman/model/game/element/ghost/Clyde::setDirection &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        clyde.setDirection(Direction.UP);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_41'>1</a>
+<span>
+1. &#60;init&#62; : removed call to pt/feup/tvvs/pacman/model/menu/MainMenu::setResolution &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setResolution(resolution);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_42'>1</a>
+<span>
+1. &#60;init&#62; : removed call to pt/feup/tvvs/pacman/model/menu/MainMenu::setMasterVolume &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setMasterVolume(volume);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;TextBox&#62; createOptions() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_47'>1</a>
+<span>
+1. createOptions : replaced return value with Collections.emptyList for pt/feup/tvvs/pacman/model/menu/MainMenu::createOptions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new ArrayList&#60;&#62;(List.of(</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                new TextBox(&#34;Single player&#34;, new Position(130, 80), new TextColor.RGB(255, 255, 255)),</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                new TextBox(&#34;Multi player&#34;, new Position(132, 91), new TextColor.RGB(255, 255, 255)),</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                new TextBox(&#34;Resolution: 900p&#34;, new Position(118, 102), new TextColor.RGB(255, 255, 255)),</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                new TextBox(&#34;Master Volume: 10&#34;, new Position(118, 113), new TextColor.RGB(255, 255, 255)),</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                new TextBox(&#34;Exit&#34;, new Position(150, 124), new TextColor.RGB(255, 255, 255))</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        ));</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected TextBox createTitle() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_58'>1</a>
+<span>
+1. createTitle : replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::createTitle &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new TextBox(&#34;PACMAN&#34;, new Position(145, 30), new TextColor.RGB(255, 255, 255));</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Set&#60;Position&#62; createBlankPosition() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        HashSet&#60;Position&#62; blankPos = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_63'>3</a>
+<span>
+1. createBlankPosition : changed conditional boundary &rarr; SURVIVED<br/>
+2. createBlankPosition : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+3. createBlankPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 3; i &#60;= 7; ++i) blankPos.add(new Position(i, 4)); //Blinky&#39;s movement</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_64'/>
+64
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_64'>3</a>
+<span>
+1. createBlankPosition : negated conditional &rarr; SURVIVED<br/>
+2. createBlankPosition : changed conditional boundary &rarr; SURVIVED<br/>
+3. createBlankPosition : Changed increment from 1 to -1 &rarr; MEMORY_ERROR<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 8; i &#60;= 13; ++i) blankPos.add(new Position(5, i)); //Inky&#39;s movement</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_65'/>
+65
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_65'>3</a>
+<span>
+1. createBlankPosition : changed conditional boundary &rarr; SURVIVED<br/>
+2. createBlankPosition : negated conditional &rarr; SURVIVED<br/>
+3. createBlankPosition : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 19; i &#60;= 26; ++i) blankPos.add(new Position(i, 13)); //Pinky&#39;s movement</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_66'>3</a>
+<span>
+1. createBlankPosition : changed conditional boundary &rarr; SURVIVED<br/>
+2. createBlankPosition : negated conditional &rarr; SURVIVED<br/>
+3. createBlankPosition : Changed increment from 1 to -1 &rarr; MEMORY_ERROR<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 3; i &#60;= 10; ++i) blankPos.add(new Position(24, i)); //Clyde&#39;s movement</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_67'>1</a>
+<span>
+1. createBlankPosition : replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/menu/MainMenu::createBlankPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return blankPos;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean singlePLayerSelected() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_71'>2</a>
+<span>
+1. singlePLayerSelected : negated conditional &rarr; KILLED<br/>
+2. singlePLayerSelected : replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::singlePLayerSelected &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getSelectedOption() == 0;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean multiplayerSelected() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_75'>2</a>
+<span>
+1. multiplayerSelected : replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::multiplayerSelected &rarr; KILLED<br/>
+2. multiplayerSelected : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getSelectedOption() == 1;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean ResolutionSelected() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_80'>2</a>
+<span>
+1. ResolutionSelected : negated conditional &rarr; KILLED<br/>
+2. ResolutionSelected : replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::ResolutionSelected &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getSelectedOption() == 2;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean MasterVolumeSelected() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_85'>2</a>
+<span>
+1. MasterVolumeSelected : replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::MasterVolumeSelected &rarr; SURVIVED<br/>
+2. MasterVolumeSelected : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return getSelectedOption() == 3;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean ExitSelected() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_89'>2</a>
+<span>
+1. ExitSelected : replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::ExitSelected &rarr; KILLED<br/>
+2. ExitSelected : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getSelectedOption() == 4;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Pacman getPacman() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_94'>1</a>
+<span>
+1. getPacman : replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getPacman &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return pacman;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setResolution(GUI.SCREEN_RESOLUTION newResolution) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_99'>1</a>
+<span>
+1. setResolution : removed call to pt/feup/tvvs/pacman/model/menu/element/TextBox::setText &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        getOptions().get(2).setText(&#34;Resolution: &#34; + newResolution);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setMasterVolume(float volume) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_104'/>
+104
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_104'>2</a>
+<span>
+1. setMasterVolume : removed call to pt/feup/tvvs/pacman/model/menu/element/TextBox::setText &rarr; SURVIVED<br/>
+2. setMasterVolume : Replaced float multiplication with division &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        getOptions().get(3).setText(&#34;Master Volume: &#34; + (int) (volume * 10));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Blinky getBlinky() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_108'>1</a>
+<span>
+1. getBlinky : replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getBlinky &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return blinky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Clyde getClyde() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_112'/>
+112
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_112'>1</a>
+<span>
+1. getClyde : replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getClyde &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return clyde;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Pinky getPinky() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_116'/>
+116
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_116'>1</a>
+<span>
+1. getPinky : replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getPinky &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return pinky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Inky getInky() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_120'/>
+120
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_120'>1</a>
+<span>
+1. getInky : replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getInky &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return inky;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Set&#60;Position&#62; getBlankPositions() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_124'>1</a>
+<span>
+1. getBlankPositions : replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/menu/MainMenu::getBlankPositions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return blankPositions;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</span></span> removed call to pt/feup/tvvs/pacman/model/menu/MainMenu::initializeOptions &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_35'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/pacman/model/game/element/ghost/Inky::setDirection &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_37'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/pacman/model/game/element/ghost/Pinky::setDirection &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[74],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[74],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[74],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_39'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/pacman/model/game/element/ghost/Clyde::setDirection &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[92],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[92],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[92],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_41'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/pacman/model/menu/MainMenu::setResolution &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[97],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[97],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[97],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_42'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/pacman/model/menu/MainMenu::setMasterVolume &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=<init>,-methodDesc=(Lpt/feup/tvvs/pacman/gui/GUI$SCREEN_RESOLUTION;F)V],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createOptions<br/><b>Killed by : </b>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</span></span> replaced return value with Collections.emptyList for pt/feup/tvvs/pacman/model/menu/MainMenu::createOptions &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createTitle<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::createTitle &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_64'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='MEMORY_ERROR'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; MEMORY_ERROR</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_65'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_66'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=createBlankPosition,-methodDesc=()Ljava/util/Set;],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='MEMORY_ERROR'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; MEMORY_ERROR</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBlankPosition<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</span></span> replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/menu/MainMenu::createBlankPosition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>singlePLayerSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>singlePLayerSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::singlePLayerSelected &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>multiplayerSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::multiplayerSelected &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>multiplayerSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>ResolutionSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>ResolutionSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::ResolutionSelected &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_85'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>MasterVolumeSelected<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::MasterVolumeSelected &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=MasterVolumeSelected,-methodDesc=()Z],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=MasterVolumeSelected,-methodDesc=()Z],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=MasterVolumeSelected,-methodDesc=()Z],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>MasterVolumeSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>ExitSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</span></span> replaced boolean return with true for pt/feup/tvvs/pacman/model/menu/MainMenu::ExitSelected &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>ExitSelected<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPacman<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getPacman &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setResolution<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</span></span> removed call to pt/feup/tvvs/pacman/model/menu/element/TextBox::setText &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_104'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMasterVolume<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/pacman/model/menu/element/TextBox::setText &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=setMasterVolume,-methodDesc=(F)V],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=setMasterVolume,-methodDesc=(F)V],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=setMasterVolume,-methodDesc=(F)V],-indexes=[13],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setMasterVolume<br/><b>Killed by : </b>none</span></span> Replaced float multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=setMasterVolume,-methodDesc=(F)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=setMasterVolume,-methodDesc=(F)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.pacman.model.menu.MainMenu,-method=setMasterVolume,-methodDesc=(F)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()]</li> <li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()]</li> <li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()]</li> <li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()]</li> <li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()]</li> <li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBlinky<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getBlinky &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_112'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getClyde<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getClyde &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPinky<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getPinky &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInky<br/><b>Killed by : </b>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()]</span></span> replaced return value with null for pt/feup/tvvs/pacman/model/menu/MainMenu::getInky &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@14cd8dfa_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@14cd8dfa_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBlankPositions<br/><b>Killed by : </b>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()]</span></span> replaced return value with Collections.emptySet for pt/feup/tvvs/pacman/model/menu/MainMenu::getBlankPositions &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:constructor_stores_model_and_audioManager_and_uses_overrides()] (0 ms)</li><li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_checked_exceptions_from_controller()] (0 ms)</li><li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_delegates_to_controller_and_viewer()] (0 ms)</li><li>pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateWhiteBoxTests]/[method:step_propagates_runtime_exceptions_from_viewer()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:blinky_direction_changes_based_on_position()] (0 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.PauseMenuControllerWhiteBoxTests]/[method:select_exit_sets_main_menu_state()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_exit_setsStateNull()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:inky_pinky_clyde_direction_changes_based_on_position()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_masterVolume_changesVolume()] (1 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_resolution_changesResolution()] (2 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_multiplayer_setsMapSelectionState()] (3 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MapSelectionMenuControllerWhiteBoxTests]/[method:quit_should_set_main_menu_state()] (15 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.AlertMenuControllerWhiteBoxTests]/[method:select_onExit_shouldStopAudios_andSetMainMenuState()] (22 ms)</li><li>pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.controller.menu.MainMenuControllerWhiteBoxTests]/[method:select_singlePlayer_setsMapSelectionState()] (20 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_refreshThrowsIOException_isWrappedInRuntimeException()] (20 ms)</li><li>pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.viewer.menu.MainMenuViewerWhiteBoxTests]/[method:drawElements_erasesBlankAndDrawsAllElements_andRefreshes()] (20 ms)</li><li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_createsSingleton_setsMasterVolume_and_initialState()] (36 ms)</li><li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getInstance_handlesMultipleThreads_and_isSingleton()] (44 ms)</li><li>pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.states.menu.MainMenuStateMutationTests]/[method:step_with_real_viewer_and_controller_does_not_throw()] (23 ms)</li><li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:getResolution_delegatesToGui_and_setResolution_callsResizeScreen()] (54 ms)</li><li>pt.feup.tvvs.pacman.GameWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.pacman.GameWhiteBoxTests]/[method:setAndGetState_workAsExpected()] (155 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

@@ -6,8 +6,8 @@ public abstract class Element {
     private final Position position;
 
 <span class="fc" id="L8">    protected Element(Position pos) {</span>
-<span class="pc bpc" id="L9" title="2 of 4 branches missed.">        if (pos.getY() &lt; 0 || pos.getX() &lt; 0) {</span>
-<span class="nc" id="L10">            throw new IllegalArgumentException(&quot;Element position cannot have negatives values: &quot; + pos);</span>
+<span class="fc bfc" id="L9" title="All 4 branches covered.">        if (pos.getY() &lt; 0 || pos.getX() &lt; 0) {</span>
+<span class="fc" id="L10">            throw new IllegalArgumentException(&quot;Element position cannot have negatives values: &quot; + pos);</span>
         }
 <span class="fc" id="L12">        position = pos;</span>
 <span class="fc" id="L13">    }</span>
@@ -17,18 +17,18 @@ public abstract class Element {
     }
 
     public void setPosition(Position other) {
-<span class="pc bpc" id="L20" title="2 of 4 branches missed.">        if (other.getY() &lt; 0 || other.getX() &lt; 0) {</span>
-<span class="nc" id="L21">            throw new IllegalArgumentException(&quot;Element position cannot have negatives values: &quot; + other);</span>
+<span class="pc bpc" id="L20" title="1 of 4 branches missed.">        if (other.getY() &lt; 0 || other.getX() &lt; 0) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;Element position cannot have negatives values: &quot; + other);</span>
         }
 <span class="fc" id="L23">        position.setPosition(other);</span>
 <span class="fc" id="L24">    }</span>
 
     @Override
     public boolean equals(Object obj) {
-<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (this == obj) return true;</span>
-<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (!(obj instanceof Element)) return false;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (this == obj) return true;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (!(obj instanceof Element)) return false;</span>
 <span class="fc" id="L30">        Element element = (Element) obj;</span>
-<span class="pc bpc" id="L31" title="1 of 4 branches missed.">        return this.position.equals(element.position) &amp;&amp; this.getClass() == element.getClass();</span>
+<span class="fc bfc" id="L31" title="All 4 branches covered.">        return this.position.equals(element.position) &amp;&amp; this.getClass() == element.getClass();</span>
     }
 
     @Override

@@ -11,22 +11,22 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Map;
 
-<span class="nc" id="L14">public class MovableElementViewer extends Viewer&lt;Element&gt; {</span>
+<span class="fc" id="L14">public class MovableElementViewer extends Viewer&lt;Element&gt; {</span>
     private final Map&lt;Character, List&lt;BufferedImage&gt;&gt; images;
     private final MultipleElementStrategy strategy;
 
-<span class="nc" id="L18">    public MovableElementViewer(MultipleElementStrategy strategy, Map&lt;Character, List&lt;BufferedImage&gt;&gt; images) {</span>
-<span class="nc" id="L19">        this.images = images;</span>
-<span class="nc" id="L20">        this.strategy = strategy;</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L18">    public MovableElementViewer(MultipleElementStrategy strategy, Map&lt;Character, List&lt;BufferedImage&gt;&gt; images) {</span>
+<span class="fc" id="L19">        this.images = images;</span>
+<span class="fc" id="L20">        this.strategy = strategy;</span>
+<span class="fc" id="L21">    }</span>
 
     @Override
     public void drawElement(GUI gui, Element element, long frameCount) {
-<span class="nc" id="L25">        BufferedImage image = strategy.getCurrentImage(element, images, frameCount);</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        assert image != null;</span>
-<span class="nc" id="L27">        MovableElement movableElement = (MovableElement) element;</span>
-<span class="nc" id="L28">        Position drawPos = movableElement.getRealPosition();</span>
-<span class="nc" id="L29">        gui.drawImage(drawPos, image);</span>
-<span class="nc" id="L30">    }</span>
+<span class="fc" id="L25">        BufferedImage image = strategy.getCurrentImage(element, images, frameCount);</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        assert image != null;</span>
+<span class="fc" id="L27">        MovableElement movableElement = (MovableElement) element;</span>
+<span class="fc" id="L28">        Position drawPos = movableElement.getRealPosition();</span>
+<span class="fc" id="L29">        gui.drawImage(drawPos, image);</span>
+<span class="fc" id="L30">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
