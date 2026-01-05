@@ -2,6 +2,7 @@
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/ArenaControllerWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/ArenaController.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/InkyMovementBehaviourWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/InkyMovementBehaviour.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviourWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviour.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviourWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviour.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/BlinkyMovementBehaviourWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/BlinkyMovementBehaviour.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/PinkyMovementBehaviourWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/PinkyMovementBehaviour.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/ClydeMovementBehaviourWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/ClydeMovementBehaviour.java
@@ -31,7 +32,9 @@
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/viewer/menu/MainMenuViewerWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/viewer/menu/MainMenuViewer.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/viewer/TextBoxViewerWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/viewer/TextBoxViewer.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/audio/AudioPlayerWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/audio/AudioPlayer.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/audio/AudioPlayerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/audio/AudioPlayer.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/audio/AudioManagerWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/audio/AudioManager.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/audio/AudioManagerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/audio/AudioManager.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/GameWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/Game.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/states/game/DyingStateWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/states/game/DyingState.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/states/game/GameStateWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/states/game/GameState.java
@@ -72,3 +75,13 @@
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/model/menu/MenuOptionsWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/model/menu/MenuOptions.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/model/menu/PauseMenuWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/model/menu/PauseMenu.java
 02-Pacman,src/test/java/pt/feup/tvvs/pacman/model/menu/AlertMenuWhiteBoxTests.java,src/main/java/pt/feup/tvvs/pacman/model/menu/AlertMenu.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/DyingStateControllerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/DyingStateController.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/GhostControllerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/GhostController.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/CollisionControllerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/CollisionController.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/InkyMovementBehaviourMutationTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/InkyMovementBehaviour.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviourMutationTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/behaviours/GhostMovementBehaviour.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/controller/game/element/PacmanControllerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/controller/game/element/PacmanController.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/viewer/menu/AlertMenuViewerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/viewer/menu/AlertMenuViewer.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/audio/AudioPlayerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/audio/AudioPlayer.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/audio/AudioManagerMutationTests.java,src/main/java/pt/feup/tvvs/pacman/audio/AudioManager.java
+02-Pacman,src/test/java/pt/feup/tvvs/pacman/states/menu/MainMenuStateMutationTests.java,src/main/java/pt/feup/tvvs/pacman/states/menu/MainMenuState.java
