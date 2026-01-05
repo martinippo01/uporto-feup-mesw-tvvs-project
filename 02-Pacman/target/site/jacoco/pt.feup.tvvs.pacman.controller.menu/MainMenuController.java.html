@@ -27,7 +27,7 @@ public class MainMenuController extends MenuController&lt;MainMenu&gt; {
     public void step(Game game, List&lt;GUI.ACTION&gt; actions, long time) throws URISyntaxException, IOException, FontFormatException {
 <span class="fc" id="L28">        super.step(game, actions, time);</span>
 <span class="fc bfc" id="L29" title="All 2 branches covered.">        for (GUI.ACTION action : actions) {</span>
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">            if (action == GUI.ACTION.SELECT) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            if (action == GUI.ACTION.SELECT) {</span>
 <span class="fc" id="L31">                menuConfirmSelection.playOnce();</span>
 <span class="fc bfc" id="L32" title="All 2 branches covered.">                if (getModel().singlePLayerSelected()) {</span>
 <span class="fc" id="L33">                    MapSelectionMenu mapSelectionMenu = new MapSelectionMenu(&quot;singleplayer&quot;); // Create a new map selection menu model</span>

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 public class AudioPlayerWhiteBoxTests {
 
     @Test
-    void constructor_successful_and_play_controls_behaviour() throws Exception {
+    public void constructor_successful_and_play_controls_behaviour() throws Exception {
         // prepare mocks
         Clip mockClip = mock(Clip.class);
         AudioInputStream mockStream = mock(AudioInputStream.class);
@@ -65,7 +65,7 @@ public class AudioPlayerWhiteBoxTests {
     }
 
     @Test
-    void constructor_when_resource_missing_throwsRuntimeException() {
+    public void constructor_when_resource_missing_throwsRuntimeException() {
         // If AudioSystem is not mocked and resource is missing, constructor should throw RuntimeException
         // Pick a path extremely unlikely to be present
         assertThatThrownBy(() -> new AudioPlayer("this-file-should-not-exist-1234567890.wav"))
@@ -73,7 +73,7 @@ public class AudioPlayerWhiteBoxTests {
     }
 
     @Test
-    void setVolume_valid_callsFloatControl_and_invalid_values_ignored() throws Exception {
+    public void setVolume_valid_callsFloatControl_and_invalid_values_ignored() throws Exception {
         Clip mockClip = mock(Clip.class);
         AudioInputStream mockStream = mock(AudioInputStream.class);
         FloatControl mockControl = mock(FloatControl.class);

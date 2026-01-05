@@ -34,14 +34,14 @@ public class AudioManagerWhiteBoxTests {
     }
 
     @Test
-    void singleton_getInstance_returnsSameInstance() {
+    public void singleton_getInstance_returnsSameInstance() {
         AudioManager m1 = freshManager();
         AudioManager m2 = freshManager();
         assertThat(m1).isSameAs(m2);
     }
 
     @Test
-    void addAudio_whenKeyAlreadyExists_doesNotReplaceExisting() throws Exception {
+    public void addAudio_whenKeyAlreadyExists_doesNotReplaceExisting() throws Exception {
         AudioManager manager = freshManager();
         AudioPlayer existing = mock(AudioPlayer.class);
         putMockIntoAudios(manager, "music", existing);
@@ -55,7 +55,7 @@ public class AudioManagerWhiteBoxTests {
     }
 
     @Test
-    void addAudio_whenFileMissing_throwsRuntimeException() {
+    public void addAudio_whenFileMissing_throwsRuntimeException() {
         AudioManager manager = freshManager();
         // This will attempt to construct a real AudioPlayer which should fail for a non-existent resource
         assertThatThrownBy(() -> manager.addAudio("missing", "nonexistent-audio-file-hopefully-not-present.wav"))
@@ -63,7 +63,7 @@ public class AudioManagerWhiteBoxTests {
     }
 
     @Test
-    void addAudio_successful_constructsAudioPlayerAndSetsVolume() {
+    public void addAudio_successful_constructsAudioPlayerAndSetsVolume() {
         AudioManager manager = freshManager();
 
         try (MockedConstruction<AudioPlayer> mocked = mockConstruction(AudioPlayer.class, (mock, ctx) -> {
@@ -85,7 +85,7 @@ public class AudioManagerWhiteBoxTests {
     }
 
     @Test
-    void stopAllAudios_invokesStopPlayingOnAll() throws Exception {
+    public void stopAllAudios_invokesStopPlayingOnAll() throws Exception {
         AudioManager manager = freshManager();
         AudioPlayer a1 = mock(AudioPlayer.class);
         AudioPlayer a2 = mock(AudioPlayer.class);
@@ -99,7 +99,7 @@ public class AudioManagerWhiteBoxTests {
     }
 
     @Test
-    void setMainMusic_setsVolumeAndStoresMainMusic() {
+    public void setMainMusic_setsVolumeAndStoresMainMusic() {
         AudioManager manager = freshManager();
         AudioPlayer main = mock(AudioPlayer.class);
         when(main.getVolume()).thenReturn(0.75f);
@@ -115,7 +115,7 @@ public class AudioManagerWhiteBoxTests {
     }
 
     @Test
-    void setMasterVolume_changesVolumesCorrectly_and_invalidValuesAreIgnored() throws Exception {
+    public void setMasterVolume_changesVolumesCorrectly_and_invalidValuesAreIgnored() throws Exception {
         AudioManager manager = freshManager();
 
         AudioPlayer main = mock(AudioPlayer.class);

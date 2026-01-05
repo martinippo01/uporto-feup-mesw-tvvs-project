@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 public class GhostControllerMutationTests {
 
     @Test
-    void moveGhost_calls_setDirection_and_incrementCounter_for_counter_zero() throws Exception {
+    public void moveGhost_calls_setDirection_and_incrementCounter_for_counter_zero() throws Exception {
         Arena arena = new Arena(20,20);
         GhostController controller = new GhostController(arena);
 
@@ -54,7 +54,7 @@ public class GhostControllerMutationTests {
     }
 
     @Test
-    void time_mod_speed_behavior_for_various_speeds() throws Exception {
+    public void time_mod_speed_behavior_for_various_speeds() throws Exception {
         Arena arena = new Arena(20,20);
         GhostController controller = new GhostController(arena);
 
@@ -90,7 +90,7 @@ public class GhostControllerMutationTests {
     }
 
     @Test
-    void moveGhost_skipped_when_time_mod_speed_equals_one() throws Exception {
+    public void moveGhost_skipped_when_time_mod_speed_equals_one() throws Exception {
         Arena arena = new Arena(20,20);
         GhostController controller = new GhostController(arena);
 
@@ -113,7 +113,7 @@ public class GhostControllerMutationTests {
     }
 
     @Test
-    void dead_ghost_at_gate_triggers_setState_setInsideGate_and_setSpeed() throws Exception {
+    public void dead_ghost_at_gate_triggers_setState_setInsideGate_and_setSpeed() throws Exception {
         Arena arena = new Arena(10,10);
         GhostController controller = new GhostController(arena);
 
@@ -136,7 +136,7 @@ public class GhostControllerMutationTests {
     }
 
     @Test
-    void frameCount_increments_after_step_and_reflects_in_isChaseMode() throws Exception {
+    public void frameCount_increments_after_step_and_reflects_in_isChaseMode() throws Exception {
         Arena arena = new Arena(5,5);
         GhostController controller = new GhostController(arena);
 

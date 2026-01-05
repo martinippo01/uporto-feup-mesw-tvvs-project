@@ -25,7 +25,7 @@ public class BlackBoxTests {
     class LanternaGUIResizeTests {
 
         @Test
-        void resize_withTypicalPositiveSize_changesResolutionAndClosesOldScreen() throws IOException, URISyntaxException, FontFormatException {
+        public void resize_withTypicalPositiveSize_changesResolutionAndClosesOldScreen() throws IOException, URISyntaxException, FontFormatException {
             Screen mockScreen = mock(Screen.class);
             LanternaGUI gui = new LanternaGUI(mockScreen, pt.feup.tvvs.pacman.gui.GUI.SCREEN_RESOLUTION._720p);
 
@@ -40,7 +40,7 @@ public class BlackBoxTests {
         }
 
         @Test
-        void resize_onPoint_smallestPositive_updatesResolution() throws IOException, URISyntaxException, FontFormatException {
+        public void resize_onPoint_smallestPositive_updatesResolution() throws IOException, URISyntaxException, FontFormatException {
             Screen mockScreen = mock(Screen.class);
             LanternaGUI gui = new LanternaGUI(mockScreen, pt.feup.tvvs.pacman.gui.GUI.SCREEN_RESOLUTION._360p);
 
@@ -52,7 +52,7 @@ public class BlackBoxTests {
         }
 
         @Test
-        void resize_offPoint_zero_behaviourIsPlatformDependent_butIsHandled() {
+        public void resize_offPoint_zero_behaviourIsPlatformDependent_butIsHandled() {
             Screen mockScreen = mock(Screen.class);
             LanternaGUI gui = new LanternaGUI(mockScreen, pt.feup.tvvs.pacman.gui.GUI.SCREEN_RESOLUTION._360p);
 
@@ -67,7 +67,7 @@ public class BlackBoxTests {
         }
 
         @Test
-        void resize_withNegativeSizes_throwsException() {
+        public void resize_withNegativeSizes_throwsException() {
             Screen mockScreen = mock(Screen.class);
             LanternaGUI gui = new LanternaGUI(mockScreen, pt.feup.tvvs.pacman.gui.GUI.SCREEN_RESOLUTION._900p);
 
@@ -77,7 +77,7 @@ public class BlackBoxTests {
         }
 
         @Test
-        void resize_withVeryLargeSize_succeedsAndSetsResolution() throws IOException, URISyntaxException, FontFormatException {
+        public void resize_withVeryLargeSize_succeedsAndSetsResolution() throws IOException, URISyntaxException, FontFormatException {
             Screen mockScreen = mock(Screen.class);
             LanternaGUI gui = new LanternaGUI(mockScreen, pt.feup.tvvs.pacman.gui.GUI.SCREEN_RESOLUTION._720p);
 

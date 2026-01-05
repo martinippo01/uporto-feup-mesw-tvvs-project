@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 public class PacmanControllerMutationTests {
 
     @Test
-    void desiredMovement_blocked_when_other_collides_and_allowed_when_not() throws Exception {
+    public void desiredMovement_blocked_when_other_collides_and_allowed_when_not() throws Exception {
         Arena arena = new Arena(10,10);
         PacmanController controller = new PacmanController(arena);
 
@@ -54,7 +54,7 @@ public class PacmanControllerMutationTests {
     }
 
     @Test
-    void fallbackMovement_blocked_or_allowed_based_on_collisions_on_nextPosition() throws Exception {
+    public void fallbackMovement_blocked_or_allowed_based_on_collisions_on_nextPosition() throws Exception {
         Arena arena = new Arena(10,10);
         PacmanController controller = new PacmanController(arena);
 

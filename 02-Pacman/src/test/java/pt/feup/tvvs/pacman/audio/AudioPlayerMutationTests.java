@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
 public class AudioPlayerMutationTests {
 
     @Test
-    void constructor_opens_clip_and_closes_streams() throws Exception {
+    public void constructor_opens_clip_and_closes_streams() throws Exception {
         // prepare mocks for AudioSystem
         Clip mockClip = mock(Clip.class);
         AudioInputStream mockAudioStream = mock(AudioInputStream.class);
@@ -90,7 +90,7 @@ public class AudioPlayerMutationTests {
     }
 
     @Test
-    void setVolume_accepts_zero_and_one_and_calls_floatcontrol() throws Exception {
+    public void setVolume_accepts_zero_and_one_and_calls_floatcontrol() throws Exception {
         Clip mockClip = mock(Clip.class);
         AudioInputStream mockStream = mock(AudioInputStream.class);
         FloatControl mockControl = mock(FloatControl.class);

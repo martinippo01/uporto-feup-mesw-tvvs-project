@@ -36,7 +36,7 @@ public class CollisionControllerMutationTests {
     }
 
     @Test
-    void alive_collision_singlePlayer_invokes_pacman_setters_and_triggers_dying_state() throws Exception {
+    public void alive_collision_singlePlayer_invokes_pacman_setters_and_triggers_dying_state() throws Exception {
         Arena arena = new Arena(10, 10);
 
         Pacman mockPac = mock(Pacman.class);
@@ -77,7 +77,7 @@ public class CollisionControllerMutationTests {
     }
 
     @Test
-    void scared_collision_invokes_ghost_setters_and_increments_score() throws Exception {
+    public void scared_collision_invokes_ghost_setters_and_increments_score() throws Exception {
         Arena arena = new Arena(10,10);
 
         Pacman pac = new Pacman(new Position(1,1)); arena.addPacman(pac);
@@ -111,7 +111,7 @@ public class CollisionControllerMutationTests {
     }
 
     @Test
-    void powerup_collision_removes_collectible_and_sets_ghosts_scared_and_inverts_direction() throws Exception {
+    public void powerup_collision_removes_collectible_and_sets_ghosts_scared_and_inverts_direction() throws Exception {
         Arena arena = new Arena(10,10);
 
         Pacman pac = new Pacman(new Position(4,4)); arena.addPacman(pac);
@@ -153,7 +153,7 @@ public class CollisionControllerMutationTests {
     }
 
     @Test
-    void scared_time_expires_resets_ghosts_and_pacman_speed() throws Exception {
+    public void scared_time_expires_resets_ghosts_and_pacman_speed() throws Exception {
         Arena arena = new Arena(10,10);
 
         Pacman mockPac = mock(Pacman.class);

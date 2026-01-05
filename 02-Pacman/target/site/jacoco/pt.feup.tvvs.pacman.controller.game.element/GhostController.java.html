@@ -54,7 +54,7 @@ public class GhostController extends GameController {
 <span class="fc" id="L54">        Position targetPosition = movementBehaviours.get(ghost.getClass()).getTargetPosition(ghost, getModel(), getModel().getPacmans().get(targetPacman), isChaseMode());</span>
 <span class="fc" id="L55">        Direction nextDirection = getDirectionTowards(ghost, targetPosition);</span>
 <span class="fc" id="L56">        ghost.setDirection(nextDirection);</span>
-<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (ghost.getPosition().equals(getModel().getGhostGate().getPosition())) {</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (ghost.getPosition().equals(getModel().getGhostGate().getPosition())) {</span>
 <span class="pc bpc" id="L58" title="1 of 2 branches missed.">            if (ghost.isDead()) { //dead ghost arrives at the ghost gate</span>
 <span class="fc" id="L59">                ghost.setState(GhostState.ALIVE);</span>
 <span class="fc" id="L60">                ghost.setInsideGate();</span>

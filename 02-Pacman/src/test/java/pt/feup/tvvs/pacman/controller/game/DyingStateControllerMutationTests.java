@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
 public class DyingStateControllerMutationTests {
 
     @Test
-    void pacman_setters_are_called_on_step() throws Exception {
+    public void pacman_setters_are_called_on_step() throws Exception {
         Arena arena = new Arena(5, 5);
 
         // create a mock pacman to verify interactions without triggering Element.setPosition
@@ -60,7 +60,7 @@ public class DyingStateControllerMutationTests {
     }
 
     @Test
-    void ghost_setters_are_called_on_step() throws Exception {
+    public void ghost_setters_are_called_on_step() throws Exception {
         Arena arena = new Arena(5, 5);
 
         // create a mock ghost to verify interactions without invoking Element.setPosition

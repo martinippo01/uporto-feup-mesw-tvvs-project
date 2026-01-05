@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.070 s -- in pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s -- in pt.feup.tvvs.pacman.viewer.game.ArenaViewerWhiteBoxTests

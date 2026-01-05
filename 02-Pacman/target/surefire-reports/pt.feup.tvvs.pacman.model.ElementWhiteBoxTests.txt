@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.pacman.model.ElementWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in pt.feup.tvvs.pacman.model.ElementWhiteBoxTests
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in pt.feup.tvvs.pacman.model.ElementWhiteBoxTests
